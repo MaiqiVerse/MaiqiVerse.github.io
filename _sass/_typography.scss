@@ -39,13 +39,14 @@ code, pre {
 }
 
 // 头像圆角 + 阴影
-.profile .profile-img {
-  border-radius: 12px;              // 圆角，改为 50% 则是圆形
+// _typography.scss 中
+.profile img {
+  border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.03);         // hover 微放大
+    transform: scale(1.03);
   }
 }
 
