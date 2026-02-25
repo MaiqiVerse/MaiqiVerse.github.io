@@ -13,6 +13,35 @@ profile:
     <p>123 your address street</p>
     <p>Your City, State 12345</p>
 
+
+typing_tagline:
+  - "Building intelligent systems that understand the world"
+  - "Exploring the frontier of multimodal AI"
+  - "Making AI more efficient, reliable, and aligned"
+  - "Research: LLM · RL · Vision-Language Models"
+
+# 研究兴趣标签
+research_interests:
+  - "Large Language Models"
+  - "Reinforcement Learning"
+  - "Computer Vision"
+  - "Neural Architecture"
+  - "Generative AI"
+  - "Multi-Agent Systems"
+
+# 数字统计（会有滚动计数动画）
+stats:
+  - count: 15
+    suffix: "+"
+    label: "Publications"
+  - count: 1200
+    suffix: "+"
+    label: "Citations"
+  - count: 3
+    label: "Top Venues"
+  - count: 5
+    label: "Awards"
+
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 

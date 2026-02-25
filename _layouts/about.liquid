@@ -1,80 +1,117 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
 
+<!-- AI Homepage Layout for al-folio -->
+<!-- Replace _layouts/about.liquid with this file -->
+
+<div class="post">
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
+    <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      {% if page.profile.image %}
+      <div class="profile-img-wrapper">
+        {% if page.profile.image_circular %}
+          {% assign profile_image_class = "img-fluid z-depth-1 rounded-circle" %}
+        {% else %}
+          {% assign profile_image_class = "img-fluid z-depth-1" %}
         {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+        {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
+        {%
+          include figure.liquid loading="eager" path=page.profile.image
+          class=profile_image_class sizes=sizes
+          alt=page.profile.image_alt
+          cache_bust=true
+        %}
+      </div>
+      {% endif %}
+
+      {% if page.profile.more_info %}
+        <div class="more-info">{{ page.profile.more_info }}</div>
+      {% endif %}
+
+      <!-- Social Icons -->
+      {% if page.social %}
+        <div class="social">
+          <div class="contact-icons">{{ page.social }}</div>
+        </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="clearfix">
+      <!-- ============ HERO AREA ============ -->
+
+      <!-- Typing tagline (optional: set in _pages/about.md front matter) -->
+      {% if page.typing_tagline %}
+      <div class="typing-tagline">
+        <span class="typing-prefix">&gt;</span>
+        <span data-typing="{{ page.typing_tagline | join: '|' }}"></span>
+      </div>
+      {% endif %}
+
+      <!-- Main bio content from about.md -->
+      {{ content }}
+
+      <!-- Research Interest Tags -->
+      {% if page.research_interests %}
+      <div class="research-tags">
+        {% for interest in page.research_interests %}
+          <span class="research-tag">{{ interest }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- ============ STATS SECTION ============ -->
+      {% if page.stats %}
+      <div class="stats-grid">
+        {% for stat in page.stats %}
+        <div>
+          <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- ============ NEWS SECTION ============ -->
+    {% if page.news and site.announcements.enabled %}
+      <div class="homepage-section">
+        <h2>// Latest News</h2>
+        {% include news.liquid limit=true %}
       </div>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
-
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
+    <!-- ============ SELECTED PUBLICATIONS ============ -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
+      <div class="homepage-section">
+        <h2>// Selected Publications</h2>
+        {% include selected_papers.liquid %}
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All Publications</a>
+        </div>
       </div>
     {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
+    <!-- ============ LATEST POSTS ============ -->
+    {% if page.latest_posts %}
+      <div class="homepage-section">
+        <h2>// Recent Posts</h2>
+        {% include latest_posts.liquid %}
+      </div>
     {% endif %}
+
+    <!-- ============ SELECTED PROJECTS ============ -->
+    {% if site.enable_project_categories and page.selected_projects %}
+      <div class="homepage-section">
+        <h2>// Featured Projects</h2>
+        {% include projects.liquid limit=4 %}
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="{{ '/projects/' | relative_url }}" class="view-all-link">→ View All Projects</a>
+        </div>
+      </div>
+    {% endif %}
+
   </article>
 </div>
