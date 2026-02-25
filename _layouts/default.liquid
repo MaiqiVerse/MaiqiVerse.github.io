@@ -15,6 +15,9 @@
     {% include head.liquid %}
   </head>
 
+  <script src="{{ '/assets/js/custom-effects.js' | relative_url }}" defer></script>
+
+
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <!-- Header -->

@@ -1,52 +1,627 @@
-// ========== 全局过渡动效 ==========
-a {
-  transition: color 0.25s ease;
+// ==========================================================================
+// AL-FOLIO CREATIVE OVERHAUL — Artistic + CS/AI Aesthetic
+// ==========================================================================
+// Drop this file into _sass/_custom.scss (replacing the existing one)
+// Make sure @use "custom"; is in assets/css/main.scss
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 0. CSS Custom Properties for easy tweaking
+// --------------------------------------------------------------------------
+:root {
+  --gradient-1: #6366f1;   // Indigo
+  --gradient-2: #8b5cf6;   // Violet
+  --gradient-3: #a78bfa;   // Light violet
+  --gradient-4: #38bdf8;   // Sky blue
+  --gradient-5: #818cf8;   // Soft indigo
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glow-color: rgba(99, 102, 241, 0.4);
+  --noise-opacity: 0.03;
 }
 
-// ========== 卡片悬浮效果 ==========
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
+html[data-theme="dark"] {
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glow-color: rgba(136, 192, 208, 0.3);
+  --noise-opacity: 0.04;
+}
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+// --------------------------------------------------------------------------
+// 1. ANIMATED GRADIENT BACKGROUND — Subtle shifting mesh
+// --------------------------------------------------------------------------
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+// Animated gradient orbs behind content
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 50%, var(--gradient-1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--gradient-4) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, var(--gradient-2) 0%, transparent 50%);
+  opacity: 0.06;
+  animation: gradientShift 20s ease-in-out infinite alternate;
+  z-index: -2;
+  pointer-events: none;
+}
+
+// Noise texture overlay for depth
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% {
+    transform: translate(0%, 0%) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(5%, -3%) rotate(5deg) scale(1.05);
+  }
+  66% {
+    transform: translate(-3%, 5%) rotate(-3deg) scale(0.98);
+  }
+  100% {
+    transform: translate(2%, -2%) rotate(2deg) scale(1.02);
   }
 }
 
-// ========== 导航栏毛玻璃效果 ==========
-header.fixed-top {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.85) !important;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+// --------------------------------------------------------------------------
+// 2. ANIMATED GRADIENT TEXT — For your name / hero heading
+// --------------------------------------------------------------------------
+// Usage: Add class "gradient-text" to any heading, or it auto-applies to
+// the profile name on the about page
+
+.profile {
+  h1,
+  .name {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-1) 0%,
+      var(--gradient-2) 25%,
+      var(--gradient-4) 50%,
+      var(--gradient-3) 75%,
+      var(--gradient-1) 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 6s ease-in-out infinite;
+  }
 }
 
-html[data-theme="dark"] header.fixed-top {
-  background-color: rgba(46, 52, 64, 0.85) !important;
+@keyframes textShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-// ========== 图片统一圆角 ==========
-.post img,
-.publications img,
-.projects img {
-  border-radius: 8px;
+// --------------------------------------------------------------------------
+// 3. GLASSMORPHISM CARDS — Frosted glass effect
+// --------------------------------------------------------------------------
+.card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+
+  // Subtle inner glow on top edge
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 0 30px var(--glow-color);
+    border-color: var(--gradient-3) !important;
+  }
+
+  .card-title {
+    font-weight: 700;
+  }
 }
 
-// ========== 滚动条美化（Chrome/Edge） ==========
+// --------------------------------------------------------------------------
+// 4. NAVBAR — Glassmorphism with gradient accent
+// --------------------------------------------------------------------------
+header.fixed-top,
+.navbar {
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  opacity: 1 !important; // Override the default 0.95
+
+  // Gradient accent line at top
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4), var(--gradient-2));
+    opacity: 0.6;
+  }
+}
+
+html[data-theme="dark"] {
+  header.fixed-top,
+  .navbar {
+    background-color: rgba(46, 52, 64, 0.7) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+  }
+}
+
+// --------------------------------------------------------------------------
+// 5. LINK ANIMATIONS — Animated underline effect
+// --------------------------------------------------------------------------
+a {
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+// Animated underline for content links (not nav/buttons)
+.post-content a,
+.post-description a,
+.profile a:not(.social-icons a),
+article a {
+  position: relative;
+  text-decoration: none !important;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4));
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// --------------------------------------------------------------------------
+// 6. SCROLL REVEAL ANIMATIONS
+// --------------------------------------------------------------------------
+// Elements with these classes will animate in when scrolled into view.
+// The JS file (custom-effects.js) adds "is-visible" when element enters viewport.
+
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-up {
+  @extend .reveal;
+  transform: translateY(40px);
+}
+
+.reveal-left {
+  @extend .reveal;
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  @extend .reveal;
+  transform: translateX(40px);
+}
+
+.reveal-scale {
+  @extend .reveal;
+  transform: scale(0.9);
+}
+
+// When visible
+.reveal.is-visible,
+.reveal-up.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+// Staggered delays for lists
+@for $i from 1 through 12 {
+  .reveal-delay-#{$i} {
+    transition-delay: #{$i * 0.1}s;
+  }
+}
+
+// Auto-apply reveal to common al-folio elements
+// News items
+.news {
+  li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Publication entries
+.publications {
+  ol.bibliography > li {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Project cards
+.projects {
+  .grid-item,
+  .col {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+// Blog post list items
+.post-list li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// --------------------------------------------------------------------------
+// 7. 3D CARD TILT — Applied via JS (data-tilt attribute)
+// --------------------------------------------------------------------------
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+[data-tilt] .card-body,
+[data-tilt] .card-title,
+[data-tilt] .card-img {
+  transform: translateZ(30px);
+  transition: transform 0.3s ease;
+}
+
+// --------------------------------------------------------------------------
+// 8. PROFILE / HERO SECTION ENHANCEMENTS
+// --------------------------------------------------------------------------
+.profile {
+  img {
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.5s ease;
+    border: 2px solid var(--glass-border);
+
+    &:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.15),
+        0 0 40px var(--glow-color);
+    }
+  }
+
+  // More info section subtle styling
+  .more-info {
+    p {
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 9. PUBLICATIONS ENHANCEMENTS
+// --------------------------------------------------------------------------
+.publications {
+  h2.bibliography {
+    position: relative;
+    overflow: hidden;
+
+    // Gradient line instead of plain border
+    border-top: none;
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg,
+        transparent,
+        var(--gradient-1),
+        var(--gradient-4),
+        transparent
+      );
+    }
+  }
+
+  ol.bibliography > li {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+
+    &:hover {
+      background: var(--glass-bg);
+      border-color: var(--glass-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    // Button styling upgrade
+    .links a.btn {
+      border-radius: 20px;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        background: var(--global-theme-color);
+        color: white !important;
+        border-color: var(--global-theme-color);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px var(--glow-color);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 10. FOOTER ENHANCEMENT
+// --------------------------------------------------------------------------
+footer.fixed-bottom {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-top: 1px solid var(--glass-border);
+
+  // Gradient accent line at top
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4), var(--gradient-2));
+    opacity: 0.4;
+  }
+}
+
+html[data-theme="dark"] footer.fixed-bottom {
+  background-color: rgba(46, 52, 64, 0.7) !important;
+}
+
+footer.sticky-bottom {
+  border-top: none;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gradient-1), var(--gradient-4), transparent);
+  }
+}
+
+// --------------------------------------------------------------------------
+// 11. SCROLLBAR — Gradient themed
+// --------------------------------------------------------------------------
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--global-bg-color);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--global-theme-color);
+  background: linear-gradient(180deg, var(--gradient-1), var(--gradient-4));
   border-radius: 4px;
+
+  &:hover {
+    background: linear-gradient(180deg, var(--gradient-2), var(--gradient-1));
+  }
 }
 
-// ========== 文字选中颜色 ==========
+// --------------------------------------------------------------------------
+// 12. SELECTION COLOR
+// --------------------------------------------------------------------------
 ::selection {
-  background-color: var(--global-theme-color);
-  color: #fff;
+  background: var(--gradient-1);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--gradient-1);
+  color: white;
+}
+
+// --------------------------------------------------------------------------
+// 13. SOCIAL ICONS — Hover glow
+// --------------------------------------------------------------------------
+.social .contact-icons a,
+.navbar-brand.social a {
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.15);
+
+    i::before {
+      text-shadow: 0 0 20px var(--glow-color);
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 14. NEWS SECTION — Timeline style enhancement
+// --------------------------------------------------------------------------
+.news {
+  .col-sm-2 {
+    position: relative;
+
+    // Vertical timeline line
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gradient-1), var(--gradient-4), transparent);
+      opacity: 0.3;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 15. RESPONSIVE ADJUSTMENTS
+// --------------------------------------------------------------------------
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.04; // Reduce gradient intensity on mobile
+  }
+
+  .card:hover {
+    transform: translateY(-4px) scale(1.01); // Subtler on mobile
+  }
+
+  .profile img:hover {
+    transform: scale(1.02);
+  }
+}
+
+// --------------------------------------------------------------------------
+// 16. REDUCED MOTION — Respect user preferences
+// --------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
+  .profile h1,
+  .profile .name {
+    animation: none;
+    background-position: 0% 50%;
+  }
+
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .news li,
+  .publications ol.bibliography > li,
+  .projects .grid-item,
+  .projects .col,
+  .post-list li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// 17. CURSOR GLOW — Subtle light that follows the mouse (via JS)
+// --------------------------------------------------------------------------
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--glow-color) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+html[data-theme="dark"] .cursor-glow {
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+// Only show on non-touch devices
+@media (hover: hover) and (pointer: fine) {
+  .cursor-glow {
+    opacity: 0.15;
+  }
+
+  html[data-theme="dark"] .cursor-glow {
+    opacity: 0.35;
+  }
 }
