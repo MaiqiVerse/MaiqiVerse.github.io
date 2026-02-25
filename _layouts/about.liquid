@@ -16,9 +16,10 @@ layout: default
         {% else %}
           {% assign profile_image_class = "img-fluid z-depth-1" %}
         {% endif %}
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
         {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
         {%
-          include figure.liquid loading="eager" path=page.profile.image
+          include figure.liquid loading="eager" path=profile_image_path
           class=profile_image_class sizes=sizes
           alt=page.profile.image_alt
           cache_bust=true
