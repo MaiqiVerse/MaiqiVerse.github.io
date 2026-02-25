@@ -278,6 +278,18 @@ display_categories: ["external-services"] # these categories will be displayed o
 # Jekyll Scholar
 # -----------------------------------------------------------------------------
 
+latest_posts:
+  enabled: true
+  scrollable: true
+  limit: 3
+
+news:
+  enabled: true
+  scrollable: true
+  limit: 5
+
+selected_papers: true
+
 scholar:
   last_name: [Einstein]
   first_name: [Albert, A.]

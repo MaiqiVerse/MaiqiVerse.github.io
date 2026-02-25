@@ -1,0 +1,52 @@
+// ========== 全局过渡动效 ==========
+a {
+  transition: color 0.25s ease;
+}
+
+// ========== 卡片悬浮效果 ==========
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// ========== 导航栏毛玻璃效果 ==========
+header.fixed-top {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="dark"] header.fixed-top {
+  background-color: rgba(46, 52, 64, 0.85) !important;
+}
+
+// ========== 图片统一圆角 ==========
+.post img,
+.publications img,
+.projects img {
+  border-radius: 8px;
+}
+
+// ========== 滚动条美化（Chrome/Edge） ==========
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--global-bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--global-theme-color);
+  border-radius: 4px;
+}
+
+// ========== 文字选中颜色 ==========
+::selection {
+  background-color: var(--global-theme-color);
+  color: #fff;
+}
