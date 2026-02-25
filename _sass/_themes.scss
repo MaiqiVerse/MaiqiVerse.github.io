@@ -4,17 +4,29 @@
 @use "variables" as v;
 @use "sass:color";
 
+
+$nord0:  #2e3440;  // 深色背景
+$nord1:  #3b4252;
+$nord3:  #4c566a;
+$nord4:  #d8dee9;  // 浅色文字
+$nord5:  #e5e9f0;
+$nord6:  #eceff4;  // 浅色背景
+$nord8:  #88c0d0;  // 主色调（冰蓝）
+$nord9:  #81a1c1;  // 链接色
+$nord11: #bf616a;  // 强调色（红）
+$nord14: #a3be8c;  // 强调色（绿）
+
 :root {
   color-scheme: light;
-  --global-bg-color: #{v.$white-color};
-  --global-code-bg-color: #{v.$code-bg-color-light};
-  --global-text-color: #{v.$black-color};
+  --global-bg-color: #{$nord6};
+  --global-code-bg-color: #{$nord5};
+  --global-text-color: #{$nord0};
   --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$purple-color};
-  --global-hover-color: #{v.$purple-color};
+  --global-theme-color: #{$nord9};
+  --global-hover-color: #{$nord8};
   --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-dark};
-  --global-footer-text-color: #{v.$grey-color-light};
+  --global-footer-bg-color: #{$nord5};
+  --global-footer-text-color: #{$nord3};
   --global-footer-link-color: #{v.$white-color};
   --global-distill-app-color: #{v.$grey-color};
   --global-divider-color: rgba(0, 0, 0, 0.1);
@@ -76,19 +88,19 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --global-bg-color: #{v.$grey-color-dark};
-  --global-code-bg-color: #{v.$code-bg-color-dark};
-  --global-text-color: #{v.$grey-color-light};
+  --global-bg-color: #{$nord0};
+  --global-code-bg-color: #{$nord1};
+  --global-text-color: #{$nord4};
   --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$cyan-color};
-  --global-hover-color: #{v.$cyan-color};
+  --global-theme-color: #{$nord8};
+  --global-hover-color: #{$nord9};
   --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-light};
-  --global-footer-text-color: #{v.$grey-color-dark};
+  --global-footer-bg-color: #{$nord1};
+  --global-footer-text-color: #{$nord4};
   --global-footer-link-color: #{v.$black-color};
   --global-distill-app-color: #{v.$grey-color-light};
   --global-divider-color: #424246;
-  --global-card-bg-color: #{v.$grey-900};
+  --global-card-bg-color: #{$nord1};
   --global-back-to-top-bg-color: rgba(
     #{color.channel(v.$white-color, "red", v.$space: rgb)},
     #{color.channel(v.$white-color, "green", v.$space: rgb)},
