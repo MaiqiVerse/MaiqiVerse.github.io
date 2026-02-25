@@ -1,41 +1,39 @@
 // ==========================================================================
-// AL-FOLIO CREATIVE OVERHAUL — Artistic + CS/AI Aesthetic
+// AL-FOLIO CREATIVE OVERHAUL — Sunset Coral / Light-first
 // ==========================================================================
-// Drop this file into _sass/_custom.scss (replacing the existing one)
-// Make sure @use "custom"; is in assets/css/main.scss
+// Replace _sass/_custom.scss with this file
 // ==========================================================================
 
 // --------------------------------------------------------------------------
-// 0. CSS Custom Properties for easy tweaking
+// 0. CSS Custom Properties — Sunset Coral Palette
 // --------------------------------------------------------------------------
 :root {
-  --gradient-1: #6366f1;   // Indigo
-  --gradient-2: #8b5cf6;   // Violet
-  --gradient-3: #a78bfa;   // Light violet
-  --gradient-4: #38bdf8;   // Sky blue
-  --gradient-5: #818cf8;   // Soft indigo
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glow-color: rgba(99, 102, 241, 0.4);
-  --noise-opacity: 0.03;
+  --gradient-1: #ff7043;   // Sunset orange
+  --gradient-2: #f06292;   // Warm pink
+  --gradient-3: #ffb74d;   // Golden amber
+  --gradient-4: #ff8a65;   // Peach
+  --gradient-5: #ff6b6b;   // Coral red
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 112, 67, 0.12);
+  --glow-color: rgba(255, 112, 67, 0.25);
+  --noise-opacity: 0.02;
 }
 
 html[data-theme="dark"] {
   --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glow-color: rgba(136, 192, 208, 0.3);
+  --glass-border: rgba(255, 138, 101, 0.1);
+  --glow-color: rgba(255, 138, 101, 0.25);
   --noise-opacity: 0.04;
 }
 
 // --------------------------------------------------------------------------
-// 1. ANIMATED GRADIENT BACKGROUND — Subtle shifting mesh
+// 1. ANIMATED GRADIENT BACKGROUND — Warm sunset glow
 // --------------------------------------------------------------------------
 body {
   position: relative;
   overflow-x: hidden;
 }
 
-// Animated gradient orbs behind content
 body::before {
   content: "";
   position: fixed;
@@ -44,16 +42,21 @@ body::before {
   width: 200%;
   height: 200%;
   background:
-    radial-gradient(circle at 20% 50%, var(--gradient-1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, var(--gradient-4) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, var(--gradient-2) 0%, transparent 50%);
-  opacity: 0.06;
-  animation: gradientShift 20s ease-in-out infinite alternate;
+    radial-gradient(circle at 15% 40%, #ff7043 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, #ffb74d 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, #f06292 0%, transparent 45%),
+    radial-gradient(circle at 75% 65%, #ff8a65 0%, transparent 40%);
+  opacity: 0.07;
+  animation: gradientShift 25s ease-in-out infinite alternate;
   z-index: -2;
   pointer-events: none;
 }
 
-// Noise texture overlay for depth
+html[data-theme="dark"] body::before {
+  opacity: 0.05;
+}
+
+// Noise texture overlay
 body::after {
   content: "";
   position: fixed;
@@ -80,21 +83,18 @@ body::after {
 }
 
 // --------------------------------------------------------------------------
-// 2. ANIMATED GRADIENT TEXT — For your name / hero heading
+// 2. ANIMATED GRADIENT TEXT — Warm shimmer on name
 // --------------------------------------------------------------------------
-// Usage: Add class "gradient-text" to any heading, or it auto-applies to
-// the profile name on the about page
-
 .profile {
   h1,
   .name {
     background: linear-gradient(
       135deg,
-      var(--gradient-1) 0%,
-      var(--gradient-2) 25%,
-      var(--gradient-4) 50%,
-      var(--gradient-3) 75%,
-      var(--gradient-1) 100%
+      #ff7043 0%,
+      #f06292 25%,
+      #ffb74d 50%,
+      #ff8a65 75%,
+      #ff7043 100%
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -110,7 +110,7 @@ body::after {
 }
 
 // --------------------------------------------------------------------------
-// 3. GLASSMORPHISM CARDS — Frosted glass effect
+// 3. GLASSMORPHISM CARDS — Warm frosted glass
 // --------------------------------------------------------------------------
 .card {
   background: var(--glass-bg) !important;
@@ -124,7 +124,6 @@ body::after {
   overflow: hidden;
   position: relative;
 
-  // Subtle inner glow on top edge
   &::before {
     content: "";
     position: absolute;
@@ -132,16 +131,16 @@ body::after {
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     pointer-events: none;
   }
 
   &:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 20px 40px rgba(255, 112, 67, 0.08),
       0 0 30px var(--glow-color);
-    border-color: var(--gradient-3) !important;
+    border-color: var(--gradient-4) !important;
   }
 
   .card-title {
@@ -150,18 +149,18 @@ body::after {
 }
 
 // --------------------------------------------------------------------------
-// 4. NAVBAR — Glassmorphism with gradient accent
+// 4. NAVBAR — Light glass with warm accent
 // --------------------------------------------------------------------------
 header.fixed-top,
 .navbar {
   backdrop-filter: blur(20px) saturate(200%);
   -webkit-backdrop-filter: blur(20px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  opacity: 1 !important; // Override the default 0.95
+  background-color: rgba(255, 248, 240, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 112, 67, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(255, 112, 67, 0.04);
+  opacity: 1 !important;
 
-  // Gradient accent line at top
+  // Sunset gradient accent line
   &::after {
     content: "";
     position: absolute;
@@ -169,28 +168,27 @@ header.fixed-top,
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4), var(--gradient-2));
-    opacity: 0.6;
+    background: linear-gradient(90deg, #ff7043, #ffb74d, #f06292, #ff8a65);
+    opacity: 0.5;
   }
 }
 
 html[data-theme="dark"] {
   header.fixed-top,
   .navbar {
-    background-color: rgba(46, 52, 64, 0.7) !important;
-    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+    background-color: rgba(26, 22, 37, 0.8) !important;
+    border-bottom-color: rgba(255, 138, 101, 0.08) !important;
   }
 }
 
 // --------------------------------------------------------------------------
-// 5. LINK ANIMATIONS — Animated underline effect
+// 5. LINK ANIMATIONS — Warm gradient underline
 // --------------------------------------------------------------------------
 a {
   transition: color 0.3s ease;
   text-decoration: none;
 }
 
-// Animated underline for content links (not nav/buttons)
 .post-content a,
 .post-description a,
 .profile a:not(.social-icons a),
@@ -205,7 +203,7 @@ article a {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4));
+    background: linear-gradient(90deg, #ff7043, #ffb74d);
     border-radius: 2px;
     transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
@@ -218,9 +216,6 @@ article a {
 // --------------------------------------------------------------------------
 // 6. SCROLL REVEAL ANIMATIONS
 // --------------------------------------------------------------------------
-// Elements with these classes will animate in when scrolled into view.
-// The JS file (custom-effects.js) adds "is-visible" when element enters viewport.
-
 .reveal {
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -246,7 +241,6 @@ article a {
   transform: scale(0.9);
 }
 
-// When visible
 .reveal.is-visible,
 .reveal-up.is-visible,
 .reveal-left.is-visible,
@@ -256,71 +250,44 @@ article a {
   transform: translateY(0) translateX(0) scale(1);
 }
 
-// Staggered delays for lists
 @for $i from 1 through 12 {
   .reveal-delay-#{$i} {
     transition-delay: #{$i * 0.1}s;
   }
 }
 
-// Auto-apply reveal to common al-folio elements
-// News items
-.news {
-  li {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-
-    &.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+// Auto-reveal for al-folio elements
+.news li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  &.is-visible { opacity: 1; transform: translateY(0); }
 }
 
-// Publication entries
-.publications {
-  ol.bibliography > li {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-
-    &.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.publications ol.bibliography > li {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  &.is-visible { opacity: 1; transform: translateY(0); }
 }
 
-// Project cards
-.projects {
-  .grid-item,
-  .col {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    &.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
+.projects .grid-item,
+.projects .col {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  &.is-visible { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-// Blog post list items
 .post-list li {
   opacity: 0;
   transform: translateX(-20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  &.is-visible { opacity: 1; transform: translateX(0); }
 }
 
 // --------------------------------------------------------------------------
-// 7. 3D CARD TILT — Applied via JS (data-tilt attribute)
+// 7. 3D CARD TILT
 // --------------------------------------------------------------------------
 [data-tilt] {
   transform-style: preserve-3d;
@@ -335,46 +302,38 @@ article a {
 }
 
 // --------------------------------------------------------------------------
-// 8. PROFILE / HERO SECTION ENHANCEMENTS
+// 8. PROFILE / HERO
 // --------------------------------------------------------------------------
 .profile {
   img {
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 32px rgba(255, 112, 67, 0.1);
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
                 box-shadow 0.5s ease;
-    border: 2px solid var(--glass-border);
+    border: 2px solid rgba(255, 112, 67, 0.1);
 
     &:hover {
       transform: scale(1.05) rotate(-1deg);
       box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.15),
+        0 16px 48px rgba(255, 112, 67, 0.12),
         0 0 40px var(--glow-color);
     }
   }
 
-  // More info section subtle styling
-  .more-info {
-    p {
-      opacity: 0.85;
-      transition: opacity 0.3s ease;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+  .more-info p {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    &:hover { opacity: 1; }
   }
 }
 
 // --------------------------------------------------------------------------
-// 9. PUBLICATIONS ENHANCEMENTS
+// 9. PUBLICATIONS
 // --------------------------------------------------------------------------
 .publications {
   h2.bibliography {
     position: relative;
     overflow: hidden;
-
-    // Gradient line instead of plain border
     border-top: none;
     padding-top: 1.5rem;
     margin-top: 2.5rem;
@@ -386,12 +345,7 @@ article a {
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg,
-        transparent,
-        var(--gradient-1),
-        var(--gradient-4),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, #ff7043, #ffb74d, transparent);
     }
   }
 
@@ -400,24 +354,19 @@ article a {
     margin-bottom: 1.5rem;
     border-radius: 12px;
     border: 1px solid transparent;
-    transition: background 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       background: var(--glass-bg);
       border-color: var(--glass-border);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(255, 112, 67, 0.06);
     }
 
-    // Button styling upgrade
     .links a.btn {
       border-radius: 20px;
       font-size: 0.75rem;
       padding: 0.2rem 0.8rem;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
 
       &:hover {
         background: var(--global-theme-color);
@@ -431,15 +380,14 @@ article a {
 }
 
 // --------------------------------------------------------------------------
-// 10. FOOTER ENHANCEMENT
+// 10. FOOTER
 // --------------------------------------------------------------------------
 footer.fixed-bottom {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background-color: rgba(255, 255, 255, 0.7) !important;
+  background-color: rgba(255, 248, 240, 0.8) !important;
   border-top: 1px solid var(--glass-border);
 
-  // Gradient accent line at top
   &::before {
     content: "";
     position: absolute;
@@ -447,13 +395,13 @@ footer.fixed-bottom {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-4), var(--gradient-2));
-    opacity: 0.4;
+    background: linear-gradient(90deg, #ff7043, #ffb74d, #f06292);
+    opacity: 0.3;
   }
 }
 
 html[data-theme="dark"] footer.fixed-bottom {
-  background-color: rgba(46, 52, 64, 0.7) !important;
+  background-color: rgba(26, 22, 37, 0.8) !important;
 }
 
 footer.sticky-bottom {
@@ -467,12 +415,12 @@ footer.sticky-bottom {
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gradient-1), var(--gradient-4), transparent);
+    background: linear-gradient(90deg, transparent, #ff7043, #ffb74d, transparent);
   }
 }
 
 // --------------------------------------------------------------------------
-// 11. SCROLLBAR — Gradient themed
+// 11. SCROLLBAR — Warm gradient
 // --------------------------------------------------------------------------
 ::-webkit-scrollbar {
   width: 8px;
@@ -483,29 +431,29 @@ footer.sticky-bottom {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--gradient-1), var(--gradient-4));
+  background: linear-gradient(180deg, #ff7043, #f06292);
   border-radius: 4px;
 
   &:hover {
-    background: linear-gradient(180deg, var(--gradient-2), var(--gradient-1));
+    background: linear-gradient(180deg, #ff8a65, #ff7043);
   }
 }
 
 // --------------------------------------------------------------------------
-// 12. SELECTION COLOR
+// 12. SELECTION COLOR — Warm coral
 // --------------------------------------------------------------------------
 ::selection {
-  background: var(--gradient-1);
+  background: #ff7043;
   color: white;
 }
 
 ::-moz-selection {
-  background: var(--gradient-1);
+  background: #ff7043;
   color: white;
 }
 
 // --------------------------------------------------------------------------
-// 13. SOCIAL ICONS — Hover glow
+// 13. SOCIAL ICONS — Warm hover glow
 // --------------------------------------------------------------------------
 .social .contact-icons a,
 .navbar-brand.social a {
@@ -522,13 +470,12 @@ footer.sticky-bottom {
 }
 
 // --------------------------------------------------------------------------
-// 14. NEWS SECTION — Timeline style enhancement
+// 14. NEWS TIMELINE
 // --------------------------------------------------------------------------
 .news {
   .col-sm-2 {
     position: relative;
 
-    // Vertical timeline line
     &::after {
       content: "";
       position: absolute;
@@ -536,22 +483,22 @@ footer.sticky-bottom {
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--gradient-1), var(--gradient-4), transparent);
-      opacity: 0.3;
+      background: linear-gradient(180deg, #ff7043, #ffb74d, transparent);
+      opacity: 0.25;
     }
   }
 }
 
 // --------------------------------------------------------------------------
-// 15. RESPONSIVE ADJUSTMENTS
+// 15. RESPONSIVE
 // --------------------------------------------------------------------------
 @media (max-width: 768px) {
   body::before {
-    opacity: 0.04; // Reduce gradient intensity on mobile
+    opacity: 0.04;
   }
 
   .card:hover {
-    transform: translateY(-4px) scale(1.01); // Subtler on mobile
+    transform: translateY(-4px) scale(1.01);
   }
 
   .profile img:hover {
@@ -560,7 +507,7 @@ footer.sticky-bottom {
 }
 
 // --------------------------------------------------------------------------
-// 16. REDUCED MOTION — Respect user preferences
+// 16. REDUCED MOTION
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
   body::before {
@@ -590,7 +537,7 @@ footer.sticky-bottom {
 }
 
 // --------------------------------------------------------------------------
-// 17. CURSOR GLOW — Subtle light that follows the mouse (via JS)
+// 17. CURSOR GLOW — Warm light
 // --------------------------------------------------------------------------
 .cursor-glow {
   position: fixed;
@@ -599,7 +546,7 @@ footer.sticky-bottom {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    var(--glow-color) 0%,
+    rgba(255, 112, 67, 0.3) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -607,21 +554,24 @@ footer.sticky-bottom {
   opacity: 0;
   transition: opacity 0.3s ease;
   transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
 }
 
 html[data-theme="dark"] .cursor-glow {
-  opacity: 0.5;
+  background: radial-gradient(
+    circle,
+    rgba(255, 138, 101, 0.3) 0%,
+    transparent 70%
+  );
   mix-blend-mode: screen;
 }
 
-// Only show on non-touch devices
 @media (hover: hover) and (pointer: fine) {
   .cursor-glow {
-    opacity: 0.15;
+    opacity: 0.12;
   }
 
   html[data-theme="dark"] .cursor-glow {
-    opacity: 0.35;
+    opacity: 0.3;
   }
 }
