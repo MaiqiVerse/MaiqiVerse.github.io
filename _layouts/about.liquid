@@ -2,10 +2,7 @@
 layout: default
 ---
 
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- AL-FOLIO — Hero + Bento Grid Homepage (Fixed v2)           -->
-<!-- Replace _layouts/about.liquid                              -->
-<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- AL-FOLIO — Hero + Bento Grid Homepage (FINAL FIX v3) -->
 
 <div class="post about">
   <article>
@@ -15,19 +12,21 @@ layout: default
     <!-- ══════════════════════════════════════════════════ -->
     <section class="hero-section">
       <div class="hero-overlay"></div>
+      <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
 
       <div class="hero-content">
 
         {% if page.profile and page.profile.image %}
         <div class="hero-avatar">
           <div class="hero-avatar-ring"></div>
-          <div class="hero-avatar-bg"></div>
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {%- if page.profile.image_circular -%}
-            <img src="{{ profile_image_path | relative_url }}" class="hero-avatar-img rounded-circle" alt="{{ page.profile.image_alt | default: 'profile photo' }}" />
-          {%- else -%}
-            <img src="{{ profile_image_path | relative_url }}" class="hero-avatar-img" alt="{{ page.profile.image_alt | default: 'profile photo' }}" />
-          {%- endif -%}
+          <div class="hero-avatar-inner">
+            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            <img
+              src="{{ profile_image_path | relative_url }}"
+              alt="{{ page.profile.image_alt | default: 'profile photo' }}"
+              {% if page.profile.image_circular %}class="rounded-circle"{% endif %}
+            />
+          </div>
         </div>
         {% endif %}
 
@@ -46,9 +45,7 @@ layout: default
         </div>
         {% endif %}
 
-        <div class="hero-bio">
-          {{ content }}
-        </div>
+        <div class="hero-bio">{{ content }}</div>
 
         {% if page.research_interests %}
         <div class="hero-tags">
@@ -58,25 +55,25 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Social: use _config.yml social settings -->
+        <!-- Social: read from _config.yml -->
         <div class="hero-social">
           {% if site.email %}
             <a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
           {% endif %}
           {% if site.github_username %}
-            <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
           {% endif %}
           {% if site.scholar_userid %}
-            <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+            <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
           {% endif %}
           {% if site.twitter_username %}
-            <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
           {% endif %}
           {% if site.linkedin_username %}
-            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
           {% endif %}
           {% if site.orcid_id %}
-            <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i></a>
+            <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
           {% endif %}
         </div>
 
@@ -90,6 +87,8 @@ layout: default
 
     <!-- ══════════════════════════════════════════════════ -->
     <!-- BENTO GRID                                        -->
+    <!-- Class names: bento-col-6 / 4 / 3 / 2             -->
+    <!-- Must match _custom.scss definitions               -->
     <!-- ══════════════════════════════════════════════════ -->
     <section class="bento-section">
 
@@ -101,8 +100,9 @@ layout: default
 
       <div class="bento-grid">
 
+        <!-- Stats: full width (span 6) -->
         {% if page.stats %}
-        <div class="bento-cell bento-col-full bento-stats">
+        <div class="bento-cell bento-col-6 bento-stats">
           {% for stat in page.stats %}
           <div class="bento-stat-item">
             <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
@@ -112,16 +112,22 @@ layout: default
         </div>
         {% endif %}
 
+        <!-- News: left half (span 3) -->
         {% if page.news and site.announcements.enabled %}
-        <div class="bento-cell bento-col-half bento-tall">
-          <div class="bento-section-label">// Latest News</div>
+        <div class="bento-cell bento-col-3 bento-row-2">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Latest News<span class="label-line-fade"></span>
+          </div>
           {% include news.liquid limit=true %}
         </div>
         {% endif %}
 
+        <!-- Publications: right half (span 3) -->
         {% if page.selected_papers %}
-        <div class="bento-cell bento-col-half bento-tall bento-cell-glow">
-          <div class="bento-section-label">// Selected Publications</div>
+        <div class="bento-cell bento-col-3 bento-row-2 bento-cell-glow">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Selected Publications<span class="label-line-fade"></span>
+          </div>
           {% include selected_papers.liquid %}
           <div style="text-align:center;margin-top:12px;">
             <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All</a>
@@ -129,10 +135,11 @@ layout: default
         </div>
         {% endif %}
 
+        <!-- Projects: 3 cards (each span 2) -->
         {% if site.enable_project_categories and page.selected_projects %}
           {% assign sel_projects = site.projects | where: "selected", true | sort: "importance" %}
           {% for project in sel_projects limit: 3 %}
-          <div class="bento-cell bento-col-third bento-project-card">
+          <div class="bento-cell bento-col-2 bento-project-card">
             {% if project.img %}
             <div class="bento-project-img">
               <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy" />
@@ -148,8 +155,9 @@ layout: default
           {% endfor %}
         {% endif %}
 
+        <!-- Timeline (span 4) -->
         {% if page.timeline %}
-        <div class="bento-cell bento-col-two-third bento-timeline">
+        <div class="bento-cell bento-col-4 bento-timeline">
           {% for milestone in page.timeline %}
           <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}">
             {% unless forloop.first %}<div class="timeline-connector"></div>{% endunless %}
@@ -161,16 +169,20 @@ layout: default
         </div>
         {% endif %}
 
+        <!-- Quote (span 2) -->
         {% if page.quote %}
-        <div class="bento-cell bento-col-third bento-quote">
+        <div class="bento-cell bento-col-2 bento-quote">
           <div class="bento-quote-text">"{{ page.quote.text }}"</div>
           <div class="bento-quote-author">— {{ page.quote.author }}</div>
         </div>
         {% endif %}
 
+        <!-- Latest Posts: full width (span 6) -->
         {% if page.latest_posts %}
-        <div class="bento-cell bento-col-full">
-          <div class="bento-section-label">// Recent Posts</div>
+        <div class="bento-cell bento-col-6">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Recent Posts<span class="label-line-fade"></span>
+          </div>
           {% include latest_posts.liquid %}
         </div>
         {% endif %}
