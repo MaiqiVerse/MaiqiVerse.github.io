@@ -3,68 +3,53 @@ layout: default
 ---
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!-- AL-FOLIO — Hero + Bento Grid Homepage                      -->
-<!-- Replace _layouts/about.liquid with this file               -->
+<!-- AL-FOLIO — Hero + Bento Grid Homepage (Fixed v2)           -->
+<!-- Replace _layouts/about.liquid                              -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 
 <div class="post about">
   <article>
 
     <!-- ══════════════════════════════════════════════════ -->
-    <!-- SECTION 1: FULL-SCREEN HERO                       -->
+    <!-- HERO SECTION                                      -->
     <!-- ══════════════════════════════════════════════════ -->
     <section class="hero-section">
       <div class="hero-overlay"></div>
-      <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
 
       <div class="hero-content">
 
-        {% if page.profile %}
+        {% if page.profile and page.profile.image %}
         <div class="hero-avatar">
           <div class="hero-avatar-ring"></div>
-          <div class="hero-avatar-inner">
-            {% if page.profile.image %}
-              {% if page.profile.image_circular %}
-                {% assign profile_image_class = "img-fluid z-depth-1 rounded-circle" %}
-              {% else %}
-                {% assign profile_image_class = "img-fluid z-depth-1" %}
-              {% endif %}
-              {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-              {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
-              {%
-                include figure.liquid loading="eager" path=profile_image_path
-                class=profile_image_class sizes=sizes
-                alt=page.profile.image_alt
-                cache_bust=true
-              %}
-            {% endif %}
-          </div>
+          <div class="hero-avatar-bg"></div>
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {%- if page.profile.image_circular -%}
+            <img src="{{ profile_image_path | relative_url }}" class="hero-avatar-img rounded-circle" alt="{{ page.profile.image_alt | default: 'profile photo' }}" />
+          {%- else -%}
+            <img src="{{ profile_image_path | relative_url }}" class="hero-avatar-img" alt="{{ page.profile.image_alt | default: 'profile photo' }}" />
+          {%- endif -%}
         </div>
         {% endif %}
 
-        <!-- Terminal prompt -->
         <div class="hero-prompt">$ whoami</div>
 
-        <!-- Name -->
         <h1 class="hero-name">{{ site.first_name }} {{ site.last_name }}</h1>
 
-        <!-- Subtitle -->
         {% if page.subtitle %}
         <div class="hero-subtitle">{{ page.subtitle }}</div>
         {% endif %}
 
-        <!-- Typing tagline -->
         {% if page.typing_tagline %}
         <div class="hero-typing">
           <span class="typing-prefix">&gt;</span>
-          <span data-typing="{{ page.typing_tagline | join: '|' }}"></span>
+          <span class="typing-text" data-typing="{{ page.typing_tagline | join: '|' }}"></span>
         </div>
         {% endif %}
 
-        <!-- Short bio -->
-        <div class="hero-bio">{{ content }}</div>
+        <div class="hero-bio">
+          {{ content }}
+        </div>
 
-        <!-- Research tags -->
         {% if page.research_interests %}
         <div class="hero-tags">
           {% for interest in page.research_interests %}
@@ -73,24 +58,38 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Social icons -->
-        {% if page.social %}
+        <!-- Social: use _config.yml social settings -->
         <div class="hero-social">
-          <div class="contact-icons">{{ page.social }}</div>
+          {% if site.email %}
+            <a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
+          {% endif %}
+          {% if site.github_username %}
+            <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+          {% endif %}
+          {% if site.scholar_userid %}
+            <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+          {% endif %}
+          {% if site.twitter_username %}
+            <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+          {% endif %}
+          {% if site.linkedin_username %}
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+          {% endif %}
+          {% if site.orcid_id %}
+            <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i></a>
+          {% endif %}
         </div>
-        {% endif %}
 
       </div>
 
-      <!-- Scroll indicator -->
       <div class="hero-scroll-hint">
-        <span>SCROLL</span>
+        <span class="hero-scroll-text">SCROLL</span>
         <div class="hero-scroll-line"></div>
       </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════ -->
-    <!-- SECTION 2: BENTO GRID                             -->
+    <!-- BENTO GRID                                        -->
     <!-- ══════════════════════════════════════════════════ -->
     <section class="bento-section">
 
@@ -102,9 +101,8 @@ layout: default
 
       <div class="bento-grid">
 
-        <!-- ── Stats Row: full width ── -->
         {% if page.stats %}
-        <div class="bento-cell bento-col-6 bento-stats">
+        <div class="bento-cell bento-col-full bento-stats">
           {% for stat in page.stats %}
           <div class="bento-stat-item">
             <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
@@ -114,34 +112,27 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- ── News: left half ── -->
         {% if page.news and site.announcements.enabled %}
-        <div class="bento-cell bento-col-3 bento-row-2">
-          <div class="bento-section-label">
-            <span class="label-line"></span>// Latest News<span class="label-line-fade"></span>
-          </div>
+        <div class="bento-cell bento-col-half bento-tall">
+          <div class="bento-section-label">// Latest News</div>
           {% include news.liquid limit=true %}
         </div>
         {% endif %}
 
-        <!-- ── Publications: right half ── -->
         {% if page.selected_papers %}
-        <div class="bento-cell bento-col-3 bento-row-2 bento-cell-glow">
-          <div class="bento-section-label">
-            <span class="label-line"></span>// Selected Publications<span class="label-line-fade"></span>
-          </div>
+        <div class="bento-cell bento-col-half bento-tall bento-cell-glow">
+          <div class="bento-section-label">// Selected Publications</div>
           {% include selected_papers.liquid %}
-          <div class="bento-view-all">
+          <div style="text-align:center;margin-top:12px;">
             <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All</a>
           </div>
         </div>
         {% endif %}
 
-        <!-- ── Projects: 3 cards ── -->
         {% if site.enable_project_categories and page.selected_projects %}
-          {% assign projects = site.projects | where: "selected", true | sort: "importance" %}
-          {% for project in projects limit: 3 %}
-          <div class="bento-cell bento-col-2 bento-project-card">
+          {% assign sel_projects = site.projects | where: "selected", true | sort: "importance" %}
+          {% for project in sel_projects limit: 3 %}
+          <div class="bento-cell bento-col-third bento-project-card">
             {% if project.img %}
             <div class="bento-project-img">
               <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy" />
@@ -157,9 +148,8 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        <!-- ── Timeline ── -->
         {% if page.timeline %}
-        <div class="bento-cell bento-col-4 bento-timeline">
+        <div class="bento-cell bento-col-two-third bento-timeline">
           {% for milestone in page.timeline %}
           <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}">
             {% unless forloop.first %}<div class="timeline-connector"></div>{% endunless %}
@@ -171,20 +161,16 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- ── Quote ── -->
         {% if page.quote %}
-        <div class="bento-cell bento-col-2 bento-quote">
+        <div class="bento-cell bento-col-third bento-quote">
           <div class="bento-quote-text">"{{ page.quote.text }}"</div>
           <div class="bento-quote-author">— {{ page.quote.author }}</div>
         </div>
         {% endif %}
 
-        <!-- ── Latest Posts ── -->
         {% if page.latest_posts %}
-        <div class="bento-cell bento-col-6">
-          <div class="bento-section-label">
-            <span class="label-line"></span>// Recent Posts<span class="label-line-fade"></span>
-          </div>
+        <div class="bento-cell bento-col-full">
+          <div class="bento-section-label">// Recent Posts</div>
           {% include latest_posts.liquid %}
         </div>
         {% endif %}

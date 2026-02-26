@@ -1,18 +1,18 @@
 // ==========================================================================
-// AL-FOLIO CREATIVE OVERHAUL — Sunset Coral / Light-first
+// AL-FOLIO COMPLETE CUSTOM STYLES — Sunset Coral + Hero/Bento Layout
 // ==========================================================================
-// Replace _sass/_custom.scss with this file
+// REPLACE your entire _sass/_custom.scss with this file
 // ==========================================================================
 
 // --------------------------------------------------------------------------
-// 0. CSS Custom Properties — Sunset Coral Palette
+// 0. CSS Custom Properties
 // --------------------------------------------------------------------------
 :root {
-  --gradient-1: #ff7043;   // Sunset orange
-  --gradient-2: #f06292;   // Warm pink
-  --gradient-3: #ffb74d;   // Golden amber
-  --gradient-4: #ff8a65;   // Peach
-  --gradient-5: #ff6b6b;   // Coral red
+  --gradient-1: #ff7043;
+  --gradient-2: #f06292;
+  --gradient-3: #ffb74d;
+  --gradient-4: #ff8a65;
+  --gradient-5: #ff6b6b;
   --glass-bg: rgba(255, 255, 255, 0.5);
   --glass-border: rgba(255, 112, 67, 0.12);
   --glow-color: rgba(255, 112, 67, 0.25);
@@ -27,7 +27,7 @@ html[data-theme="dark"] {
 }
 
 // --------------------------------------------------------------------------
-// 1. ANIMATED GRADIENT BACKGROUND — Warm sunset glow
+// 1. ANIMATED GRADIENT BACKGROUND
 // --------------------------------------------------------------------------
 body {
   position: relative;
@@ -37,10 +37,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
   background:
     radial-gradient(circle at 15% 40%, #ff7043 0%, transparent 45%),
     radial-gradient(circle at 85% 25%, #ffb74d 0%, transparent 45%),
@@ -52,11 +50,8 @@ body::before {
   pointer-events: none;
 }
 
-html[data-theme="dark"] body::before {
-  opacity: 0.05;
-}
+html[data-theme="dark"] body::before { opacity: 0.05; }
 
-// Noise texture overlay
 body::after {
   content: "";
   position: fixed;
@@ -68,49 +63,22 @@ body::after {
 }
 
 @keyframes gradientShift {
-  0% {
-    transform: translate(0%, 0%) rotate(0deg) scale(1);
-  }
-  33% {
-    transform: translate(5%, -3%) rotate(5deg) scale(1.05);
-  }
-  66% {
-    transform: translate(-3%, 5%) rotate(-3deg) scale(0.98);
-  }
-  100% {
-    transform: translate(2%, -2%) rotate(2deg) scale(1.02);
-  }
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  33%  { transform: translate(5%, -3%) rotate(5deg) scale(1.05); }
+  66%  { transform: translate(-3%, 5%) rotate(-3deg) scale(0.98); }
+  100% { transform: translate(2%, -2%) rotate(2deg) scale(1.02); }
 }
 
 // --------------------------------------------------------------------------
-// 2. ANIMATED GRADIENT TEXT — Warm shimmer on name
+// 2. GRADIENT TEXT
 // --------------------------------------------------------------------------
-.profile {
-  h1,
-  .name {
-    background: linear-gradient(
-      135deg,
-      #ff7043 0%,
-      #f06292 25%,
-      #ffb74d 50%,
-      #ff8a65 75%,
-      #ff7043 100%
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textShimmer 6s ease-in-out infinite;
-  }
-}
-
 @keyframes textShimmer {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
 // --------------------------------------------------------------------------
-// 3. GLASSMORPHISM CARDS — Warm frosted glass
+// 3. GLASSMORPHISM CARDS
 // --------------------------------------------------------------------------
 .card {
   background: var(--glass-bg) !important;
@@ -119,37 +87,29 @@ body::after {
   border: 1px solid var(--glass-border) !important;
   border-radius: 16px;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease,
-              border-color 0.3s ease;
+              box-shadow 0.4s ease, border-color 0.3s ease;
   overflow: hidden;
   position: relative;
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
+    top: 0; left: 10%; right: 10%; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     pointer-events: none;
   }
 
   &:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow:
-      0 20px 40px rgba(255, 112, 67, 0.08),
-      0 0 30px var(--glow-color);
+    box-shadow: 0 20px 40px rgba(255, 112, 67, 0.08), 0 0 30px var(--glow-color);
     border-color: var(--gradient-4) !important;
   }
 
-  .card-title {
-    font-weight: 700;
-  }
+  .card-title { font-weight: 700; }
 }
 
 // --------------------------------------------------------------------------
-// 4. NAVBAR — Light glass with warm accent
+// 4. NAVBAR
 // --------------------------------------------------------------------------
 header.fixed-top,
 .navbar {
@@ -160,14 +120,10 @@ header.fixed-top,
   box-shadow: 0 4px 30px rgba(255, 112, 67, 0.04);
   opacity: 1 !important;
 
-  // Sunset gradient accent line
   &::after {
     content: "";
     position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
+    bottom: -1px; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, #ff7043, #ffb74d, #f06292, #ff8a65);
     opacity: 0.5;
   }
@@ -182,16 +138,12 @@ html[data-theme="dark"] {
 }
 
 // --------------------------------------------------------------------------
-// 5. LINK ANIMATIONS — Warm gradient underline
+// 5. LINK ANIMATIONS
 // --------------------------------------------------------------------------
-a {
-  transition: color 0.3s ease;
-  text-decoration: none;
-}
+a { transition: color 0.3s ease; text-decoration: none; }
 
 .post-content a,
 .post-description a,
-.profile a:not(.social-icons a),
 article a {
   position: relative;
   text-decoration: none !important;
@@ -199,47 +151,24 @@ article a {
   &::after {
     content: "";
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
     background: linear-gradient(90deg, #ff7043, #ffb74d);
     border-radius: 2px;
     transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  &:hover::after {
-    width: 100%;
-  }
+  &:hover::after { width: 100%; }
 }
 
 // --------------------------------------------------------------------------
-// 6. SCROLL REVEAL ANIMATIONS
+// 6. SCROLL REVEAL
 // --------------------------------------------------------------------------
-.reveal {
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.reveal-up {
-  @extend .reveal;
-  transform: translateY(40px);
-}
-
-.reveal-left {
-  @extend .reveal;
-  transform: translateX(-40px);
-}
-
-.reveal-right {
-  @extend .reveal;
-  transform: translateX(40px);
-}
-
-.reveal-scale {
-  @extend .reveal;
-  transform: scale(0.9);
-}
+.reveal           { opacity: 0; transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.reveal-up        { @extend .reveal; transform: translateY(40px); }
+.reveal-left      { @extend .reveal; transform: translateX(-40px); }
+.reveal-right     { @extend .reveal; transform: translateX(40px); }
+.reveal-scale     { @extend .reveal; transform: scale(0.9); }
 
 .reveal.is-visible,
 .reveal-up.is-visible,
@@ -250,85 +179,30 @@ article a {
   transform: translateY(0) translateX(0) scale(1);
 }
 
-@for $i from 1 through 12 {
-  .reveal-delay-#{$i} {
-    transition-delay: #{$i * 0.1}s;
-  }
-}
-
-// Auto-reveal for al-folio elements
-.news li {
+.news li,
+.publications ol.bibliography > li,
+.projects .grid-item,
+.projects .col,
+.post-list li {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   &.is-visible { opacity: 1; transform: translateY(0); }
 }
 
-.publications ol.bibliography > li {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  &.is-visible { opacity: 1; transform: translateY(0); }
-}
-
-.projects .grid-item,
-.projects .col {
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  &.is-visible { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.post-list li {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  &.is-visible { opacity: 1; transform: translateX(0); }
-}
-
 // --------------------------------------------------------------------------
-// 7. 3D CARD TILT
-// --------------------------------------------------------------------------
-[data-tilt] {
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-[data-tilt] .card-body,
-[data-tilt] .card-title,
-[data-tilt] .card-img {
-  transform: translateZ(30px);
-  transition: transform 0.3s ease;
-}
-
-// --------------------------------------------------------------------------
-// 8. PROFILE / HERO
+// 7. PROFILE (non-hero pages)
 // --------------------------------------------------------------------------
 .profile {
   img {
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(255, 112, 67, 0.1);
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.5s ease;
     border: 2px solid rgba(255, 112, 67, 0.1);
-
-    &:hover {
-      transform: scale(1.05) rotate(-1deg);
-      box-shadow:
-        0 16px 48px rgba(255, 112, 67, 0.12),
-        0 0 40px var(--glow-color);
-    }
-  }
-
-  .more-info p {
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-    &:hover { opacity: 1; }
   }
 }
 
 // --------------------------------------------------------------------------
-// 9. PUBLICATIONS
+// 8. PUBLICATIONS
 // --------------------------------------------------------------------------
 .publications {
   h2.bibliography {
@@ -341,10 +215,7 @@ article a {
     &::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
+      top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, transparent, #ff7043, #ffb74d, transparent);
     }
   }
@@ -380,24 +251,13 @@ article a {
 }
 
 // --------------------------------------------------------------------------
-// 10. FOOTER
+// 9. FOOTER
 // --------------------------------------------------------------------------
 footer.fixed-bottom {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   background-color: rgba(255, 248, 240, 0.8) !important;
   border-top: 1px solid var(--glass-border);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, #ff7043, #ffb74d, #f06292);
-    opacity: 0.3;
-  }
 }
 
 html[data-theme="dark"] footer.fixed-bottom {
@@ -407,346 +267,47 @@ html[data-theme="dark"] footer.fixed-bottom {
 footer.sticky-bottom {
   border-top: none;
   position: relative;
-
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
+    top: 0; left: 10%; right: 10%; height: 1px;
     background: linear-gradient(90deg, transparent, #ff7043, #ffb74d, transparent);
   }
 }
 
 // --------------------------------------------------------------------------
-// 11. SCROLLBAR — Warm gradient
+// 10. SCROLLBAR
 // --------------------------------------------------------------------------
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--global-bg-color);
-}
-
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--global-bg-color); }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #ff7043, #f06292);
   border-radius: 4px;
-
-  &:hover {
-    background: linear-gradient(180deg, #ff8a65, #ff7043);
-  }
+  &:hover { background: linear-gradient(180deg, #ff8a65, #ff7043); }
 }
 
 // --------------------------------------------------------------------------
-// 12. SELECTION COLOR — Warm coral
+// 11. SELECTION
 // --------------------------------------------------------------------------
-::selection {
-  background: #ff7043;
-  color: white;
-}
-
-::-moz-selection {
-  background: #ff7043;
-  color: white;
-}
+::selection { background: #ff7043; color: white; }
+::-moz-selection { background: #ff7043; color: white; }
 
 // --------------------------------------------------------------------------
-// 13. SOCIAL ICONS — Warm hover glow
+// 12. SOCIAL ICONS
 // --------------------------------------------------------------------------
 .social .contact-icons a,
 .navbar-brand.social a {
   position: relative;
   transition: transform 0.3s ease;
-
   &:hover {
     transform: translateY(-3px) scale(1.15);
-
-    i::before {
-      text-shadow: 0 0 20px var(--glow-color);
-    }
+    i::before { text-shadow: 0 0 20px var(--glow-color); }
   }
 }
 
 // --------------------------------------------------------------------------
-// 14. NEWS TIMELINE
+// 13. RESEARCH TAGS
 // --------------------------------------------------------------------------
-.news {
-  .col-sm-2 {
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #ff7043, #ffb74d, transparent);
-      opacity: 0.25;
-    }
-  }
-}
-
-// --------------------------------------------------------------------------
-// 15. RESPONSIVE
-// --------------------------------------------------------------------------
-@media (max-width: 768px) {
-  body::before {
-    opacity: 0.04;
-  }
-
-  .card:hover {
-    transform: translateY(-4px) scale(1.01);
-  }
-
-  .profile img:hover {
-    transform: scale(1.02);
-  }
-}
-
-// --------------------------------------------------------------------------
-// 16. REDUCED MOTION
-// --------------------------------------------------------------------------
-@media (prefers-reduced-motion: reduce) {
-  body::before {
-    animation: none;
-  }
-
-  .profile h1,
-  .profile .name {
-    animation: none;
-    background-position: 0% 50%;
-  }
-
-  .reveal,
-  .reveal-up,
-  .reveal-left,
-  .reveal-right,
-  .reveal-scale,
-  .news li,
-  .publications ol.bibliography > li,
-  .projects .grid-item,
-  .projects .col,
-  .post-list li {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-// --------------------------------------------------------------------------
-// 17. CURSOR GLOW — Warm light
-// --------------------------------------------------------------------------
-.cursor-glow {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 112, 67, 0.3) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: multiply;
-}
-
-html[data-theme="dark"] .cursor-glow {
-  background: radial-gradient(
-    circle,
-    rgba(255, 138, 101, 0.3) 0%,
-    transparent 70%
-  );
-  mix-blend-mode: screen;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .cursor-glow {
-    opacity: 0.12;
-  }
-
-  html[data-theme="dark"] .cursor-glow {
-    opacity: 0.3;
-  }
-}
-
-// ==========================================================================
-// AL-FOLIO AI HOMEPAGE STYLES
-// ==========================================================================
-// Add this content to the END of your _sass/_custom.scss file
-// These styles create the AI-themed homepage with neural network aesthetic
-// ==========================================================================
-
-// --------------------------------------------------------------------------
-// A. NEURAL CANVAS OVERLAY (gradient fade over canvas)
-// --------------------------------------------------------------------------
-#neural-canvas {
-  opacity: 0.7;
-}
-
-// Gradient overlay on the about page to fade the canvas
-.about {
-  position: relative;
-
-  &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(10, 14, 20, 0.2) 0%,
-      rgba(10, 14, 20, 0.6) 50%,
-      var(--global-bg-color) 85%
-    );
-    z-index: -2;
-    pointer-events: none;
-  }
-}
-
-// --------------------------------------------------------------------------
-// B. HERO PROFILE SECTION — Modernized layout
-// --------------------------------------------------------------------------
-.profile {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-  // Avatar container with animated gradient ring
-  .profile-img-wrapper {
-    position: relative;
-    display: inline-block;
-
-    // Animated conic-gradient ring
-    &::before {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: 20px;
-      background: conic-gradient(
-        from 0deg,
-        var(--term-green, #ff7043),
-        var(--term-cyan, #ff6b6b),
-        var(--term-amber, #ffb74d),
-        var(--term-purple, #f06292),
-        var(--term-green, #ff7043)
-      );
-      background-size: 200% 200%;
-      animation: ringShimmer 4s linear infinite;
-      z-index: 0;
-    }
-
-    // Inner dark border to create gap effect
-    &::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: 18px;
-      background: var(--global-bg-color);
-      z-index: 0;
-    }
-  }
-
-  img {
-    position: relative;
-    z-index: 1;
-    border-radius: 16px;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.5s ease;
-
-    &:hover {
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3),
-                  0 0 40px rgba(255, 112, 67, 0.15);
-    }
-  }
-
-  // Name with gradient text
-  h1, .name {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-weight: 700;
-    background: linear-gradient(
-      135deg,
-      var(--term-green, #ff7043) 0%,
-      var(--term-cyan, #ff6b6b) 30%,
-      var(--term-amber, #ffb74d) 60%,
-      var(--term-purple, #f06292) 100%
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textShimmer 5s ease-in-out infinite;
-  }
-
-  // Description / affiliation
-  .desc,
-  .more-info p:first-of-type {
-    font-size: 1rem;
-    color: var(--global-text-color-light);
-    
-    a, strong {
-      color: var(--global-theme-color);
-    }
-  }
-}
-
-@keyframes ringShimmer {
-  0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
-  100% { background-position: 200% 50%; filter: hue-rotate(360deg); }
-}
-
-@keyframes textShimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-// --------------------------------------------------------------------------
-// C. TYPING TAGLINE
-// --------------------------------------------------------------------------
-.typing-tagline {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: var(--global-text-color-light);
-  min-height: 1.5em;
-  margin: 0.75rem 0 1.25rem;
-
-  .typing-prefix {
-    color: var(--global-theme-color);
-    opacity: 0.5;
-    margin-right: 0.5em;
-  }
-
-  [data-typing] {
-    &::after {
-      content: "▊";
-      display: inline-block;
-      animation: blinkCursor 1s step-end infinite;
-      color: var(--global-theme-color);
-      margin-left: 2px;
-      font-size: 0.9em;
-    }
-  }
-}
-
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-// --------------------------------------------------------------------------
-// D. RESEARCH INTEREST TAGS
-// --------------------------------------------------------------------------
-.research-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 1rem 0;
-}
-
 .research-tag {
   display: inline-block;
   padding: 5px 14px;
@@ -767,29 +328,23 @@ html[data-theme="dark"] .cursor-glow {
     box-shadow: 0 0 20px rgba(255, 112, 67, 0.15);
   }
 
-  // Alternate colors for variety
   &:nth-child(2n) {
-    color: var(--term-cyan, #ff6b6b);
+    color: #ff6b6b;
     background: rgba(255, 107, 107, 0.06);
     border-color: rgba(255, 107, 107, 0.15);
-
-    &:hover {
-      background: rgba(255, 107, 107, 0.15);
-      border-color: rgba(255, 107, 107, 0.4);
-      box-shadow: 0 0 20px rgba(255, 107, 107, 0.15);
-    }
+    &:hover { background: rgba(255, 107, 107, 0.15); border-color: rgba(255, 107, 107, 0.4); }
   }
-
   &:nth-child(3n) {
-    color: var(--term-amber, #ffb74d);
+    color: #ffb74d;
     background: rgba(255, 183, 77, 0.06);
     border-color: rgba(255, 183, 77, 0.15);
-
-    &:hover {
-      background: rgba(255, 183, 77, 0.15);
-      border-color: rgba(255, 183, 77, 0.4);
-      box-shadow: 0 0 20px rgba(255, 183, 77, 0.15);
-    }
+    &:hover { background: rgba(255, 183, 77, 0.15); border-color: rgba(255, 183, 77, 0.4); }
+  }
+  &:nth-child(5n) {
+    color: #f06292;
+    background: rgba(240, 98, 146, 0.06);
+    border-color: rgba(240, 98, 146, 0.15);
+    &:hover { background: rgba(240, 98, 146, 0.15); border-color: rgba(240, 98, 146, 0.4); }
   }
 }
 
@@ -799,228 +354,13 @@ html[data-theme="dark"] .cursor-glow {
 }
 
 // --------------------------------------------------------------------------
-// E. STATS SECTION — Animated counters
-// --------------------------------------------------------------------------
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 2rem 0;
-  margin: 1.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-
-  @media (max-width: 576px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  > div {
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-
-    &.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    font-family: 'Space Grotesk', monospace;
-    background: linear-gradient(135deg, var(--term-green, #ff7043), var(--term-cyan, #ff6b6b), var(--term-amber, #ffb74d));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.2;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--global-text-color-light);
-    margin-top: 4px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-}
-
-// --------------------------------------------------------------------------
-// F. SECTION HEADERS — Code comment style
-// --------------------------------------------------------------------------
-.section-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--global-theme-color);
-  font-family: 'JetBrains Mono', monospace;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-
-  &::before {
-    content: "";
-    width: 20px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--global-theme-color), transparent);
-  }
-
-  &::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.15), transparent);
-  }
-}
-
-// Override default h2 for sections on homepage
-.about h2 {
-  @extend .section-label;
-}
-
-// --------------------------------------------------------------------------
-// G. NEWS — Timeline with dots
-// --------------------------------------------------------------------------
-.news {
-  .news-item,
-  li {
-    position: relative;
-    padding-left: 20px;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.5s ease;
-
-    &.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    // Dot indicator
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--global-theme-color);
-      transition: box-shadow 0.3s ease;
-    }
-
-    &:hover::before {
-      box-shadow: 0 0 12px rgba(255, 112, 67, 0.5);
-    }
-
-    &:hover {
-      padding-left: 24px;
-    }
-
-    // Date styling
-    .date,
-    .col-sm-2,
-    .inline-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--global-theme-color);
-      opacity: 0.7;
-    }
-  }
-
-  // Remove default timeline styling
-  .col-sm-2::after {
-    display: none;
-  }
-}
-
-// --------------------------------------------------------------------------
-// H. PUBLICATIONS — Glass cards with accent bar
-// --------------------------------------------------------------------------
-.publications {
-  ol.bibliography > li {
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    background: rgba(255, 255, 255, 0.015);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    // Accent bar on left
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 20%;
-      bottom: 20%;
-      width: 3px;
-      border-radius: 2px;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 112, 67, 0.2),
-        transparent
-      );
-      transition: all 0.3s ease;
-    }
-
-    &:hover {
-      background: rgba(255, 112, 67, 0.03);
-      border-color: rgba(255, 112, 67, 0.15);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-
-      &::before {
-        background: linear-gradient(
-          180deg,
-          var(--global-theme-color),
-          rgba(255, 107, 107, 0.5)
-        );
-        top: 10%;
-        bottom: 10%;
-      }
-    }
-
-    // Venue tag styling
-    .periodical {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--global-theme-color);
-    }
-
-    // Buttons
-    .links a.btn {
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-family: 'JetBrains Mono', monospace;
-      padding: 3px 12px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 112, 67, 0.2);
-      color: var(--global-theme-color);
-      background: transparent;
-
-      &:hover {
-        background: var(--global-theme-color);
-        color: var(--global-bg-color) !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(255, 112, 67, 0.2);
-      }
-    }
-  }
-}
-
-// --------------------------------------------------------------------------
-// I. "VIEW ALL" BUTTON
+// 14. VIEW ALL LINK
 // --------------------------------------------------------------------------
 .view-all-link {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
-  color: var(--global-theme-color);
+  color: var(--global-theme-color) !important;
   padding: 8px 20px;
   border-radius: 20px;
   border: 1px solid rgba(255, 112, 67, 0.3);
@@ -1031,163 +371,91 @@ html[data-theme="dark"] .cursor-glow {
     background: rgba(255, 112, 67, 0.1);
     border-color: var(--global-theme-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(255, 112, 67, 0.15);
   }
 
-  &::after {
-    display: none !important; // Remove animated underline from link style
-  }
+  &::after { display: none !important; }
 }
 
 // --------------------------------------------------------------------------
-// J. HOMEPAGE SECTION ANIMATIONS
+// 15. CURSOR GLOW
 // --------------------------------------------------------------------------
-.homepage-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// --------------------------------------------------------------------------
-// K. SOCIAL ICONS — Enhanced hover
-// --------------------------------------------------------------------------
-.social .contact-icons a,
-.navbar-brand.social a {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: var(--global-theme-color) !important;
-    border-color: rgba(255, 112, 67, 0.3);
-    background: rgba(255, 112, 67, 0.06);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(255, 112, 67, 0.15);
-  }
-}
-
-// --------------------------------------------------------------------------
-// L. SCANLINE EFFECT (subtle)
-// --------------------------------------------------------------------------
-.about::after {
-  content: "";
+.cursor-glow {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200vh;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255, 112, 67, 0.008) 2px,
-    rgba(255, 112, 67, 0.008) 4px
-  );
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 112, 67, 0.3) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 999;
-  animation: scanlineMove 10s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
 }
 
-@keyframes scanlineMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+html[data-theme="dark"] .cursor-glow {
+  background: radial-gradient(circle, rgba(255, 138, 101, 0.3) 0%, transparent 70%);
+  mix-blend-mode: screen;
 }
 
-// --------------------------------------------------------------------------
-// M. RESPONSIVE
-// --------------------------------------------------------------------------
-@media (max-width: 768px) {
-  #neural-canvas {
-    opacity: 0.4;
-  }
-
-  .about::after {
-    display: none; // Remove scanlines on mobile
-  }
-
-  .profile h1, .profile .name {
-    font-size: 2rem;
-  }
-
-  .stats-grid {
-    gap: 16px;
-  }
-
-  .stats-grid .stat-number {
-    font-size: 1.5rem;
-  }
+@media (hover: hover) and (pointer: fine) {
+  .cursor-glow { opacity: 0.12; }
+  html[data-theme="dark"] .cursor-glow { opacity: 0.3; }
 }
 
 // --------------------------------------------------------------------------
-// N. REDUCED MOTION
+// 16. NEURAL CANVAS
+// --------------------------------------------------------------------------
+#neural-canvas {
+  opacity: 0.7;
+}
+
+// --------------------------------------------------------------------------
+// 17. REDUCED MOTION (base)
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
-  #neural-canvas {
-    display: none;
+  body::before { animation: none; }
+
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale,
+  .news li, .publications ol.bibliography > li,
+  .projects .grid-item, .projects .col, .post-list li {
+    opacity: 1; transform: none; transition: none;
   }
 
-  .research-tag,
-  .profile h1,
-  .profile .name {
-    animation: none;
-  }
-
-  .about::after {
-    animation: none;
-    display: none;
-  }
-
-  .homepage-section,
-  .news li,
-  .publications ol.bibliography > li,
-  .stats-grid > div {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .research-tag { animation: none; }
 }
 
-// ==========================================================================
-// HERO + BENTO GRID LAYOUT
-// ==========================================================================
-// APPEND this entire block to the END of _sass/_custom.scss
-// (after the Section N. REDUCED MOTION block)
-// ==========================================================================
+@media (max-width: 768px) {
+  body::before { opacity: 0.04; }
+  .card:hover { transform: translateY(-4px) scale(1.01); }
+}
 
+
+// ==========================================================================
+// ==========================================================================
+//   HERO + BENTO GRID LAYOUT
+// ==========================================================================
+// ==========================================================================
 
 // ═══════════════════════════════════════════════════════════════════════════
-// P1. HERO SECTION
+// HERO SECTION
 // ═══════════════════════════════════════════════════════════════════════════
 
 .hero-section {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   overflow: hidden;
   // Break out of .container to go full width
+  width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  width: 100vw;
-  // Offset navbar + container top padding
   margin-top: -5rem;
   padding-top: 5rem;
 }
 
-// Gradient overlay — fades neural canvas into page bg
+// Gradient overlay
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -1210,36 +478,7 @@ html:not([data-theme="dark"]) .hero-overlay {
   );
 }
 
-// Scanline overlay
-.hero-scanline {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.hero-scanline-inner {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 200%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255, 112, 67, 0.012) 2px,
-    rgba(255, 112, 67, 0.012) 4px
-  );
-  animation: heroScanMove 8s linear infinite;
-}
-
-@keyframes heroScanMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-// ── Hero content container ──
+// Hero content
 .hero-content {
   position: relative;
   z-index: 3;
@@ -1254,10 +493,12 @@ html:not([data-theme="dark"]) .hero-overlay {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-// ── Avatar with conic-gradient ring ──
+// ── Avatar — direct <img>, no figure.liquid wrapper ──
 .hero-avatar {
   display: inline-block;
   position: relative;
+  width: 140px;
+  height: 140px;
   margin-bottom: 1.5rem;
 }
 
@@ -1268,14 +509,14 @@ html:not([data-theme="dark"]) .hero-overlay {
   background: conic-gradient(from 0deg, #ff7043, #ff6b6b, #ffb74d, #f06292, #ff7043);
   animation: heroRingRotate 6s linear infinite;
   z-index: 0;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 3px;
-    border-radius: 19px;
-    background: var(--global-bg-color);
-  }
+.hero-avatar-bg {
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: var(--global-bg-color);
+  z-index: 1;
 }
 
 @keyframes heroRingRotate {
@@ -1283,27 +524,15 @@ html:not([data-theme="dark"]) .hero-overlay {
   100% { filter: hue-rotate(360deg); }
 }
 
-.hero-avatar-inner {
+.hero-avatar-img {
   position: relative;
-  z-index: 1;
-  width: 140px;
-  height: 140px;
-
-  img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    border-radius: 18px;
-    display: block;
-  }
-
-  // Override al-folio figure margins
-  .figure, figure, picture {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-    height: 100%;
-  }
+  z-index: 2;
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block !important;
+  max-width: none !important;
 }
 
 // ── Terminal prompt ──
@@ -1318,16 +547,16 @@ html:not([data-theme="dark"]) .hero-overlay {
 
 // ── Name ──
 .hero-name {
-  font-size: 3.2rem;
-  font-weight: 700;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  line-height: 1.1;
-  margin: 0 0 0.4rem;
-  background: linear-gradient(135deg, #ff7043, #ff6b6b, #ffb74d, #f06292);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 3.2rem !important;
+  font-weight: 700 !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  line-height: 1.1 !important;
+  margin: 0 0 0.4rem !important;
+  background: linear-gradient(135deg, #ff7043, #ff6b6b, #ffb74d, #f06292) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   animation: textShimmer 5s ease-in-out infinite, heroNameIn 0.8s ease 0.3s both;
 }
 
@@ -1365,6 +594,20 @@ html:not([data-theme="dark"]) .hero-overlay {
     opacity: 0.4;
     margin-right: 0.4em;
   }
+
+  .typing-text::after {
+    content: "▊";
+    display: inline-block;
+    animation: blinkCursor 1s step-end infinite;
+    color: var(--global-theme-color);
+    margin-left: 2px;
+    font-size: 0.9em;
+  }
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
 // ── Bio ──
@@ -1378,10 +621,10 @@ html:not([data-theme="dark"]) .hero-overlay {
   animation: heroFadeUp 0.8s ease 0.6s both;
 
   p { margin-bottom: 0.5rem; }
-  h1, h2, h3, h4 { display: none; }
+  h1, h2, h3, h4, h5 { display: none; }
 }
 
-// ── Research tags (reuses existing .research-tag from _custom.scss) ──
+// ── Tags ──
 .hero-tags {
   display: flex;
   gap: 7px;
@@ -1394,40 +637,37 @@ html:not([data-theme="dark"]) .hero-overlay {
 // ── Social icons ──
 .hero-social {
   display: flex;
+  gap: 10px;
   justify-content: center;
   animation: heroFadeUp 0.8s ease 0.8s both;
 
-  .contact-icons {
-    display: flex;
-    gap: 8px;
+  a {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: inline-flex !important;
+    align-items: center;
     justify-content: center;
+    color: var(--global-text-color-light) !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
 
-    a {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--global-text-color-light);
-      transition: all 0.3s ease;
-
-      &:hover {
-        color: var(--global-theme-color) !important;
-        border-color: rgba(255, 112, 67, 0.35);
-        background: rgba(255, 112, 67, 0.06);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(255, 112, 67, 0.12);
-      }
-
-      &::after { display: none !important; }
+    &:hover {
+      color: var(--global-theme-color) !important;
+      border-color: rgba(255, 112, 67, 0.35);
+      background: rgba(255, 112, 67, 0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(255, 112, 67, 0.12);
     }
+
+    &::after { display: none !important; }
   }
 }
 
-html:not([data-theme="dark"]) .hero-social .contact-icons a {
+html:not([data-theme="dark"]) .hero-social a {
   background: rgba(0, 0, 0, 0.02);
   border-color: rgba(0, 0, 0, 0.06);
 }
@@ -1445,7 +685,7 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
   gap: 0.5rem;
   animation: heroFadeUp 1s ease 1s both;
 
-  span {
+  .hero-scroll-text {
     font-size: 0.55rem;
     color: var(--global-text-color-light);
     opacity: 0.4;
@@ -1468,7 +708,7 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
 
 
 // ═══════════════════════════════════════════════════════════════════════════
-// P2. BENTO GRID
+// BENTO GRID
 // ═══════════════════════════════════════════════════════════════════════════
 
 .bento-section {
@@ -1477,7 +717,7 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
   padding: 1.5rem 0 4rem;
 }
 
-// ── Transition divider ──
+// ── Divider ──
 .bento-divider {
   display: flex;
   align-items: center;
@@ -1489,7 +729,6 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.2));
-
   &.bento-divider-line-right {
     background: linear-gradient(90deg, rgba(255, 112, 67, 0.2), transparent);
   }
@@ -1506,13 +745,13 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
 
 // ── Grid ──
 .bento-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
   grid-auto-rows: minmax(80px, auto);
-  gap: 14px;
+  gap: 14px !important;
 }
 
-// ── Cell base ──
+// ── Cell ──
 .bento-cell {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1522,7 +761,7 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
   position: relative;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  // Scroll reveal state
+  // Scroll reveal
   opacity: 0;
   transform: translateY(24px) scale(0.97);
   transition:
@@ -1536,14 +775,10 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
     transform: translateY(0) scale(1);
   }
 
-  // Top edge micro highlight
   &::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 15%;
-    right: 15%;
-    height: 1px;
+    top: 0; left: 15%; right: 15%; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
     pointer-events: none;
   }
@@ -1554,73 +789,51 @@ html:not([data-theme="dark"]) .hero-social .contact-icons a {
   }
 }
 
-// Light mode cell
 html:not([data-theme="dark"]) .bento-cell {
   border-color: rgba(0, 0, 0, 0.05);
   background: rgba(255, 255, 255, 0.6);
-
-  &::after {
-    background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.08), transparent);
-  }
-
   &:hover {
     border-color: rgba(255, 112, 67, 0.2);
     box-shadow: 0 8px 30px rgba(255, 112, 67, 0.06);
   }
 }
 
-// Glow variant (for publications card)
 .bento-cell-glow {
   border-color: rgba(255, 112, 67, 0.1) !important;
-  background: rgba(255, 112, 67, 0.02);
+  background: rgba(255, 112, 67, 0.02) !important;
 }
 
-// ── Column / row spans ──
-.bento-col-6 { grid-column: span 6; }
-.bento-col-4 { grid-column: span 4; }
-.bento-col-3 { grid-column: span 3; }
-.bento-col-2 { grid-column: span 2; }
-.bento-row-2 { grid-row: span 2; }
+// ── Column spans ──
+.bento-col-full       { grid-column: span 6 !important; }
+.bento-col-two-third  { grid-column: span 4 !important; }
+.bento-col-half       { grid-column: span 3 !important; }
+.bento-col-third      { grid-column: span 2 !important; }
+.bento-tall           { grid-row: span 2; }
 
-// ── Stagger reveal delays ──
+// ── Stagger delays ──
 @for $i from 1 through 10 {
   .bento-grid > .bento-cell:nth-child(#{$i}) {
     transition-delay: #{($i - 1) * 0.07}s;
   }
 }
 
-// ── Section label inside bento ──
+// ── Section label ──
 .bento-section-label {
   font-size: 0.6rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--global-theme-color);
   font-family: 'JetBrains Mono', monospace;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin-bottom: 12px;
-
-  .label-line {
-    width: 14px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--global-theme-color), transparent);
-    display: inline-block;
-  }
-
-  .label-line-fade {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.1), transparent);
-    display: inline-block;
-  }
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 112, 67, 0.08);
 }
 
 // ── Stats ──
 .bento-stats {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr) !important;
+  align-items: center !important;
   padding: 22px 18px !important;
 }
 
@@ -1628,29 +841,30 @@ html:not([data-theme="dark"]) .bento-cell {
   text-align: center;
 }
 
-// Override existing .stat-number for bento context
-.bento-stats .stat-number {
+.stat-number {
   font-size: 1.8rem;
+  font-weight: 800;
+  font-family: 'Space Grotesk', monospace;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ff7043, #ff6b6b, #ffb74d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.bento-stats .stat-label {
+.stat-label {
   font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
   margin-top: 3px;
-}
-
-// ── View all button ──
-.bento-view-all {
-  text-align: center;
-  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 // ── Project cards ──
 .bento-project-card {
   cursor: pointer;
-
-  &:hover {
-    transform: translateY(-4px) scale(1.02) !important;
-  }
+  &:hover { transform: translateY(-4px) scale(1.02) !important; }
 }
 
 .bento-project-img {
@@ -1660,13 +874,7 @@ html:not([data-theme="dark"]) .bento-cell {
   overflow: hidden;
   margin-bottom: 8px;
   background: linear-gradient(135deg, #1a1625, #2d1f3d);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
 }
 
 html:not([data-theme="dark"]) .bento-project-img {
@@ -1677,7 +885,6 @@ html:not([data-theme="dark"]) .bento-project-img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
 }
 
 .bento-project-title {
@@ -1699,9 +906,9 @@ html:not([data-theme="dark"]) .bento-project-img {
 // ── Timeline ──
 .bento-timeline {
   display: flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
   padding: 16px 18px !important;
 }
 
@@ -1723,8 +930,7 @@ html:not([data-theme="dark"]) .bento-project-img {
 }
 
 .timeline-dot {
-  width: 10px;
-  height: 10px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   background: rgba(255, 112, 67, 0.2);
   transition: all 0.3s ease;
@@ -1743,9 +949,7 @@ html:not([data-theme="dark"]) .bento-project-img {
   white-space: nowrap;
 }
 
-.timeline-active .timeline-label {
-  color: var(--global-theme-color);
-}
+.timeline-active .timeline-label { color: var(--global-theme-color); }
 
 .timeline-year {
   font-size: 0.48rem;
@@ -1756,9 +960,9 @@ html:not([data-theme="dark"]) .bento-project-img {
 // ── Quote ──
 .bento-quote {
   display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   text-align: center;
 }
 
@@ -1781,10 +985,10 @@ html:not([data-theme="dark"]) .bento-project-img {
 
 
 // ═══════════════════════════════════════════════════════════════════════════
-// P3. OVERRIDES — Clean up al-folio defaults for hero layout
+// OVERRIDES — Fix al-folio defaults for hero layout
 // ═══════════════════════════════════════════════════════════════════════════
 
-// Remove default .profile float on homepage
+// Remove profile float on homepage
 .about .profile {
   float: none !important;
   width: auto !important;
@@ -1792,154 +996,91 @@ html:not([data-theme="dark"]) .bento-project-img {
   padding: 0 !important;
 }
 
-// Remove default about.liquid clearfix
-.about .clearfix {
-  display: contents;
-}
-
-// Publications in bento — compact
+// Compact publications in bento
 .bento-cell .publications {
   ol.bibliography > li {
     padding: 10px 14px;
     margin-bottom: 8px;
     border-radius: 10px;
     font-size: 0.85rem;
-
-    .links a.btn {
-      font-size: 0.6rem;
-      padding: 2px 8px;
-    }
+    .links a.btn { font-size: 0.6rem; padding: 2px 8px; }
   }
 }
 
-// News in bento — compact
+// Compact news in bento
 .bento-cell .news {
   li, .news-item {
     padding: 6px 0 6px 16px;
     font-size: 0.85rem;
-
-    &::before {
-      width: 5px;
-      height: 5px;
-      top: 10px;
-    }
   }
 }
 
-// Latest posts in bento
-.bento-cell .post-list {
-  li {
-    font-size: 0.85rem;
-    padding: 6px 0;
-  }
-}
-
-// Hide existing about scanline from Section L — hero has its own
-.about::after {
-  display: none !important;
-}
+// Hide the old scanline (hero has its own)
+.about::after { display: none !important; }
 
 
 // ═══════════════════════════════════════════════════════════════════════════
-// P4. RESPONSIVE
+// RESPONSIVE
 // ═══════════════════════════════════════════════════════════════════════════
 
 @media (max-width: 768px) {
-  .hero-name {
-    font-size: 2.2rem;
-  }
+  .hero-name { font-size: 2.2rem !important; }
 
-  .hero-avatar-inner {
-    width: 110px;
-    height: 110px;
+  .hero-avatar,
+  .hero-avatar-img {
+    width: 110px !important;
+    height: 110px !important;
   }
-
-  .hero-scanline { display: none; }
 
   .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
   }
 
-  .bento-col-6 { grid-column: span 2; }
-  .bento-col-4 { grid-column: span 2; }
-  .bento-col-3 { grid-column: span 2; }
-  .bento-col-2 { grid-column: span 1; }
-  .bento-row-2 { grid-row: span 1; }
+  .bento-col-full       { grid-column: span 2 !important; }
+  .bento-col-two-third  { grid-column: span 2 !important; }
+  .bento-col-half       { grid-column: span 2 !important; }
+  .bento-col-third      { grid-column: span 1 !important; }
+  .bento-tall           { grid-row: span 1; }
 
   .bento-stats {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px;
+    gap: 12px !important;
   }
 
-  .bento-timeline {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
+  .bento-timeline { flex-wrap: wrap; gap: 10px !important; }
   .timeline-connector { display: none; }
 
-  .bento-stats .stat-number {
-    font-size: 1.4rem;
-  }
+  .stat-number { font-size: 1.4rem; }
 }
 
 @media (max-width: 480px) {
-  .hero-name {
-    font-size: 1.8rem;
-  }
-
-  .hero-typing {
-    font-size: 0.72rem;
-  }
-
-  .hero-bio {
-    font-size: 0.85rem;
-  }
-
-  .bento-cell {
-    padding: 14px;
-  }
-
-  .bento-col-2 { grid-column: span 2; }
+  .hero-name { font-size: 1.8rem !important; }
+  .hero-typing { font-size: 0.72rem; }
+  .hero-bio { font-size: 0.85rem; }
+  .bento-cell { padding: 14px; }
+  .bento-col-third { grid-column: span 2 !important; }
 }
 
 
 // ═══════════════════════════════════════════════════════════════════════════
-// P5. REDUCED MOTION
+// REDUCED MOTION (hero + bento)
 // ═══════════════════════════════════════════════════════════════════════════
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-content,
-  .hero-prompt,
-  .hero-subtitle,
-  .hero-typing,
-  .hero-bio,
-  .hero-tags,
-  .hero-social,
-  .hero-scroll-hint {
-    animation: none;
-  }
+  .hero-content, .hero-prompt, .hero-subtitle,
+  .hero-typing, .hero-bio, .hero-tags,
+  .hero-social, .hero-scroll-hint,
+  .hero-name { animation: none !important; }
 
-  .hero-name {
-    animation: none;
-  }
-
-  .hero-scanline-inner {
-    animation: none;
-  }
-
-  .hero-avatar-ring {
-    animation: none;
-  }
-
-  .hero-scroll-line {
-    animation: none;
-  }
+  .hero-avatar-ring { animation: none; }
+  .hero-scroll-line { animation: none; }
 
   .bento-cell {
     opacity: 1;
     transform: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
+
+  #neural-canvas { display: none; }
 }
