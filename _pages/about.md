@@ -54,17 +54,6 @@ quote:
   author: "B.F. Skinner"
 
 # 数字统计（会有滚动计数动画）
-stats:
-  - count: 15
-    suffix: "+"
-    label: "Publications"
-  - count: 1200
-    suffix: "+"
-    label: "Citations"
-  - count: 3
-    label: "Top Venues"
-  - count: 5
-    label: "Awards"
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
