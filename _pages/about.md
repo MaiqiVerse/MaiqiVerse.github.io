@@ -18,16 +18,40 @@ typing_tagline:
   - "Building intelligent systems that understand the world"
   - "Exploring the frontier of multimodal AI"
   - "Making AI more efficient, reliable, and aligned"
-  - "Research: LLM · RL · Vision-Language Models"
 
-# 研究兴趣标签
 research_interests:
   - "Large Language Models"
   - "Reinforcement Learning"
   - "Computer Vision"
-  - "Neural Architecture"
   - "Generative AI"
   - "Multi-Agent Systems"
+
+stats:
+  - count: 15
+    suffix: "+"
+    label: "Publications"
+  - count: 1200
+    suffix: "+"
+    label: "Citations"
+  - count: 3
+    label: "Top Venues"
+  - count: 5
+    label: "Awards"
+
+timeline:
+  - year: "2020"
+    title: "BSc CS"
+    active: false
+  - year: "2023"
+    title: "MSc AI"
+    active: false
+  - year: "2024"
+    title: "PhD →"
+    active: true
+
+quote:
+  text: "The question is not whether machines think, but whether humans do."
+  author: "B.F. Skinner"
 
 # 数字统计（会有滚动计数动画）
 stats:

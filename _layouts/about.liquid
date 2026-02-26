@@ -2,117 +2,195 @@
 layout: default
 ---
 
-<!-- AI Homepage Layout for al-folio -->
-<!-- Replace _layouts/about.liquid with this file -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- AL-FOLIO — Hero + Bento Grid Homepage                      -->
+<!-- Replace _layouts/about.liquid with this file               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 
-<div class="post">
+<div class="post about">
   <article>
-    {% if page.profile %}
-    <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-      {% if page.profile.image %}
-      <div class="profile-img-wrapper">
-        {% if page.profile.image_circular %}
-          {% assign profile_image_class = "img-fluid z-depth-1 rounded-circle" %}
-        {% else %}
-          {% assign profile_image_class = "img-fluid z-depth-1" %}
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 1: FULL-SCREEN HERO                       -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
+
+      <div class="hero-content">
+
+        {% if page.profile %}
+        <div class="hero-avatar">
+          <div class="hero-avatar-ring"></div>
+          <div class="hero-avatar-inner">
+            {% if page.profile.image %}
+              {% if page.profile.image_circular %}
+                {% assign profile_image_class = "img-fluid z-depth-1 rounded-circle" %}
+              {% else %}
+                {% assign profile_image_class = "img-fluid z-depth-1" %}
+              {% endif %}
+              {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+              {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
+              {%
+                include figure.liquid loading="eager" path=profile_image_path
+                class=profile_image_class sizes=sizes
+                alt=page.profile.image_alt
+                cache_bust=true
+              %}
+            {% endif %}
+          </div>
+        </div>
         {% endif %}
-        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-        {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
-        {%
-          include figure.liquid loading="eager" path=profile_image_path
-          class=profile_image_class sizes=sizes
-          alt=page.profile.image_alt
-          cache_bust=true
-        %}
-      </div>
-      {% endif %}
 
-      {% if page.profile.more_info %}
-        <div class="more-info">{{ page.profile.more_info }}</div>
-      {% endif %}
+        <!-- Terminal prompt -->
+        <div class="hero-prompt">$ whoami</div>
 
-      <!-- Social Icons -->
-      {% if page.social %}
-        <div class="social">
+        <!-- Name -->
+        <h1 class="hero-name">{{ site.first_name }} {{ site.last_name }}</h1>
+
+        <!-- Subtitle -->
+        {% if page.subtitle %}
+        <div class="hero-subtitle">{{ page.subtitle }}</div>
+        {% endif %}
+
+        <!-- Typing tagline -->
+        {% if page.typing_tagline %}
+        <div class="hero-typing">
+          <span class="typing-prefix">&gt;</span>
+          <span data-typing="{{ page.typing_tagline | join: '|' }}"></span>
+        </div>
+        {% endif %}
+
+        <!-- Short bio -->
+        <div class="hero-bio">{{ content }}</div>
+
+        <!-- Research tags -->
+        {% if page.research_interests %}
+        <div class="hero-tags">
+          {% for interest in page.research_interests %}
+            <span class="research-tag">{{ interest }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Social icons -->
+        {% if page.social %}
+        <div class="hero-social">
           <div class="contact-icons">{{ page.social }}</div>
         </div>
-      {% endif %}
-    </div>
-    {% endif %}
+        {% endif %}
 
-    <div class="clearfix">
-      <!-- ============ HERO AREA ============ -->
-
-      <!-- Typing tagline (optional: set in _pages/about.md front matter) -->
-      {% if page.typing_tagline %}
-      <div class="typing-tagline">
-        <span class="typing-prefix">&gt;</span>
-        <span data-typing="{{ page.typing_tagline | join: '|' }}"></span>
       </div>
-      {% endif %}
 
-      <!-- Main bio content from about.md -->
-      {{ content }}
-
-      <!-- Research Interest Tags -->
-      {% if page.research_interests %}
-      <div class="research-tags">
-        {% for interest in page.research_interests %}
-          <span class="research-tag">{{ interest }}</span>
-        {% endfor %}
+      <!-- Scroll indicator -->
+      <div class="hero-scroll-hint">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
       </div>
-      {% endif %}
+    </section>
 
-      <!-- ============ STATS SECTION ============ -->
-      {% if page.stats %}
-      <div class="stats-grid">
-        {% for stat in page.stats %}
-        <div>
-          <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
-          <div class="stat-label">{{ stat.label }}</div>
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 2: BENTO GRID                             -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="bento-section">
+
+      <div class="bento-divider">
+        <div class="bento-divider-line"></div>
+        <span class="bento-divider-text">EXPLORE MORE</span>
+        <div class="bento-divider-line bento-divider-line-right"></div>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- ── Stats Row: full width ── -->
+        {% if page.stats %}
+        <div class="bento-cell bento-col-6 bento-stats">
+          {% for stat in page.stats %}
+          <div class="bento-stat-item">
+            <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
+        {% endif %}
 
-    <!-- ============ NEWS SECTION ============ -->
-    {% if page.news and site.announcements.enabled %}
-      <div class="homepage-section">
-        <h2>// Latest News</h2>
-        {% include news.liquid limit=true %}
-      </div>
-    {% endif %}
-
-    <!-- ============ SELECTED PUBLICATIONS ============ -->
-    {% if page.selected_papers %}
-      <div class="homepage-section">
-        <h2>// Selected Publications</h2>
-        {% include selected_papers.liquid %}
-        <div style="text-align: center; margin-top: 1.5rem;">
-          <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All Publications</a>
+        <!-- ── News: left half ── -->
+        {% if page.news and site.announcements.enabled %}
+        <div class="bento-cell bento-col-3 bento-row-2">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Latest News<span class="label-line-fade"></span>
+          </div>
+          {% include news.liquid limit=true %}
         </div>
-      </div>
-    {% endif %}
+        {% endif %}
 
-    <!-- ============ LATEST POSTS ============ -->
-    {% if page.latest_posts %}
-      <div class="homepage-section">
-        <h2>// Recent Posts</h2>
-        {% include latest_posts.liquid %}
-      </div>
-    {% endif %}
-
-    <!-- ============ SELECTED PROJECTS ============ -->
-    {% if site.enable_project_categories and page.selected_projects %}
-      <div class="homepage-section">
-        <h2>// Featured Projects</h2>
-        {% include projects.liquid limit=4 %}
-        <div style="text-align: center; margin-top: 1.5rem;">
-          <a href="{{ '/projects/' | relative_url }}" class="view-all-link">→ View All Projects</a>
+        <!-- ── Publications: right half ── -->
+        {% if page.selected_papers %}
+        <div class="bento-cell bento-col-3 bento-row-2 bento-cell-glow">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Selected Publications<span class="label-line-fade"></span>
+          </div>
+          {% include selected_papers.liquid %}
+          <div class="bento-view-all">
+            <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All</a>
+          </div>
         </div>
+        {% endif %}
+
+        <!-- ── Projects: 3 cards ── -->
+        {% if site.enable_project_categories and page.selected_projects %}
+          {% assign projects = site.projects | where: "selected", true | sort: "importance" %}
+          {% for project in projects limit: 3 %}
+          <div class="bento-cell bento-col-2 bento-project-card">
+            {% if project.img %}
+            <div class="bento-project-img">
+              <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy" />
+            </div>
+            {% else %}
+            <div class="bento-project-img bento-project-placeholder"></div>
+            {% endif %}
+            <a href="{{ project.url | relative_url }}" class="bento-project-title">{{ project.title }}</a>
+            {% if project.description %}
+            <div class="bento-project-desc">{{ project.description | truncate: 80 }}</div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- ── Timeline ── -->
+        {% if page.timeline %}
+        <div class="bento-cell bento-col-4 bento-timeline">
+          {% for milestone in page.timeline %}
+          <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}">
+            {% unless forloop.first %}<div class="timeline-connector"></div>{% endunless %}
+            <div class="timeline-dot"></div>
+            <div class="timeline-label">{{ milestone.title }}</div>
+            <div class="timeline-year">{{ milestone.year }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- ── Quote ── -->
+        {% if page.quote %}
+        <div class="bento-cell bento-col-2 bento-quote">
+          <div class="bento-quote-text">"{{ page.quote.text }}"</div>
+          <div class="bento-quote-author">— {{ page.quote.author }}</div>
+        </div>
+        {% endif %}
+
+        <!-- ── Latest Posts ── -->
+        {% if page.latest_posts %}
+        <div class="bento-cell bento-col-6">
+          <div class="bento-section-label">
+            <span class="label-line"></span>// Recent Posts<span class="label-line-fade"></span>
+          </div>
+          {% include latest_posts.liquid %}
+        </div>
+        {% endif %}
+
       </div>
-    {% endif %}
+    </section>
 
   </article>
 </div>
