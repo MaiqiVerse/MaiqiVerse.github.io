@@ -1240,3 +1240,28 @@ html:not([data-theme="dark"]) .bento-project-img {
     figure, picture, .figure { width: 110px !important; height: 110px !important; }
   }
 }
+
+// ==========================================================================
+// HERO → BENTO TRANSITION FIX — Append to END of _sass/_custom.scss
+// ==========================================================================
+
+// Bento section entrance animation (controlled by JS scroll handler)
+.bento-section {
+  will-change: opacity, transform;
+}
+
+// Hero content blur + fade (controlled by JS)
+.hero-content {
+  will-change: opacity, transform, filter;
+}
+
+// Smooth neural canvas fade
+#neural-canvas {
+  will-change: opacity;
+  transition: opacity 0.1s linear;
+}
+
+// Hero scroll hint disappear
+.hero-scroll-hint {
+  will-change: opacity;
+}
