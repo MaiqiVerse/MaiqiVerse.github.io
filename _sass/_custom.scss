@@ -1084,3 +1084,159 @@ html:not([data-theme="dark"]) .bento-project-img {
 
   #neural-canvas { display: none; }
 }
+
+// ==========================================================================
+// CRITICAL FIXES — Append to the very END of _sass/_custom.scss
+// ==========================================================================
+// These overrides fix al-folio's responsive image system and Bootstrap grid
+// conflicts. Add after all existing content.
+// ==========================================================================
+
+// ── Fix 1: Force avatar image to 140px no matter what ──
+.hero-avatar {
+  width: 150px !important;
+  height: 150px !important;
+  display: inline-block !important;
+  overflow: hidden;
+
+  img,
+  img.img-fluid,
+  img.rounded-circle,
+  picture img,
+  figure img {
+    width: 140px !important;
+    height: 140px !important;
+    max-width: 140px !important;
+    max-height: 140px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+    display: block !important;
+  }
+
+  // Kill al-folio's figure/picture wrappers
+  figure,
+  picture,
+  .figure,
+  .w-100 {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  source {
+    display: none !important; // Force fallback to img tag
+  }
+}
+
+// ── Fix 2: Force bento grid layout ──
+.bento-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 14px !important;
+  width: 100% !important;
+
+  // Override any Bootstrap column classes that might interfere
+  > * {
+    float: none !important;
+    position: relative !important;
+  }
+}
+
+.bento-col-6 { grid-column: span 6 !important; }
+.bento-col-4 { grid-column: span 4 !important; }
+.bento-col-3 { grid-column: span 3 !important; }
+.bento-col-2 { grid-column: span 2 !important; }
+.bento-row-2 { grid-row: span 2 !important; }
+
+// ── Fix 3: Contain overflow in bento cells ──
+.bento-cell {
+  overflow: hidden !important;
+  min-width: 0 !important; // Prevent grid blowout
+
+  // Force al-folio inner content to behave
+  .row {
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .col, .col-sm-2, .col-sm-10,
+  [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+    float: none !important;
+  }
+
+  // Constrain tables and wide content
+  table, .table-responsive, pre, img {
+    max-width: 100% !important;
+  }
+}
+
+// ── Fix 4: Compact bibliography in bento ──
+.bento-cell ol.bibliography {
+  padding-left: 0 !important;
+  list-style: none !important;
+
+  > li {
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    font-size: 0.82rem !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+
+    // Hide thumbnail in bento to save space
+    .col-sm-2 {
+      display: none !important;
+    }
+  }
+}
+
+// ── Fix 5: Compact news in bento ──
+.bento-cell .news table {
+  width: 100% !important;
+
+  td, th {
+    padding: 4px 2px !important;
+    font-size: 0.82rem !important;
+    border: none !important;
+  }
+}
+
+// ── Fix 6: Force hero-section to span full viewport ──
+.hero-section {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+}
+
+// ── Fix 7: Mobile — collapse to 1 column ──
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bento-col-6,
+  .bento-col-4,
+  .bento-col-3,
+  .bento-col-2 {
+    grid-column: span 1 !important;
+  }
+
+  .bento-row-2 {
+    grid-row: span 1 !important;
+  }
+
+  .hero-avatar {
+    width: 120px !important;
+    height: 120px !important;
+
+    img { width: 110px !important; height: 110px !important; max-width: 110px !important; max-height: 110px !important; }
+    figure, picture, .figure { width: 110px !important; height: 110px !important; }
+  }
+}
