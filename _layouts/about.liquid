@@ -350,6 +350,21 @@ layout: default
   onScroll();
 
   // ── Bidirectional snap: DOWN→bento, UP→hero ──
+  //
+  //  Zone layout (in terms of scrollY / vh):
+  //
+  //  0%  ┌──────────┐  HERO visible
+  //      │          │
+  //  25% ├──────────┤  ↓ Down-snap zone start
+  //      │ HERO→    │
+  //  90% │ BENTO    │  ↓ Down-snap zone end
+  //      ├──────────┤
+  // 100% │ BENTO    │  ← bento starts here
+  //      │ visible  │
+  // 110% ├──────────┤  ↑ Up-snap zone start (near bento top)
+  //      │          │
+  // 150% ├──────────┤  ↑ Up-snap zone end
+  //
   var heroSection = document.querySelector(".hero-section");
   var snapCooldown = false;
   var scrollTimer;
@@ -362,18 +377,18 @@ layout: default
       var scrollY = window.pageYOffset || 0;
       var vh = window.innerHeight;
 
-      // Transition zone = 30%~90% of hero height
-      var inZone = scrollY > vh * 0.25 && scrollY < vh * 0.95;
-      if (!inZone) return;
-
       snapCooldown = true;
 
-      if (scrollDirection === "down" && bentoSection) {
-        // Scrolling down → snap to bento
+      if (scrollDirection === "down" && scrollY > vh * 0.25 && scrollY < vh * 0.9) {
+        // In hero, scrolling down → snap to bento
         bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (scrollDirection === "up" && heroSection) {
-        // Scrolling up → snap back to hero top
+      } else if (scrollDirection === "up" && scrollY > vh * 0.3 && scrollY < vh * 1.3) {
+        // Near bento top, scrolling up → snap back to hero
         window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Not in any snap zone — release immediately
+        snapCooldown = false;
+        return;
       }
 
       setTimeout(function () { snapCooldown = false; }, 1800);
