@@ -1,7 +1,9 @@
 // ==========================================================================
-// AL-FOLIO AI HOMEPAGE — Hero + Bento Effects (Robust v5)
+// AL-FOLIO AI HOMEPAGE — External Effects (Canvas, Typing, etc.)
 // ==========================================================================
-// REPLACE assets/js/homepage-effects.js
+// The hero scroll transition, snap scroll, and bento reveal are now
+// embedded directly in about.liquid for reliability.
+// This file handles: neural canvas, typing, counters, cursor, cards, tags.
 // ==========================================================================
 
 (function () {
@@ -20,6 +22,7 @@
   // ========================================================================
   function initNeuralCanvas() {
     if (REDUCED) return;
+    if (document.getElementById("neural-canvas")) return; // already created
 
     var canvas = document.createElement("canvas");
     canvas.id = "neural-canvas";
@@ -34,10 +37,8 @@
 
     function resize() {
       var dpr = window.devicePixelRatio || 1;
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
@@ -81,10 +82,8 @@
       for (var i = 0; i < nodes.length; i++) {
         var a = nodes[i];
         a.x += a.vx; a.y += a.vy; a.phase += 0.015;
-        if (a.x < -20) a.x = w + 20;
-        if (a.x > w + 20) a.x = -20;
-        if (a.y < -20) a.y = h + 20;
-        if (a.y > h + 20) a.y = -20;
+        if (a.x < -20) a.x = w + 20; if (a.x > w + 20) a.x = -20;
+        if (a.y < -20) a.y = h + 20; if (a.y > h + 20) a.y = -20;
 
         var dm = Math.sqrt((a.x - mouse.x) * (a.x - mouse.x) + (a.y - mouse.y) * (a.y - mouse.y));
         if (dm < MDIST && dm > 0) {
@@ -103,7 +102,6 @@
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
             ctx.strokeStyle = "rgba(" + c.r + "," + c.g + "," + c.b + "," + al + ")";
             ctx.lineWidth = 0.5; ctx.stroke();
-
             if (Math.sin(a.phase + d * 0.01) > 0.7 && d < CDIST * 0.7) {
               var t = (Date.now() * 0.0005 + i * 0.05) % 1;
               ctx.beginPath();
@@ -113,7 +111,6 @@
             }
           }
         }
-
         var g = (Math.sin(a.phase) + 1) / 2;
         var c2 = colors[a.ci];
         ctx.beginPath(); ctx.arc(a.x, a.y, a.r * 3 + g * 3, 0, 6.28);
@@ -125,7 +122,6 @@
       }
       animId = requestAnimationFrame(draw);
     }
-
     document.addEventListener("visibilitychange", function () {
       document.hidden ? cancelAnimationFrame(animId) : draw();
     });
@@ -133,74 +129,11 @@
   }
 
   // ========================================================================
-  // 2. HERO → BENTO SCROLL TRANSITION
-  // ========================================================================
-  function initHeroScroll() {
-    if (REDUCED) return;
-
-    var heroContent = document.querySelector(".hero-content");
-    var heroHint = document.querySelector(".hero-scroll-hint");
-    var bentoSection = document.querySelector(".bento-section");
-    var canvas = document.getElementById("neural-canvas");
-
-    if (!heroContent) return;
-
-    // Set initial bento state
-    if (bentoSection) {
-      bentoSection.style.opacity = "0";
-      bentoSection.style.transform = "translateY(40px)";
-    }
-
-    var ticking = false;
-
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(function () {
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-        var vh = window.innerHeight;
-
-        // Hero fade-out over first 60% of viewport
-        var heroProgress = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
-
-        heroContent.style.opacity = String(1 - heroProgress * 0.85);
-        heroContent.style.transform =
-          "translateY(" + (-heroProgress * 60) + "px) scale(" + (1 - heroProgress * 0.08) + ")";
-        heroContent.style.filter = "blur(" + (heroProgress * 3) + "px)";
-
-        if (heroHint) {
-          heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
-        }
-
-        if (canvas) {
-          canvas.style.opacity = String(Math.max(0.15, 1 - heroProgress * 0.85));
-        }
-
-        // Bento entrance starts at 35% scroll
-        if (bentoSection) {
-          var bentoProgress = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
-          bentoSection.style.opacity = String(bentoProgress);
-          bentoSection.style.transform = "translateY(" + ((1 - bentoProgress) * 40) + "px)";
-        }
-
-        ticking = false;
-      });
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // Run once immediately
-    onScroll();
-  }
-
-  // ========================================================================
-  // 3. TYPING EFFECT
+  // 2. TYPING EFFECT
   // ========================================================================
   function initTypingEffect() {
     var el = document.querySelector("[data-typing]");
     if (!el) return;
-
     var raw = el.getAttribute("data-typing") || "";
     var texts = [];
     var parts = raw.split("|");
@@ -211,40 +144,29 @@
     if (!texts.length) return;
 
     var ti = 0, ci = 0, del = false;
-
     function type() {
       var cur = texts[ti];
       if (!del) {
         ci++;
         el.textContent = cur.slice(0, ci);
-        if (ci >= cur.length) {
-          setTimeout(function () { del = true; type(); }, 2500);
-          return;
-        }
+        if (ci >= cur.length) { setTimeout(function () { del = true; type(); }, 2500); return; }
         setTimeout(type, 55 + Math.random() * 35);
       } else {
         ci--;
         el.textContent = cur.slice(0, ci);
-        if (ci <= 0) {
-          del = false;
-          ti = (ti + 1) % texts.length;
-          setTimeout(type, 400);
-          return;
-        }
+        if (ci <= 0) { del = false; ti = (ti + 1) % texts.length; setTimeout(type, 400); return; }
         setTimeout(type, 28);
       }
     }
-
     setTimeout(type, 600);
   }
 
   // ========================================================================
-  // 4. ANIMATED COUNTERS
+  // 3. ANIMATED COUNTERS
   // ========================================================================
   function initCounters() {
     var counters = document.querySelectorAll("[data-count]");
     if (!counters.length) return;
-
     var obs = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
         var e = entries[i];
@@ -253,59 +175,21 @@
           (function (target) {
             var end = parseInt(target.dataset.count, 10);
             var suffix = target.dataset.suffix || "";
-            var s = 0;
-            var step = end / 125; // ~2 seconds at 60fps
+            var s = 0, step = end / 125;
             var t = setInterval(function () {
               s += step;
-              if (s >= end) {
-                target.textContent = end + suffix;
-                clearInterval(t);
-              } else {
-                target.textContent = Math.floor(s) + suffix;
-              }
+              if (s >= end) { target.textContent = end + suffix; clearInterval(t); }
+              else target.textContent = Math.floor(s) + suffix;
             }, 16);
           })(e.target);
         }
       }
     }, { threshold: 0.3 });
-
-    for (var i = 0; i < counters.length; i++) {
-      obs.observe(counters[i]);
-    }
+    for (var i = 0; i < counters.length; i++) obs.observe(counters[i]);
   }
 
   // ========================================================================
-  // 5. BENTO CELL STAGGER REVEAL
-  // ========================================================================
-  function initBentoReveal() {
-    var cells = document.querySelectorAll(".bento-cell");
-    if (!cells.length) return;
-
-    if (REDUCED) {
-      for (var i = 0; i < cells.length; i++) cells[i].classList.add("is-visible");
-      return;
-    }
-
-    var obs = new IntersectionObserver(function (entries) {
-      for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
-          var target = entries[i].target;
-          var allCells = document.querySelectorAll(".bento-cell");
-          var idx = Array.prototype.indexOf.call(allCells, target);
-          target.style.transitionDelay = (idx * 0.08) + "s";
-          target.classList.add("is-visible");
-          obs.unobserve(target);
-        }
-      }
-    }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
-
-    for (var i = 0; i < cells.length; i++) {
-      obs.observe(cells[i]);
-    }
-  }
-
-  // ========================================================================
-  // 6. SCROLL REVEAL — Other al-folio elements
+  // 4. SCROLL REVEAL — Other al-folio elements (NOT bento cells)
   // ========================================================================
   function initScrollReveal() {
     var selectors = [
@@ -316,15 +200,9 @@
       ".reveal", ".reveal-up", ".reveal-left", ".reveal-right", ".reveal-scale",
       ".stats-grid > div", ".homepage-section"
     ];
-
     var els = document.querySelectorAll(selectors.join(","));
     if (!els.length) return;
-
-    if (REDUCED) {
-      for (var i = 0; i < els.length; i++) els[i].classList.add("is-visible");
-      return;
-    }
-
+    if (REDUCED) { for (var i = 0; i < els.length; i++) els[i].classList.add("is-visible"); return; }
     var obs = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
         if (entries[i].isIntersecting) {
@@ -333,40 +211,31 @@
         }
       }
     }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
-
-    for (var i = 0; i < els.length; i++) {
-      obs.observe(els[i]);
-    }
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
   }
 
   // ========================================================================
-  // 7. CURSOR GLOW
+  // 5. CURSOR GLOW
   // ========================================================================
   function initCursorGlow() {
     if (window.matchMedia("(hover: none)").matches || REDUCED) return;
-
     var glow = document.createElement("div");
     glow.className = "cursor-glow";
     document.body.appendChild(glow);
-
     var mx = 0, my = 0, cx = 0, cy = 0;
     document.addEventListener("mousemove", function (e) { mx = e.clientX; my = e.clientY; });
-
     (function anim() {
-      cx += (mx - cx) * 0.08;
-      cy += (my - cy) * 0.08;
-      glow.style.left = cx + "px";
-      glow.style.top = cy + "px";
+      cx += (mx - cx) * 0.08; cy += (my - cy) * 0.08;
+      glow.style.left = cx + "px"; glow.style.top = cy + "px";
       requestAnimationFrame(anim);
     })();
   }
 
   // ========================================================================
-  // 8. 3D CARD TILT
+  // 6. 3D CARD TILT
   // ========================================================================
   function initCardTilt() {
     if (window.matchMedia("(hover: none)").matches || REDUCED) return;
-
     var cards = document.querySelectorAll(".bento-project-card, .projects .card, [data-tilt]");
     for (var i = 0; i < cards.length; i++) {
       (function (card) {
@@ -374,8 +243,7 @@
           var r = card.getBoundingClientRect();
           var x = (e.clientX - r.left) / r.width - 0.5;
           var y = (e.clientY - r.top) / r.height - 0.5;
-          card.style.transform =
-            "perspective(800px) rotateY(" + (x * 8) + "deg) rotateX(" + (-y * 8) + "deg) translateY(-4px) scale(1.02)";
+          card.style.transform = "perspective(800px) rotateY(" + (x*8) + "deg) rotateX(" + (-y*8) + "deg) translateY(-4px) scale(1.02)";
         });
         card.addEventListener("mouseleave", function () { card.style.transform = ""; });
       })(cards[i]);
@@ -383,43 +251,32 @@
   }
 
   // ========================================================================
-  // 9. FLOATING TAGS
+  // 7. FLOATING TAGS
   // ========================================================================
   function initFloatingTags() {
     var tags = document.querySelectorAll(".research-tag");
-    for (var i = 0; i < tags.length; i++) {
-      tags[i].style.animationDelay = (i * 0.3) + "s";
-    }
+    for (var i = 0; i < tags.length; i++) tags[i].style.animationDelay = (i * 0.3) + "s";
   }
 
   // ========================================================================
-  // INIT — try-catch isolates each function
+  // INIT
   // ========================================================================
   function init() {
     var fns = [
       ["NeuralCanvas",  initNeuralCanvas],
-      ["HeroScroll",    initHeroScroll],
       ["TypingEffect",  initTypingEffect],
       ["Counters",      initCounters],
-      ["BentoReveal",   initBentoReveal],
       ["ScrollReveal",  initScrollReveal],
       ["CursorGlow",    initCursorGlow],
       ["CardTilt",      initCardTilt],
       ["FloatingTags",  initFloatingTags]
     ];
-
     for (var i = 0; i < fns.length; i++) {
-      try {
-        fns[i][1]();
-      } catch (err) {
-        console.warn("[homepage-effects] " + fns[i][0] + " failed:", err);
-      }
+      try { fns[i][1](); }
+      catch (err) { console.warn("[homepage-effects] " + fns[i][0] + " failed:", err); }
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();

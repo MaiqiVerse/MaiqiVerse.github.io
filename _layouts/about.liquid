@@ -2,35 +2,181 @@
 layout: default
 ---
 
-<!-- AL-FOLIO — Hero + Bento Grid Homepage (BULLETPROOF v4) -->
+<!-- AL-FOLIO — Hero + Bento Grid Homepage (FINAL v5) -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EMBEDDED CRITICAL CSS — Guarantees grid + snap scroll  -->
+<!-- Works even if external SCSS fails                      -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<style>
+  /* Snap scroll wrapper */
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: -5rem;
+    padding-top: 5rem;
+    scroll-snap-align: start;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 640px;
+    padding: 0 1.5rem;
+    will-change: opacity, transform, filter;
+  }
+
+  /* Avatar force size */
+  .hero-avatar {
+    display: inline-block !important;
+    position: relative;
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .hero-avatar img,
+  .hero-avatar picture img,
+  .hero-avatar figure img {
+    width: 140px !important;
+    height: 140px !important;
+    max-width: 140px !important;
+    max-height: 140px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+    display: block !important;
+  }
+  .hero-avatar figure,
+  .hero-avatar picture,
+  .hero-avatar .figure {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .hero-avatar source { display: none !important; }
+
+  /* Bento section */
+  .bento-section {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    scroll-snap-align: start;
+    will-change: opacity, transform;
+  }
+
+  /* CRITICAL: Force CSS Grid on bento */
+  .bento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    grid-auto-rows: minmax(80px, auto) !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* Column spans */
+  .bg-6 { grid-column: span 6 !important; }
+  .bg-4 { grid-column: span 4 !important; }
+  .bg-3 { grid-column: span 3 !important; }
+  .bg-2 { grid-column: span 2 !important; }
+  .br-2 { grid-row: span 2 !important; }
+
+  /* Cell base */
+  .bento-cell {
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 18px;
+    overflow: hidden !important;
+    min-width: 0 !important;
+    position: relative;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  html[data-theme="dark"] .bento-cell {
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.018);
+  }
+
+  /* Fix Bootstrap columns inside bento cells */
+  .bento-cell .row { margin: 0 !important; display: block !important; }
+  .bento-cell [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+    float: none !important;
+  }
+
+  /* Stats grid */
+  .bento-stats {
+    display: grid !important;
+    align-items: center !important;
+    padding: 22px 18px !important;
+  }
+
+  /* Compact bibliography in bento */
+  .bento-cell ol.bibliography { padding-left: 0 !important; list-style: none !important; }
+  .bento-cell ol.bibliography > li {
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    font-size: 0.82rem !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+  }
+  .bento-cell ol.bibliography > li .col-sm-2 { display: none !important; }
+
+  /* Compact news in bento */
+  .bento-cell .news table { width: 100% !important; }
+  .bento-cell .news td,
+  .bento-cell .news th { padding: 4px 2px !important; font-size: 0.82rem !important; border: none !important; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .bg-6, .bg-4, .bg-3, .bg-2 { grid-column: span 1 !important; }
+    .br-2 { grid-row: span 1 !important; }
+    .hero-avatar { width: 120px !important; height: 120px !important; }
+    .hero-avatar img { width: 110px !important; height: 110px !important; max-width: 110px !important; }
+  }
+</style>
 
 <div class="post about">
   <article>
 
     <!-- ══════════════ HERO SECTION ══════════════ -->
-    <section class="hero-section" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;width:100vw;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);margin-top:-5rem;padding-top:5rem;">
+    <section class="hero-section">
       <div class="hero-overlay"></div>
       <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
 
-      <div class="hero-content" style="position:relative;z-index:3;text-align:center;max-width:640px;padding:0 1.5rem;">
+      <div class="hero-content">
 
         {% if page.profile and page.profile.image %}
-        <!-- Avatar: inline styles guarantee 140px sizing -->
-        <div class="hero-avatar" style="display:inline-block;position:relative;width:150px;height:150px;margin-bottom:1.5rem;">
-          <div class="hero-avatar-ring" style="position:absolute;inset:-5px;border-radius:22px;background:conic-gradient(from 0deg,#ff7043,#ff6b6b,#ffb74d,#f06292,#ff7043);z-index:0;"></div>
+        <div class="hero-avatar">
+          <div class="hero-avatar-ring"></div>
           <div style="position:absolute;inset:-2px;border-radius:20px;background:var(--global-bg-color);z-index:1;"></div>
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           <img
             src="{{ profile_image_path | relative_url }}"
             alt="{{ page.profile.image_alt | default: 'profile photo' }}"
-            style="position:relative;z-index:2;width:140px !important;height:140px !important;max-width:140px !important;object-fit:cover;border-radius:18px;display:block !important;margin:5px;"
+            style="position:relative;z-index:2;margin:5px;"
             {% if page.profile.image_circular %}class="rounded-circle"{% endif %}
           />
         </div>
         {% endif %}
 
         <div class="hero-prompt">$ whoami</div>
-
         <h1 class="hero-name">{{ site.first_name }} {{ site.last_name }}</h1>
 
         {% if page.subtitle %}
@@ -54,7 +200,6 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Social icons from _config.yml -->
         <div class="hero-social" style="display:flex;gap:10px;justify-content:center;">
           {% if site.email %}
             <a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
@@ -75,7 +220,6 @@ layout: default
             <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
           {% endif %}
         </div>
-
       </div>
 
       <div class="hero-scroll-hint">
@@ -85,7 +229,8 @@ layout: default
     </section>
 
     <!-- ══════════════ BENTO GRID ══════════════ -->
-    <section class="bento-section" style="max-width:920px;margin:0 auto;padding:1.5rem 0 4rem;">
+    <!-- Uses bg-6/bg-4/bg-3/bg-2 for grid spans  -->
+    <section class="bento-section" id="bento">
 
       <div class="bento-divider" style="display:flex;align-items:center;gap:14px;margin-bottom:2rem;">
         <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,112,67,0.2));"></div>
@@ -93,12 +238,10 @@ layout: default
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,112,67,0.2),transparent);"></div>
       </div>
 
-      <!-- Force grid with inline style as ultimate fallback -->
-      <div class="bento-grid" style="display:grid !important;grid-template-columns:repeat(6,1fr) !important;gap:14px !important;">
+      <div class="bento-grid">
 
-        <!-- Stats: span 6 -->
         {% if page.stats %}
-        <div class="bento-cell bento-col-6 bento-stats" style="grid-column:span 6;display:grid !important;grid-template-columns:repeat({{ page.stats | size }},1fr) !important;padding:22px 18px;">
+        <div class="bento-cell bg-6 bento-stats" style="grid-template-columns:repeat({{ page.stats | size }},1fr);">
           {% for stat in page.stats %}
           <div class="bento-stat-item" style="text-align:center;">
             <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
@@ -108,18 +251,16 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- News: span 3 -->
         {% assign news_enabled = site.announcements.enabled | default: site.news.enabled %}
         {% if page.news and news_enabled %}
-        <div class="bento-cell bento-col-3 bento-row-2" style="grid-column:span 3;grid-row:span 2;overflow:auto;">
+        <div class="bento-cell bg-3 br-2" style="overflow:auto;">
           <div class="bento-section-label">// Latest News</div>
           {% include news.liquid limit=true %}
         </div>
         {% endif %}
 
-        <!-- Publications: span 3 -->
         {% if page.selected_papers %}
-        <div class="bento-cell bento-col-3 bento-row-2 bento-cell-glow" style="grid-column:span 3;grid-row:span 2;overflow:auto;">
+        <div class="bento-cell bg-3 br-2 bento-cell-glow" style="overflow:auto;">
           <div class="bento-section-label">// Selected Publications</div>
           {% include selected_papers.liquid %}
           <div style="text-align:center;margin-top:12px;">
@@ -128,11 +269,10 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Projects: 3 × span 2 -->
         {% if site.enable_project_categories and page.selected_projects %}
           {% assign sel_projects = site.projects | where: "selected", true | sort: "importance" %}
           {% for project in sel_projects limit: 3 %}
-          <div class="bento-cell bento-col-2 bento-project-card" style="grid-column:span 2;">
+          <div class="bento-cell bg-2 bento-project-card">
             {% if project.img %}
             <div class="bento-project-img">
               <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy" style="width:100%;height:70px;object-fit:cover;display:block;border-radius:10px;" />
@@ -148,9 +288,8 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        <!-- Timeline: span 4 -->
         {% if page.timeline %}
-        <div class="bento-cell bento-col-4 bento-timeline" style="grid-column:span 4;display:flex !important;align-items:center;justify-content:center;gap:0;padding:16px 18px;">
+        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:0;padding:16px 18px;">
           {% for milestone in page.timeline %}
           <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;">
             {% unless forloop.first %}<div class="timeline-connector" style="position:absolute;right:100%;top:5px;width:40px;height:1px;background:rgba(255,112,67,0.15);"></div>{% endunless %}
@@ -162,17 +301,15 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Quote: span 2 -->
         {% if page.quote %}
-        <div class="bento-cell bento-col-2 bento-quote" style="grid-column:span 2;display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+        <div class="bento-cell bg-2 bento-quote" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
           <div class="bento-quote-text">"{{ page.quote.text }}"</div>
           <div class="bento-quote-author">— {{ page.quote.author }}</div>
         </div>
         {% endif %}
 
-        <!-- Latest Posts: span 6 -->
         {% if page.latest_posts %}
-        <div class="bento-cell bento-col-6" style="grid-column:span 6;">
+        <div class="bento-cell bg-6">
           <div class="bento-section-label">// Recent Posts</div>
           {% include latest_posts.liquid %}
         </div>
@@ -183,3 +320,122 @@ layout: default
 
   </article>
 </div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EMBEDDED SCROLL EFFECTS — Works even without external JS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  "use strict";
+
+  var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ── Snap scroll: auto-scroll to bento when scrolled past threshold ──
+  function initSnapScroll() {
+    if (REDUCED) return;
+
+    var heroSection = document.querySelector(".hero-section");
+    var bentoSection = document.getElementById("bento");
+    if (!heroSection || !bentoSection) return;
+
+    var snapped = false;
+    var scrollTimeout;
+
+    window.addEventListener("scroll", function () {
+      if (snapped) return;
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function () {
+        var scrollY = window.pageYOffset || 0;
+        var vh = window.innerHeight;
+
+        // When user scrolls past 30% of hero, snap to bento
+        if (scrollY > vh * 0.3 && scrollY < vh * 1.2) {
+          snapped = true;
+          bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          // Re-enable snap after scroll completes
+          setTimeout(function () { snapped = false; }, 1500);
+        }
+      }, 80); // Debounce — only trigger after scroll stops for 80ms
+    }, { passive: true });
+  }
+
+  // ── Hero parallax + bento entrance ──
+  function initHeroTransition() {
+    if (REDUCED) return;
+
+    var heroContent = document.querySelector(".hero-content");
+    var heroHint = document.querySelector(".hero-scroll-hint");
+    var bentoSection = document.getElementById("bento");
+    var canvas = document.getElementById("neural-canvas");
+
+    if (!heroContent) return;
+
+    // Initial bento state
+    if (bentoSection) {
+      bentoSection.style.opacity = "0";
+      bentoSection.style.transform = "translateY(40px)";
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var scrollY = window.pageYOffset || 0;
+        var vh = window.innerHeight;
+
+        // Hero fade: 0 → 60% viewport
+        var hp = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
+        heroContent.style.opacity = String(1 - hp * 0.85);
+        heroContent.style.transform = "translateY(" + (-hp * 60) + "px) scale(" + (1 - hp * 0.08) + ")";
+        heroContent.style.filter = "blur(" + (hp * 3) + "px)";
+
+        if (heroHint) heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
+        if (canvas) canvas.style.opacity = String(Math.max(0.15, 1 - hp * 0.85));
+
+        // Bento entrance: starts at 35%
+        if (bentoSection) {
+          var bp = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
+          bentoSection.style.opacity = String(bp);
+          bentoSection.style.transform = "translateY(" + ((1 - bp) * 40) + "px)";
+        }
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // ── Bento cell stagger reveal ──
+  function initBentoReveal() {
+    var cells = document.querySelectorAll(".bento-cell");
+    if (!cells.length) return;
+
+    if (REDUCED) {
+      for (var i = 0; i < cells.length; i++) cells[i].classList.add("is-visible");
+      return;
+    }
+
+    var obs = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          var t = entries[i].target;
+          var idx = Array.prototype.indexOf.call(cells, t);
+          t.style.transitionDelay = (idx * 0.08) + "s";
+          t.classList.add("is-visible");
+          obs.unobserve(t);
+        }
+      }
+    }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
+
+    for (var i = 0; i < cells.length; i++) obs.observe(cells[i]);
+  }
+
+  try { initSnapScroll(); } catch(e) { console.warn("snapScroll:", e); }
+  try { initHeroTransition(); } catch(e) { console.warn("heroTransition:", e); }
+  try { initBentoReveal(); } catch(e) { console.warn("bentoReveal:", e); }
+})();
+</script>
