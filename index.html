@@ -60,7 +60,8 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // ── Directional snap: ONLY snap DOWN, never up ──
+  // ── Bidirectional snap: DOWN→bento, UP→hero ──
+  var heroSection = document.querySelector(".hero-section");
   var snapCooldown = false;
   var scrollTimer;
 
@@ -72,13 +73,22 @@
       var scrollY = window.pageYOffset || 0;
       var vh = window.innerHeight;
 
-      // Only snap DOWN when in the transition zone (30%~90% of hero)
-      if (scrollDirection === "down" && scrollY > vh * 0.3 && scrollY < vh * 0.9 && bentoSection) {
-        snapCooldown = true;
+      // Transition zone = 30%~90% of hero height
+      var inZone = scrollY > vh * 0.25 && scrollY < vh * 0.95;
+      if (!inZone) return;
+
+      snapCooldown = true;
+
+      if (scrollDirection === "down" && bentoSection) {
+        // Scrolling down → snap to bento
         bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        setTimeout(function () { snapCooldown = false; }, 2000);
+      } else if (scrollDirection === "up" && heroSection) {
+        // Scrolling up → snap back to hero top
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    }, 120);
+
+      setTimeout(function () { snapCooldown = false; }, 1800);
+    }, 100);
   }, { passive: true });
 
   // ── Bento cell stagger reveal ──
