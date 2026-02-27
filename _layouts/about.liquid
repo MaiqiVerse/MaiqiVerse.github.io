@@ -2,30 +2,25 @@
 layout: default
 ---
 
-<!-- AL-FOLIO — Hero + Bento Grid Homepage (FINAL v5) -->
+<!-- AL-FOLIO — Hero + Bento Grid Homepage (v6 — centering + directional snap) -->
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- EMBEDDED CRITICAL CSS — Guarantees grid + snap scroll  -->
-<!-- Works even if external SCSS fails                      -->
-<!-- ═══════════════════════════════════════════════════════ -->
 <style>
-  /* Snap scroll wrapper */
-  .hero-section {
+  /* ── Kill container constraints for hero ── */
+  .about .hero-section {
     position: relative;
     min-height: 100vh;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden;
-    width: 100vw;
+    /* Break out of EVERY parent wrapper */
+    width: 100vw !important;
+    max-width: none !important;
     margin-left: 50% !important;
     transform: translateX(-50%) !important;
-    padding: 5rem 0 0 0 !important;  /* 清除 container 的 padding */
-    max-width: none !important;
-    margin-right: calc(-50vw + 50%);
+    padding: 5rem 0 0 0 !important;
     margin-top: -5rem;
-    padding-top: 5rem;
-    scroll-snap-align: start;
+    box-sizing: border-box;
   }
 
   .hero-content {
@@ -33,11 +28,15 @@ layout: default
     z-index: 3;
     text-align: center;
     max-width: 640px;
+    width: 100%;
     padding: 0 1.5rem;
+    /* Reset any inherited margins/paddings */
+    margin-left: auto !important;
+    margin-right: auto !important;
     will-change: opacity, transform, filter;
   }
 
-  /* Avatar force size */
+  /* Avatar */
   .hero-avatar {
     display: inline-block !important;
     position: relative;
@@ -67,16 +66,15 @@ layout: default
   }
   .hero-avatar source { display: none !important; }
 
-  /* Bento section */
+  /* Bento */
   .bento-section {
     max-width: 920px;
     margin: 0 auto;
     padding: 1.5rem 1rem 4rem;
-    scroll-snap-align: start;
     will-change: opacity, transform;
   }
 
-  /* CRITICAL: Force CSS Grid on bento */
+  /* Force CSS Grid */
   .bento-grid {
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
@@ -85,14 +83,12 @@ layout: default
     width: 100% !important;
   }
 
-  /* Column spans */
   .bg-6 { grid-column: span 6 !important; }
   .bg-4 { grid-column: span 4 !important; }
   .bg-3 { grid-column: span 3 !important; }
   .bg-2 { grid-column: span 2 !important; }
   .br-2 { grid-row: span 2 !important; }
 
-  /* Cell base */
   .bento-cell {
     border-radius: 16px;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -104,50 +100,30 @@ layout: default
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-
   html[data-theme="dark"] .bento-cell {
     border-color: rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.018);
   }
 
-  /* Fix Bootstrap columns inside bento cells */
+  /* Fix Bootstrap inside bento */
   .bento-cell .row { margin: 0 !important; display: block !important; }
   .bento-cell [class*="col-"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: none !important;
-    padding: 0 !important;
-    float: none !important;
+    width: 100% !important; max-width: 100% !important;
+    flex: none !important; padding: 0 !important; float: none !important;
   }
 
-  /* Stats grid */
-  .bento-stats {
-    display: grid !important;
-    align-items: center !important;
-    padding: 22px 18px !important;
-  }
-
-  /* Compact bibliography in bento */
+  .bento-stats { display: grid !important; align-items: center !important; padding: 22px 18px !important; }
   .bento-cell ol.bibliography { padding-left: 0 !important; list-style: none !important; }
   .bento-cell ol.bibliography > li {
-    padding: 10px !important;
-    margin-bottom: 8px !important;
-    font-size: 0.82rem !important;
-    overflow: hidden !important;
-    word-break: break-word !important;
+    padding: 10px !important; margin-bottom: 8px !important;
+    font-size: 0.82rem !important; overflow: hidden !important; word-break: break-word !important;
   }
   .bento-cell ol.bibliography > li .col-sm-2 { display: none !important; }
-
-  /* Compact news in bento */
   .bento-cell .news table { width: 100% !important; }
-  .bento-cell .news td,
-  .bento-cell .news th { padding: 4px 2px !important; font-size: 0.82rem !important; border: none !important; }
+  .bento-cell .news td, .bento-cell .news th { padding: 4px 2px !important; font-size: 0.82rem !important; border: none !important; }
 
-  /* Mobile */
   @media (max-width: 768px) {
-    .bento-grid {
-      grid-template-columns: 1fr !important;
-    }
+    .bento-grid { grid-template-columns: 1fr !important; }
     .bg-6, .bg-4, .bg-3, .bg-2 { grid-column: span 1 !important; }
     .br-2 { grid-row: span 1 !important; }
     .hero-avatar { width: 120px !important; height: 120px !important; }
@@ -158,7 +134,7 @@ layout: default
 <div class="post about">
   <article>
 
-    <!-- ══════════════ HERO SECTION ══════════════ -->
+    <!-- ══════════════ HERO ══════════════ -->
     <section class="hero-section">
       <div class="hero-overlay"></div>
       <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
@@ -170,12 +146,10 @@ layout: default
           <div class="hero-avatar-ring"></div>
           <div style="position:absolute;inset:-2px;border-radius:20px;background:var(--global-bg-color);z-index:1;"></div>
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          <img
-            src="{{ profile_image_path | relative_url }}"
-            alt="{{ page.profile.image_alt | default: 'profile photo' }}"
-            style="position:relative;z-index:2;margin:5px;"
-            {% if page.profile.image_circular %}class="rounded-circle"{% endif %}
-          />
+          <img src="{{ profile_image_path | relative_url }}"
+               alt="{{ page.profile.image_alt | default: 'profile photo' }}"
+               style="position:relative;z-index:2;margin:5px;"
+               {% if page.profile.image_circular %}class="rounded-circle"{% endif %} />
         </div>
         {% endif %}
 
@@ -204,24 +178,12 @@ layout: default
         {% endif %}
 
         <div class="hero-social" style="display:flex;gap:10px;justify-content:center;">
-          {% if site.email %}
-            <a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
-          {% endif %}
-          {% if site.github_username %}
-            <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
-          {% endif %}
-          {% if site.scholar_userid %}
-            <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
-          {% endif %}
-          {% if site.twitter_username %}
-            <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-          {% endif %}
-          {% if site.linkedin_username %}
-            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          {% endif %}
-          {% if site.orcid_id %}
-            <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
-          {% endif %}
+          {% if site.email %}<a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+          {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>{% endif %}
+          {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>{% endif %}
+          {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
+          {% if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
+          {% if site.orcid_id %}<a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>{% endif %}
         </div>
       </div>
 
@@ -231,8 +193,7 @@ layout: default
       </div>
     </section>
 
-    <!-- ══════════════ BENTO GRID ══════════════ -->
-    <!-- Uses bg-6/bg-4/bg-3/bg-2 for grid spans  -->
+    <!-- ══════════════ BENTO ══════════════ -->
     <section class="bento-section" id="bento">
 
       <div class="bento-divider" style="display:flex;align-items:center;gap:14px;margin-bottom:2rem;">
@@ -278,7 +239,8 @@ layout: default
           <div class="bento-cell bg-2 bento-project-card">
             {% if project.img %}
             <div class="bento-project-img">
-              <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy" style="width:100%;height:70px;object-fit:cover;display:block;border-radius:10px;" />
+              <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy"
+                   style="width:100%;height:70px;object-fit:cover;display:block;border-radius:10px;" />
             </div>
             {% else %}
             <div class="bento-project-img bento-project-placeholder"></div>
@@ -325,104 +287,92 @@ layout: default
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- EMBEDDED SCROLL EFFECTS — Works even without external JS -->
+<!-- EMBEDDED JS — Hero transition + directional snap       -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <script>
 (function () {
   "use strict";
 
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (REDUCED) return;
 
-  // ── Snap scroll: auto-scroll to bento when scrolled past threshold ──
-  function initSnapScroll() {
-    if (REDUCED) return;
+  var heroContent = document.querySelector(".hero-content");
+  var heroHint = document.querySelector(".hero-scroll-hint");
+  var bentoSection = document.getElementById("bento");
+  var canvas = document.getElementById("neural-canvas");
 
-    var heroSection = document.querySelector(".hero-section");
-    var bentoSection = document.getElementById("bento");
-    if (!heroSection || !bentoSection) return;
+  if (!heroContent) return;
 
-    var snapped = false;
-    var scrollTimeout;
-
-    window.addEventListener("scroll", function () {
-      if (snapped) return;
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function () {
-        var scrollY = window.pageYOffset || 0;
-        var vh = window.innerHeight;
-
-        // When user scrolls past 30% of hero, snap to bento
-        scrollDirection = scrollY > lastScrollY ? "down" : "up";
-        if (scrollDirection === "down" && scrollY > vh * 0.3 && scrollY < vh * 0.9) {
-          snapped = true;
-          bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
-
-          // Re-enable snap after scroll completes
-          setTimeout(function () { snapped = false; }, 1500);
-        }
-      }, 80); // Debounce — only trigger after scroll stops for 80ms
-    }, { passive: true });
+  // ── Initial state ──
+  if (bentoSection) {
+    bentoSection.style.opacity = "0";
+    bentoSection.style.transform = "translateY(40px)";
   }
+
+  // ── Scroll direction tracking ──
+  var lastScrollY = 0;
+  var scrollDirection = "down"; // "up" or "down"
 
   // ── Hero parallax + bento entrance ──
-  function initHeroTransition() {
-    if (REDUCED) return;
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var scrollY = window.pageYOffset || 0;
+      var vh = window.innerHeight;
 
-    var heroContent = document.querySelector(".hero-content");
-    var heroHint = document.querySelector(".hero-scroll-hint");
-    var bentoSection = document.getElementById("bento");
-    var canvas = document.getElementById("neural-canvas");
+      // Track direction
+      scrollDirection = scrollY > lastScrollY ? "down" : "up";
+      lastScrollY = scrollY;
 
-    if (!heroContent) return;
+      // Hero fade: 0→60%
+      var hp = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
+      heroContent.style.opacity = String(1 - hp * 0.85);
+      heroContent.style.transform = "translateY(" + (-hp * 60) + "px) scale(" + (1 - hp * 0.08) + ")";
+      heroContent.style.filter = "blur(" + (hp * 3) + "px)";
 
-    // Initial bento state
-    if (bentoSection) {
-      bentoSection.style.opacity = "0";
-      bentoSection.style.transform = "translateY(40px)";
-    }
+      if (heroHint) heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
+      if (canvas) canvas.style.opacity = String(Math.max(0.15, 1 - hp * 0.85));
 
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var scrollY = window.pageYOffset || 0;
-        var vh = window.innerHeight;
+      // Bento entrance
+      if (bentoSection) {
+        var bp = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
+        bentoSection.style.opacity = String(bp);
+        bentoSection.style.transform = "translateY(" + ((1 - bp) * 40) + "px)";
+      }
 
-        // Hero fade: 0 → 60% viewport
-        var hp = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
-        heroContent.style.opacity = String(1 - hp * 0.85);
-        heroContent.style.transform = "translateY(" + (-hp * 60) + "px) scale(" + (1 - hp * 0.08) + ")";
-        heroContent.style.filter = "blur(" + (hp * 3) + "px)";
-
-        if (heroHint) heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
-        if (canvas) canvas.style.opacity = String(Math.max(0.15, 1 - hp * 0.85));
-
-        // Bento entrance: starts at 35%
-        if (bentoSection) {
-          var bp = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
-          bentoSection.style.opacity = String(bp);
-          bentoSection.style.transform = "translateY(" + ((1 - bp) * 40) + "px)";
-        }
-        ticking = false;
-      });
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+      ticking = false;
+    });
   }
 
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // ── Directional snap: ONLY snap DOWN, never up ──
+  var snapCooldown = false;
+  var scrollTimer;
+
+  window.addEventListener("scroll", function () {
+    if (snapCooldown) return;
+
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () {
+      var scrollY = window.pageYOffset || 0;
+      var vh = window.innerHeight;
+
+      // Only snap DOWN when in the transition zone (30%~90% of hero)
+      if (scrollDirection === "down" && scrollY > vh * 0.3 && scrollY < vh * 0.9 && bentoSection) {
+        snapCooldown = true;
+        bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(function () { snapCooldown = false; }, 2000);
+      }
+    }, 120);
+  }, { passive: true });
+
   // ── Bento cell stagger reveal ──
-  function initBentoReveal() {
-    var cells = document.querySelectorAll(".bento-cell");
-    if (!cells.length) return;
-
-    if (REDUCED) {
-      for (var i = 0; i < cells.length; i++) cells[i].classList.add("is-visible");
-      return;
-    }
-
+  var cells = document.querySelectorAll(".bento-cell");
+  if (cells.length) {
     var obs = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
         if (entries[i].isIntersecting) {
@@ -434,12 +384,8 @@ layout: default
         }
       }
     }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
-
     for (var i = 0; i < cells.length; i++) obs.observe(cells[i]);
   }
 
-  try { initSnapScroll(); } catch(e) { console.warn("snapScroll:", e); }
-  try { initHeroTransition(); } catch(e) { console.warn("heroTransition:", e); }
-  try { initBentoReveal(); } catch(e) { console.warn("bentoReveal:", e); }
 })();
 </script>
