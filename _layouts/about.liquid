@@ -18,7 +18,10 @@ layout: default
     justify-content: center !important;
     overflow: hidden;
     width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 5rem 0 0 0 !important;  /* 清除 container 的 padding */
+    max-width: none !important;
     margin-right: calc(-50vw + 50%);
     margin-top: -5rem;
     padding-top: 5rem;
@@ -350,7 +353,8 @@ layout: default
         var vh = window.innerHeight;
 
         // When user scrolls past 30% of hero, snap to bento
-        if (scrollY > vh * 0.3 && scrollY < vh * 1.2) {
+        scrollDirection = scrollY > lastScrollY ? "down" : "up";
+        if (scrollDirection === "down" && scrollY > vh * 0.3 && scrollY < vh * 0.9) {
           snapped = true;
           bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
 
