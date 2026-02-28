@@ -204,6 +204,7 @@ layout: default
 
       <div class="bento-grid">
 
+        <!-- Row 1: Stats — full width -->
         {% if page.stats %}
         <div class="bento-cell bg-6 bento-stats" style="grid-template-columns:repeat({{ page.stats | size }},1fr);">
           {% for stat in page.stats %}
@@ -215,16 +216,9 @@ layout: default
         </div>
         {% endif %}
 
-        {% assign news_enabled = site.announcements.enabled | default: site.news.enabled %}
-        {% if page.news and news_enabled %}
-        <div class="bento-cell bg-3 br-2" style="overflow:auto;">
-          <div class="bento-section-label">// Latest News</div>
-          {% include news.liquid limit=true %}
-        </div>
-        {% endif %}
-
+        <!-- Row 2-3: Publications (4 cols, tall) + News (2 cols, tall) -->
         {% if page.selected_papers %}
-        <div class="bento-cell bg-3 br-2 bento-cell-glow" style="overflow:auto;">
+        <div class="bento-cell bg-4 br-2 bento-cell-glow" style="overflow:auto;">
           <div class="bento-section-label">// Selected Publications</div>
           {% include selected_papers.liquid %}
           <div style="text-align:center;margin-top:12px;">
@@ -233,34 +227,23 @@ layout: default
         </div>
         {% endif %}
 
-        {% if site.enable_project_categories and page.selected_projects %}
-          {% assign sel_projects = site.projects | where: "selected", true | sort: "importance" %}
-          {% for project in sel_projects limit: 3 %}
-          <div class="bento-cell bg-2 bento-project-card">
-            {% if project.img %}
-            <div class="bento-project-img">
-              <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy"
-                   style="width:100%;height:70px;object-fit:cover;display:block;border-radius:10px;" />
-            </div>
-            {% else %}
-            <div class="bento-project-img bento-project-placeholder"></div>
-            {% endif %}
-            <a href="{{ project.url | relative_url }}" class="bento-project-title">{{ project.title }}</a>
-            {% if project.description %}
-            <div class="bento-project-desc">{{ project.description | truncate: 80 }}</div>
-            {% endif %}
-          </div>
-          {% endfor %}
+        {% assign news_enabled = site.announcements.enabled | default: site.news.enabled %}
+        {% if page.news and news_enabled %}
+        <div class="bento-cell bg-2 br-2" style="overflow:auto;">
+          <div class="bento-section-label">// News</div>
+          {% include news.liquid limit=true %}
+        </div>
         {% endif %}
 
+        <!-- Row 4: Timeline (4 cols) + Visitor Map (2 cols) -->
         {% if page.timeline %}
-        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:0;padding:16px 18px;">
+        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:24px;padding:20px 24px;">
           {% for milestone in page.timeline %}
-          <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;">
-            {% unless forloop.first %}<div class="timeline-connector" style="position:absolute;right:100%;top:5px;width:40px;height:1px;background:rgba(255,112,67,0.15);"></div>{% endunless %}
-            <div class="timeline-dot"></div>
-            <div class="timeline-label">{{ milestone.title }}</div>
-            <div class="timeline-year">{{ milestone.year }}</div>
+          <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;">
+            {% unless forloop.first %}<div class="timeline-connector" style="position:absolute;right:100%;top:8px;width:30px;height:2px;background:rgba(255,112,67,0.2);"></div>{% endunless %}
+            <div class="timeline-dot" style="width:12px;height:12px;"></div>
+            <div class="timeline-label" style="font-size:0.95rem;font-weight:600;letter-spacing:0.02em;">{{ milestone.title }}</div>
+            <div class="timeline-year" style="font-size:0.85rem;opacity:0.7;">{{ milestone.year }}</div>
           </div>
           {% endfor %}
         </div>
@@ -272,13 +255,6 @@ layout: default
           <script type="text/javascript" id="mapmyvisitors"
             src="//mapmyvisitors.com/map.js?d=i4P4uo_Y8ciQWzf5wFIz44GsCiFMv-skPn4lcBguqOo&cl=ffffff&w=a">
           </script>
-        </div>
-        {% endif %}
-
-        {% if page.latest_posts %}
-        <div class="bento-cell bg-6">
-          <div class="bento-section-label">// Recent Posts</div>
-          {% include latest_posts.liquid %}
         </div>
         {% endif %}
 

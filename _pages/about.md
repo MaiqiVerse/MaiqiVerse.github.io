@@ -44,7 +44,7 @@ timeline:
 
 selected_papers: true
 social: true
-news: false
+news: true
 visitor_map: true
 latest_posts:
   enabled: false
