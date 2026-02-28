@@ -1,115 +1,77 @@
----
----
+% ==========================================================================
+% Maiqi Jiang — Publication List
+% Place at: _bibliography/papers.bib
+% ==========================================================================
 
-@string{aps = {American Physical Society,}}
+% ------------------------------------------------------------------
+% ACCEPTED / PUBLISHED
+% ------------------------------------------------------------------
 
-@book{einstein1920relativity,
-  title     = {Relativity: the Special and General Theory},
-  author    = {Einstein, Albert},
-  year      = {1920},
-  publisher = {Methuen & Co Ltd},
-  html      = {relativity.html}
+@inproceedings{nafee2025drike,
+  title     = {Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization},
+  author    = {Nafee*, Mahmud Wasif and Jiang*, Maiqi and Chen, Haipeng and Zhang, Yanfu},
+      editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  selected  = {true},
+  abbr      = {EMNLP},
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.848/",
+    doi = "10.18653/v1/2025.emnlp-main.848",
+    pages = "16744--16757",
+    ISBN = "979-8-89176-332-6",
+    abstract = "Large language models (LLMs) excel at factual recall yet still propagate stale or incorrect knowledge. In{-}context knowledge editing offers a gradient-free remedy suitable for black-box APIs, but current editors rely on static demonstration sets chosen by surface-level similarity, leading to two persistent obstacles: (i) a quantity{--}quality trade-off, and (ii) lack of adaptivity to task difficulty. We address these issues by dynamically selecting supporting demonstrations according to their utility for the edit. We propose **D**ynamic **R**etriever for **I**n-Context **K**nowledge **E**diting (DR-IKE), a lightweight framework that (1) trains a BERT retriever with REINFORCE to rank demonstrations by editing reward, and (2) employs a *learnable threshold {\ensuremath{\sigma}}* to prune low-value examples, shortening the prompt when the edit is easy and expanding it when the task is hard. DR-IKE performs editing without modifying model weights, relying solely on forward passes for compatibility with black-box LLMs. On the CounterFact benchmark, it improves edit success by up to 17.1{\%}, reduces latency by 41.6{\%}, and preserves accuracy on unrelated queries{---}demonstrating scalable and adaptive knowledge editing."
 }
 
-@book{einstein1956investigations,
-  bibtex_show = {true},
-  title       = {Investigations on the Theory of the Brownian Movement},
-  author      = {Einstein, Albert},
-  year        = {1956},
-  publisher   = {Courier Corporation},
-  preview     = {brownian-motion.gif}
+@inproceedings{jiang2026pairs,
+  title     = {PAIRS, Not Labels: Predicting Protein-Phenotype Associations via Link Prediction},
+  author    = {Jiang, Maiqi and Zhang, Yanfu},
+  booktitle = {IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year      = {2026},
+  abbr      = {ICASSP},
+  selected  = {true},
+  abstract  = {We formulate protein-phenotype association prediction as a link prediction task on biomedical graphs, bypassing the need for explicit phenotype labels and enabling scalable discovery of protein-phenotype relationships.}
 }
 
-@article{einstein1950meaning,
-  abbr        = {AJP},
-  bibtex_show = {true},
-  title       = {The meaning of relativity},
-  author      = {Einstein, Albert and Taub, AH},
-  journal     = {American Journal of Physics},
-  volume      = {18},
-  number      = {6},
-  pages       = {403--404},
-  year        = {1950},
-  publisher   = {American Association of Physics Teachers}
+@inproceedings{icassp2026eeg,
+  title     = {Hierarchical Convolution Multibranch Transformer for EEG Signals},
+  author    = {Others and Jiang, Maiqi},
+  booktitle = {IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year      = {2026},
+  abbr      = {ICASSP},
+  selected  = {false},
+  abstract  = {A hierarchical convolution multibranch Transformer architecture for effective EEG signal modeling, combining local convolutional feature extraction with global Transformer attention.}
 }
 
-@article{PhysRev.47.777,
-  abbr              = {PhysRev},
-  title             = {Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author            = {Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract          = {In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal           = {Phys. Rev.},
-  location          = {New Jersey},
-  volume            = {47},
-  issue             = {10},
-  pages             = {777--780},
-  numpages          = {0},
-  year              = {1935},
-  month             = {May},
-  publisher         = aps,
-  doi               = {10.1103/PhysRev.47.777},
-  url               = {https://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html              = {https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf               = {example_pdf.pdf},
-  altmetric         = {248277},
-  dimensions        = {true},
-  google_scholar_id = {qyhmnyLat1gC},
-  video             = {https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info   = {. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation        = {* Example use of superscripts<br>† Albert Einstein},
-  selected          = {true},
-  inspirehep_id     = {3255}
+% ------------------------------------------------------------------
+% PREPRINTS
+% ------------------------------------------------------------------
+
+@article{jiang2026metaxplain,
+  title   = {Is Meta-Path Attention an Explanation? Evidence of Alignment and Decoupling in Heterogeneous GNNs},
+  author  = {Jiang, Maiqi and Ali, Noman and Ding, Yiran and Zhang, Yanfu},
+  journal = {arXiv preprint arXiv:2602.08500},
+  year    = {2026},
+  arxiv   = {2602.08500},
+  abbr    = {Preprint},
+  selected = {true},
+  abstract = {Meta-path-based heterogeneous graph neural networks aggregate over meta-path-induced views, and their semantic-level attention over meta-path channels is widely used as a narrative for ``which semantics matter.'' We study this assumption empirically by asking: when does meta-path attention reflect meta-path importance, and when can it decouple? A key challenge is that most post-hoc GNN explainers are designed for homogeneous graphs, and naive adaptations to heterogeneous neighborhoods can mix semantics and confound perturbations. To enable a controlled empirical analysis, we introduce MetaXplain, a meta-path-aware post-hoc explanation protocol that applies existing explainers in the native meta-path view domain via (i) view-factorized explanations, (ii) schema-valid channel-wise perturbations, and (iii) fusion-aware attribution, without modifying the underlying predictor. We benchmark representative gradient-, perturbation-, and Shapley-style explainers on ACM, DBLP, and IMDB with HAN and HAN-GCN, comparing against xPath and type-matched random baselines under standard faithfulness metrics. To quantify attention reliability, we propose Meta-Path Attention--Explanation Alignment (MP-AEA), which measures rank correlation between learned attention weights and explanation-derived meta-path contribution scores across random runs. Our results show that meta-path-aware explanations typically outperform random controls, while MP-AEA reveals both high-alignment and statistically significant decoupling regimes depending on the dataset and backbone; moreover, retraining on explanation-induced subgraphs often preserves, and in some noisy regimes improves, predictive performance, suggesting an explanation-as-denoising effect.
+}
 }
 
-@article{einstein1905molekularkinetischen,
-  title     = {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author    = {Einstein, A.},
-  journal   = {Annalen der physik},
-  volume    = {322},
-  number    = {8},
-  pages     = {549--560},
-  year      = {1905},
-  publisher = {Wiley Online Library}
+@article{li2025autognr,
+  title   = {Automated Heterogeneous Network Learning with Non-Recursive Message Passing},
+  author  = {Li*, Zhaoqing and Jiang*, Maiqi and Chen, Shengyuan and Li, Bo and Chen, Guorong and Huang, Xiao},
+  journal = {arXiv preprint arXiv:2501.07598},
+  year    = {2025},
+  arxiv   = {2501.07598},
+  abbr    = {Preprint},
+  selected = {false},
+  abstract = {Heterogeneous information networks (HINs) can be used to model various real-world systems. As HINs consist of multiple types of nodes, edges, and node features, it is nontrivial to directly apply graph neural network (GNN) techniques in heterogeneous cases. There are two remaining major challenges. First, homogeneous message passing in a recursive manner neglects the distinct types of nodes and edges in different hops, leading to unnecessary information mixing. This often results in the incorporation of ``noise'' from uncorrelated intermediate neighbors, thereby degrading performance. Second, feature learning should be handled differently for different types, which is challenging especially when the type sizes are large. To bridge this gap, we develop a novel framework - AutoGNR, to directly utilize and automatically extract effective heterogeneous information. Instead of recursive homogeneous message passing, we introduce a non-recursive message passing mechanism for GNN to mitigate noise from uncorrelated node types in HINs. Furthermore, under the non-recursive framework, we manage to efficiently perform neural architecture search for an optimal GNN structure in a differentiable way, which can automatically define the heterogeneous paths for aggregation. Our tailored search space encompasses more effective candidates while maintaining a tractable size. Experiments show that AutoGNR consistently outperforms state-of-the-art methods on both normal and large scale real-world HIN datasets.
 }
-
-@article{einstein1905movement,
-  abbr    = {Ann. Phys.},
-  title   = {Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author  = {Einstein, A.},
-  journal = {Ann. Phys.},
-  volume  = {17},
-  pages   = {549--560},
-  year    = {1905}
-}
-
-@article{einstein1905electrodynamics,
-  title  = {On the electrodynamics of moving bodies},
-  author = {Einstein, A.},
-  year   = {1905}
-}
-
-@article{einstein1905photoelectriceffect,
-  bibtex_show = {true},
-  abbr        = {Ann. Phys.},
-  title       = {{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}},
-  author      = {Albert Einstein},
-  abstract    = {This is the abstract text.},
-  journal     = {Ann. Phys.},
-  volume      = {322},
-  number      = {6},
-  pages       = {132--148},
-  year        = {1905},
-  doi         = {10.1002/andp.19053220607},
-  award       = {Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name  = {Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show = {true},
-  title       = {Letters on wave mechanics},
-  author      = {Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year        = {1967},
-  publisher   = {Vision},
-  preview     = {wave-mechanics.gif},
-  abbr        = {Vision}
 }
