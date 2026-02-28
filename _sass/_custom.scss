@@ -1265,3 +1265,44 @@ html:not([data-theme="dark"]) .bento-project-img {
 .hero-scroll-hint {
   will-change: opacity;
 }
+
+/* ═══════════════════════════════════════════════════
+   PUBLICATIONS PAGE FIX — append to _sass/_custom.scss
+   ═══════════════════════════════════════════════════ */
+
+/* Ensure publication entries are visible */
+.bibliography {
+  ol.bibliography {
+    li {
+      color: var(--global-text-color, #2d2d2d) !important;
+
+      .title {
+        color: var(--global-text-color, #2d2d2d) !important;
+        font-weight: 600 !important;
+      }
+
+      .author {
+        color: var(--global-text-color, #2d2d2d) !important;
+        opacity: 0.85;
+      }
+
+      .periodical {
+        color: var(--global-text-color, #2d2d2d) !important;
+        opacity: 0.7;
+      }
+
+      .links {
+        a {
+          color: var(--global-theme-color, #ff7043) !important;
+        }
+      }
+
+      .abbr {
+        abbr {
+          color: var(--global-theme-color, #ff7043) !important;
+          border-color: var(--global-theme-color, #ff7043) !important;
+        }
+      }
+    }
+  }
+}
