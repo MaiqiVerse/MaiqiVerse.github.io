@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. Student in Computer Science, <a href='https://www.wm.edu/'>College of William & Mary</a>
+subtitle: PhD Student @ <a href='https://www.wm.edu/as/computerscience/'>William & Mary CS</a>. Efficient & Explainable AI.
 
 profile:
   align: right
@@ -10,16 +10,16 @@ profile:
   image_circular: false
 
 typing_tagline:
-  - "Making foundation models efficient for real-world deployment"
-  - "Bridging explainability and efficiency in AI systems"
-  - "Building intelligent systems under resource constraints"
+  - "Making foundation models efficient for the real world"
+  - "Building explainable AI for complex systems"
+  - "Bridging efficiency and interpretability in deep learning"
 
 research_interests:
-  - "Efficient Foundation Models"
-  - "LLM Pruning & Federated Tuning"
+  - "LLM Efficiency"
+  - "Model Compression"
   - "Graph Neural Networks"
   - "Explainable AI"
-  - "Connected Vehicles / V2X"
+  - "Federated Learning"
 
 stats:
   - count: 3
@@ -45,12 +45,13 @@ timeline:
 selected_papers: true
 social: true
 news: false
+visitor_map: true
 latest_posts:
   enabled: false
 ---
 
-I am a first-year Ph.D. student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by [Prof. Yanfu Zhang](https://yanfuzhang.github.io/). My research focuses on building efficient and explainable AI systems that work under real-world constraints — from on-device deployment to bandwidth-limited communication in connected vehicles.
+I am a first-year PhD student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by Prof. [Yanfu Zhang](https://yanfuzhang.github.io/). My research focuses on building **efficient and explainable foundation models** for resource-constrained, real-world systems.
 
-My current work spans three connected directions: (1) efficient foundation models through federated tuning and structural pruning, (2) explainability methods for heterogeneous graph neural networks, and (3) cooperative perception in V2X systems. I also maintain an active interest in biomedical graph learning.
+My current work spans three interconnected directions: (1) **efficient LLM adaptation** under federated and on-device deployment constraints, including structured pruning and parameter-efficient tuning; (2) **explainability for graph neural networks and beyond**, investigating the faithfulness of attention-based explanations in heterogeneous GNNs; and (3) **high-impact applications** in connected vehicles (V2X) and biomedical graph learning.
 
-Previously, I obtained my M.Sc. in Information Technology (with Distinction) from [The Hong Kong Polytechnic University](https://www.polyu.edu.hk/) and my B.S. in Biomedical Engineering from [Northeastern University, China](http://english.neu.edu.cn/).
+Previously, I received my M.Sc. (with Distinction) from [The Hong Kong Polytechnic University](https://www.polyu.edu.hk/) and my B.S. from [Northeastern University, China](http://www.neu.edu.cn/).

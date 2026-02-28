@@ -266,10 +266,12 @@ layout: default
         </div>
         {% endif %}
 
-        {% if page.quote %}
-        <div class="bento-cell bg-2 bento-quote" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-          <div class="bento-quote-text">"{{ page.quote.text }}"</div>
-          <div class="bento-quote-author">— {{ page.quote.author }}</div>
+        {% if page.visitor_map %}
+        <div class="bento-cell bg-2" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;">
+          <div class="bento-section-label" style="margin-bottom:8px;">// Visitors</div>
+          <script type="text/javascript" id="mapmyvisitors"
+            src="//mapmyvisitors.com/map.js?d=i4P4uo_Y8ciQWzf5wFIz44GsCiFMv-skPn4lcBguqOo&cl=ffffff&w=a">
+          </script>
         </div>
         {% endif %}
 
