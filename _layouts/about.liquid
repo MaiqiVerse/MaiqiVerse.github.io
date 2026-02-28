@@ -227,8 +227,7 @@ layout: default
         </div>
         {% endif %}
 
-        {% assign news_enabled = site.announcements.enabled | default: site.news.enabled %}
-        {% if page.news and news_enabled %}
+        {% if page.news %}
         <div class="bento-cell bg-2 br-2" style="overflow:auto;">
           <div class="bento-section-label">// News</div>
           {% include news.liquid limit=true %}
@@ -237,13 +236,17 @@ layout: default
 
         <!-- Row 4: Timeline (4 cols) + Visitor Map (2 cols) -->
         {% if page.timeline %}
-        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:24px;padding:20px 24px;">
+        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:0;padding:20px 24px;">
           {% for milestone in page.timeline %}
-          <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;">
-            {% unless forloop.first %}<div class="timeline-connector" style="position:absolute;right:100%;top:8px;width:30px;height:2px;background:rgba(255,112,67,0.2);"></div>{% endunless %}
-            <div class="timeline-dot" style="width:12px;height:12px;"></div>
-            <div class="timeline-label" style="font-size:0.95rem;font-weight:600;letter-spacing:0.02em;">{{ milestone.title }}</div>
-            <div class="timeline-year" style="font-size:0.85rem;opacity:0.7;">{{ milestone.year }}</div>
+          <div style="display:flex;align-items:center;">
+            {% unless forloop.first %}
+            <div style="width:50px;height:2px;background:rgba(255,112,67,0.2);margin:0 4px;flex-shrink:0;"></div>
+            {% endunless %}
+            <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:70px;">
+              <div class="timeline-dot" style="width:12px;height:12px;"></div>
+              <div style="font-size:0.95rem;font-weight:600;letter-spacing:0.02em;white-space:nowrap;color:var(--global-text-color,#2d2d2d);">{{ milestone.title }}</div>
+              <div style="font-size:0.85rem;opacity:0.6;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
+            </div>
           </div>
           {% endfor %}
         </div>
