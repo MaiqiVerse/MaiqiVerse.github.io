@@ -218,7 +218,7 @@ layout: default
 
         <!-- Row 2-3: Publications (4 cols, tall) + News (2 cols, tall) -->
         {% if page.selected_papers %}
-        <div class="bento-cell bg-4 br-2 bento-cell-glow" style="overflow:auto;">
+        <div class="bento-cell bg-3 br-2 bento-cell-glow" style="overflow:auto;">
           <div class="bento-section-label">// Selected Publications</div>
           {% include selected_papers.liquid %}
           <div style="text-align:center;margin-top:12px;">
@@ -228,7 +228,7 @@ layout: default
         {% endif %}
 
         {% if page.news %}
-        <div class="bento-cell bg-2 br-2" style="overflow:auto;">
+        <div class="bento-cell bg-3 br-2" style="overflow:auto;">
           <div class="bento-section-label">// News</div>
           {% include news.liquid limit=true %}
         </div>
@@ -236,28 +236,40 @@ layout: default
 
         <!-- Row 4: Timeline (4 cols) + Visitor Map (2 cols) -->
         {% if page.timeline %}
-        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;gap:0;padding:20px 24px;">
-          {% for milestone in page.timeline %}
-          <div style="display:flex;align-items:center;">
-            {% unless forloop.first %}
-            <div style="width:50px;height:2px;background:rgba(255,112,67,0.2);margin:0 4px;flex-shrink:0;"></div>
-            {% endunless %}
-            <div class="timeline-item {% if milestone.active %}timeline-active{% endif %}" style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:70px;">
-              <div class="timeline-dot" style="width:12px;height:12px;"></div>
-              <div style="font-size:0.95rem;font-weight:600;letter-spacing:0.02em;white-space:nowrap;color:var(--global-text-color,#2d2d2d);">{{ milestone.title }}</div>
-              <div style="font-size:0.85rem;opacity:0.6;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
-            </div>
+        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;padding:20px 24px;gap:12px;">
+          <!-- Dots + connectors row -->
+          <div style="display:flex;align-items:center;gap:0;">
+            {% for milestone in page.timeline %}
+              {% unless forloop.first %}
+              <div style="width:60px;height:2px;background:rgba(255,112,67,0.25);flex-shrink:0;"></div>
+              {% endunless %}
+              <div class="timeline-dot {% if milestone.active %}timeline-dot-active{% endif %}" style="width:12px;height:12px;border-radius:50%;flex-shrink:0;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"></div>
+            {% endfor %}
           </div>
-          {% endfor %}
+          <!-- Labels row -->
+          <div style="display:flex;align-items:flex-start;gap:0;">
+            {% for milestone in page.timeline %}
+              {% unless forloop.first %}
+              <div style="width:60px;flex-shrink:0;"></div>
+              {% endunless %}
+              <div style="display:flex;flex-direction:column;align-items:center;min-width:12px;">
+                <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;color:var(--global-text-color,#2d2d2d);{% if milestone.active %}color:#ff7043;{% endif %}">{{ milestone.title }}</div>
+                <div style="font-size:0.8rem;opacity:0.55;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
+              </div>
+            {% endfor %}
+          </div>
         </div>
         {% endif %}
 
         {% if page.visitor_map %}
         <div class="bento-cell bg-2" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;">
           <div class="bento-section-label" style="margin-bottom:8px;">// Visitors</div>
-          <script type="text/javascript" id="mapmyvisitors"
-            src="//mapmyvisitors.com/map.js?d=i4P4uo_Y8ciQWzf5wFIz44GsCiFMv-skPn4lcBguqOo&cl=ffffff&w=a">
-          </script>
+          <iframe
+            src="https://mapmyvisitors.com/map.html?d=i4P4uo_Y8ciQWzf5wFIz44GsCiFMv-skPn4lcBguqOo&cl=ffffff&w=a"
+            style="width:100%;height:180px;border:none;overflow:hidden;"
+            scrolling="no"
+            loading="lazy">
+          </iframe>
         </div>
         {% endif %}
 
