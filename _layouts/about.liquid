@@ -177,13 +177,15 @@ layout: default
         </div>
         {% endif %}
 
-        <div class="hero-social" style="display:flex;gap:10px;justify-content:center;">
-          {% if site.email %}<a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
-          {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>{% endif %}
-          {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>{% endif %}
-          {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
-          {% if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
-          {% if site.orcid_id %}<a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>{% endif %}
+        <div class="hero-social" style="margin-bottom:3.5rem;">
+          <div class="contact-icons">
+            {% if site.email %}<a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+            {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>{% endif %}
+            {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>{% endif %}
+            {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
+            {% if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
+            {% if site.orcid_id %}<a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>{% endif %}
+          </div>
         </div>
       </div>
 
@@ -241,7 +243,7 @@ layout: default
           <div style="display:flex;align-items:center;gap:0;">
             {% for milestone in page.timeline %}
               {% unless forloop.first %}
-              <div style="width:60px;height:2px;background:rgba(255,112,67,0.25);flex-shrink:0;"></div>
+              <div style="width:120px;height:2px;background:rgba(255,112,67,0.25);flex-shrink:0;"></div>
               {% endunless %}
               <div class="timeline-dot {% if milestone.active %}timeline-dot-active{% endif %}" style="width:12px;height:12px;border-radius:50%;flex-shrink:0;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"></div>
             {% endfor %}
@@ -250,7 +252,7 @@ layout: default
           <div style="display:flex;align-items:flex-start;gap:0;">
             {% for milestone in page.timeline %}
               {% unless forloop.first %}
-              <div style="width:60px;flex-shrink:0;"></div>
+              <div style="width:120px;flex-shrink:0;"></div>
               {% endunless %}
               <div style="display:flex;flex-direction:column;align-items:center;min-width:12px;">
                 <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;color:var(--global-text-color,#2d2d2d);{% if milestone.active %}color:#ff7043;{% endif %}">{{ milestone.title }}</div>
