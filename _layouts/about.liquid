@@ -129,6 +129,15 @@ layout: default
     .hero-avatar { width: 120px !important; height: 120px !important; }
     .hero-avatar img { width: 110px !important; height: 110px !important; max-width: 110px !important; }
   }
+
+  /* Push scroll hint to very bottom so it doesn't overlap social icons */
+  .hero-scroll-hint {
+    bottom: 0.6rem !important;
+  }
+  .hero-social {
+    margin-bottom: 0 !important;
+    padding-bottom: 5rem !important;
+  }
 </style>
 
 <div class="post about">
@@ -177,7 +186,7 @@ layout: default
         </div>
         {% endif %}
 
-        <div class="hero-social" style="margin-bottom:3.5rem;">
+        <div class="hero-social">
           <div class="contact-icons">
             {% if site.email %}<a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
             {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>{% endif %}
@@ -238,27 +247,20 @@ layout: default
 
         <!-- Row 4: Timeline (4 cols) + Visitor Map (2 cols) -->
         {% if page.timeline %}
-        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;padding:20px 24px;gap:12px;">
-          <!-- Dots + connectors row -->
-          <div style="display:flex;align-items:center;gap:0;">
-            {% for milestone in page.timeline %}
-              {% unless forloop.first %}
-              <div style="width:120px;height:2px;background:rgba(255,112,67,0.25);flex-shrink:0;"></div>
-              {% endunless %}
-              <div class="timeline-dot {% if milestone.active %}timeline-dot-active{% endif %}" style="width:12px;height:12px;border-radius:50%;flex-shrink:0;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"></div>
-            {% endfor %}
-          </div>
-          <!-- Labels row -->
-          <div style="display:flex;align-items:flex-start;gap:0;">
-            {% for milestone in page.timeline %}
-              {% unless forloop.first %}
-              <div style="width:120px;flex-shrink:0;"></div>
-              {% endunless %}
-              <div style="display:flex;flex-direction:column;align-items:center;min-width:12px;">
-                <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;color:var(--global-text-color,#2d2d2d);{% if milestone.active %}color:#ff7043;{% endif %}">{{ milestone.title }}</div>
+        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;padding:20px 24px;">
+          <div style="position:relative;width:100%;max-width:500px;padding:0 10px;">
+            <!-- Horizontal connector line -->
+            <div style="position:absolute;top:6px;left:50px;right:50px;height:2px;background:rgba(255,112,67,0.25);z-index:0;"></div>
+            <!-- Milestones -->
+            <div style="display:flex;justify-content:space-between;position:relative;z-index:1;">
+              {% for milestone in page.timeline %}
+              <div style="display:flex;flex-direction:column;align-items:center;">
+                <div style="width:12px;height:12px;border-radius:50%;margin-bottom:10px;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"></div>
+                <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;{% if milestone.active %}color:#ff7043;{% else %}color:var(--global-text-color,#2d2d2d);{% endif %}">{{ milestone.title }}</div>
                 <div style="font-size:0.8rem;opacity:0.55;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
               </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
         </div>
         {% endif %}
