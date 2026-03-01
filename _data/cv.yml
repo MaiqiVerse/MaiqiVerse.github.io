@@ -1,189 +1,132 @@
-cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
-  image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Maiqi Jiang
+    - name: Email
+      value: mjiang04@wm.edu
+    - name: GitHub
+      value: <a href="https://github.com/MaiqiVerse">github.com/MaiqiVerse</a>
+    - name: Languages
+      value: Chinese (native), English (fluent)
 
-  social_networks:
-    - network: X
-      username: AlbertEinstein
-    - network: GitHub
-      username: example
-    - network: LinkedIn
-      username: example
+- title: Research Interests
+  type: list
+  contents:
+    - Efficient Foundation Models, Model Compression, On-device Inference
+    - Edge/Federated Learning
+    - Graph Neural Networks, Explainable AI
+    - Multimodal Perception for Connected Vehicles
 
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD in Computer Science
+      institution: College of William & Mary, Williamsburg, VA
+      year: 2025 –
+      description:
+        - "Advisor: Prof. Yanfu Zhang"
+    - title: M.Sc. in Information Technology (with Distinction)
+      institution: The Hong Kong Polytechnic University (QS Top 60), Hong Kong
+      year: 2021 – 2023
+    - title: B.S. in Biomedical Engineering
+      institution: Northeastern University, China (985 Project), Shenyang
+      year: 2017 – 2021
 
-  sections:
-    Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
-        highlights:
-          - Description 1.
-          - Description 2.
+- title: Publications
+  type: time_table
+  contents:
+    - title: "PAIRS, Not Labels: Predicting Protein-Phenotype Associations via Link Prediction"
+      year: 2026
+      description:
+        - "Maiqi Jiang, Yanshuo Chen, Guodong Liu, Avinash Sahu, Ye Gao, Yanfu Zhang"
+        - "<strong>ICASSP 2026</strong>"
+    - title: "Hierarchical Convolution Multibranch Transformer for EEG Signals"
+      year: 2026
+      description:
+        - "Omid Mersa, Maiqi Jiang, Ye Gao, Qun Li, Yanfu Zhang"
+        - "<strong>ICASSP 2026</strong>"
+    - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization"
+      year: 2025
+      description:
+        - "Mahmud Wasif Nafee*, Maiqi Jiang*, Haipeng Chen, Yanfu Zhang (*Co-first Author)"
+        - "<strong>EMNLP 2025</strong>, pp. 16744--16757"
+    - title: "Federated Pruning for LLMs"
+      year: 2026
+      description:
+        - "Maiqi Jiang, Xugui Zhou, Bin Ren, Junyi Li, Shangqian Gao, Yanfu Zhang"
+        - "(under review)"
+    - title: "Is Meta-Path Attention an Explanation? Evidence of Alignment and Decoupling in Heterogeneous GNNs"
+      year: 2026
+      description:
+        - "Maiqi Jiang, Noman Ali, Yiran Ding, Yanfu Zhang"
+        - "(under review)"
+    - title: "Automated Heterogeneous Network Learning with Non-Recursive Message Passing"
+      year: 2025
+      description:
+        - "Zhaoqing Li*, Maiqi Jiang*, Shengyuan Chen, Bo Li, Guorong Chen, Xiao Huang (*Co-first Author)"
+        - "arXiv preprint, 2025"
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
+- title: Research Experience
+  type: time_table
+  contents:
+    - title: "Federated Tuning & Structural Pruning for LLMs (SFT-P)"
+      institution: William & Mary (Advisor — Prof. Yanfu Zhang)
+      year: 2025 – 2026
+      description:
+        - "Proposed SFT-P: FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device deployment under non-IID private data; supports mixed client budgets."
+        - "Implemented a client-conditioned mask generator (shared hypernetwork + private client embedding) producing hard binary routing masks via Bernoulli gating; achieved +8.5 Avg over the best federated baseline on LLaMA-7B at 50% pruning."
+    - title: "Temporal Graph V2X Motion Forecasting"
+      institution: William & Mary (Advisor — Prof. Yanfu Zhang)
+      year: 2025 –
+      description:
+        - "Led project direction to build per-timestep dynamic interaction graphs for cooperative V2X forecasting with Temporal Graph Networks."
+        - "On V2X-Seq-TFD, improved ADE from 1.110 to 0.981 (11.6% reduction); largest gains on turning maneuvers (left turn ADE 30.3% reduction)."
+    - title: "Explain-and-Share V2X Forecasting under Bandwidth Budgets"
+      institution: William & Mary (Advisor — Prof. Yanfu Zhang)
+      year: 2026 –
+      description:
+        - "Designing an explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy for cooperative forecasting."
+    - title: "Automated Heterogeneous Network Learning (AutoGNR)"
+      institution: The Hong Kong Polytechnic University (Advisor — Prof. Xiao Huang)
+      year: 2021 – 2023
+      description:
+        - "Co-developed AutoGNR, using differentiable NAS to automatically select heterogeneous aggregation paths, conceptually aligned with structured pruning and bi-level optimization."
+    - title: "Temporal User Engagement Modeling in Polarized Social Platforms"
+      institution: City University of Hong Kong (Advisor — Prof. Junming Liu)
+      year: 2023
+      description:
+        - "Fused image/video content features with text and interaction context via a temporal GNN for forecasting user engagement across polarized communities."
+    - title: "Semi-supervised Learning for Whole-Slide Pathology Images"
+      institution: Northeastern University, China (Advisor — Prof. Xiaoyu Cui)
+      year: 2018 – 2021
+      description:
+        - "Developed weakly-/semi-supervised pipelines for gigapixel WSI using eye-tracking signals, focusing on efficient patch sampling and large-scale image processing."
 
-    Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
-        highlights:
-          - Relativity
-          - Description 2.
+- title: Industry
+  type: time_table
+  contents:
+    - title: Software Developer Intern
+      institution: Neusoft Inc., China
+      year: 2020
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
-        highlights:
-          - Description 1.
-          - Description 2.
+- title: Teaching
+  type: time_table
+  contents:
+    - title: Teaching Assistant
+      institution: William & Mary
+      year: 2025 –
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
+- title: Service
+  type: list
+  contents:
+    - "Reviewer: ICASSP 2026"
+    - "Open Source Contributor: The Unified AI Framework (2023)"
 
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
-        highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
-
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
-
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
-
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
-
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
-
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
-
-    Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+- title: Technical Skills
+  type: map
+  contents:
+    - name: Languages
+      value: Python, PyTorch, C++
+    - name: Tools
+      value: Git, LaTeX, Docker, Slurm, Weights & Biases
