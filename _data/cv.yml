@@ -129,10 +129,8 @@ cv:
         journal: arXiv preprint
 
     Teaching:
-      - company: William & Mary
-        position: "Teaching Assistant"
-        start_date: "2025-01"
-        end_date: "present"
+      - bullet: "TA — Topological Data Analysis (CSCI 520/420), William & Mary, Spring 2026"
+      - bullet: "TA — Neural Networks for Machine Learning (CSCI 446/546), William & Mary, Fall 2025"
 
     Technical Skills:
       - label: Languages
