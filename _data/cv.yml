@@ -4,93 +4,130 @@ cv:
   website: https://maiqiverse.github.io
   sections:
     Education:
-      - institution: College of William & Mary, Williamsburg, VA
-        studyType: PhD in Computer Science
-        start_date: "2025"
-        end_date: ""
+      - institution: College of William & Mary
+        area: Computer Science
+        degree: PhD
+        start_date: "2025-08"
+        end_date: "present"
+        location: Williamsburg, VA
         highlights:
           - "Advisor: Prof. Yanfu Zhang"
-      - institution: The Hong Kong Polytechnic University (QS Top 60), Hong Kong
-        studyType: M.Sc. in Information Technology (with Distinction)
-        start_date: "2021"
-        end_date: "2023"
-      - institution: Northeastern University, China (985 Project), Shenyang
-        studyType: B.S. in Biomedical Engineering
-        start_date: "2017"
-        end_date: "2021"
+      - institution: The Hong Kong Polytechnic University
+        area: Information Technology
+        degree: M.Sc. (with Distinction)
+        start_date: "2021-09"
+        end_date: "2023-06"
+        location: Hong Kong
+      - institution: Northeastern University, China
+        area: Biomedical Engineering
+        degree: B.S.
+        start_date: "2017-09"
+        end_date: "2021-06"
+        location: Shenyang, China
 
     Experience:
       - company: William & Mary
         position: "Graduate Research Assistant"
-        start_date: "2025"
-        end_date: ""
+        start_date: "2025-01"
+        end_date: "present"
         location: Williamsburg, VA
-        summary: "Advisor: Prof. Yanfu Zhang"
         highlights:
-          - "Federated Tuning & Structural Pruning for LLMs (SFT-P): Proposed FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device deployment under non-IID private data; achieved +8.5 Avg over the best federated baseline on LLaMA-7B at 50% pruning."
-          - "Temporal Graph V2X Motion Forecasting: Led project direction to build per-timestep dynamic interaction graphs for cooperative V2X forecasting with Temporal Graph Networks; improved ADE from 1.110 to 0.981 (11.6% reduction)."
-          - "Explain-and-Share V2X Forecasting under Bandwidth Budgets: Designing an explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy."
+          - "Advisor: Prof. Yanfu Zhang"
+          - "Federated Tuning & Structural Pruning for LLMs (SFT-P): Proposed FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device deployment; achieved +8.5 Avg over the best federated baseline on LLaMA-7B at 50% pruning."
+          - "Temporal Graph V2X Motion Forecasting: Built per-timestep dynamic interaction graphs for cooperative V2X forecasting with Temporal Graph Networks; improved ADE from 1.110 to 0.981 (11.6% reduction)."
+          - "Explain-and-Share V2X Forecasting under Bandwidth Budgets: Designing an explain-and-share framework that learns training-time rationales and converts them into a bandwidth-aware communication policy."
       - company: City University of Hong Kong
         position: "Research Assistant"
-        start_date: "2023"
-        end_date: "2024"
+        start_date: "2023-07"
+        end_date: "2024-07"
         location: Hong Kong
-        summary: "Advisor: Prof. Junming Liu"
         highlights:
-          - "Temporal User Engagement Modeling in Polarized Social Platforms: Fused image/video content features with text and interaction context via a temporal GNN for forecasting user engagement across polarized communities."
+          - "Advisor: Prof. Junming Liu"
+          - "Temporal User Engagement Modeling in Polarized Social Platforms: Fused image/video content features with text and interaction context via a temporal GNN for forecasting user engagement."
       - company: The Hong Kong Polytechnic University
         position: "Research Student"
-        start_date: "2021"
-        end_date: "2023"
+        start_date: "2021-09"
+        end_date: "2023-06"
         location: Hong Kong
-        summary: "Advisor: Prof. Xiao Huang"
         highlights:
-          - "Automated Heterogeneous Network Learning (AutoGNR): Co-developed AutoGNR, using differentiable NAS to automatically select heterogeneous aggregation paths, conceptually aligned with structured pruning and bi-level optimization."
-      - company: Neusoft Inc., China
+          - "Advisor: Prof. Xiao Huang"
+          - "Automated Heterogeneous Network Learning (AutoGNR): Co-developed AutoGNR using differentiable NAS to automatically select heterogeneous aggregation paths."
+      - company: Neusoft Inc.
         position: "Software Developer Intern"
-        start_date: "2020"
-        end_date: "2020"
+        start_date: "2020-06"
+        end_date: "2020-09"
         location: Shenyang, China
       - company: Northeastern University, China
         position: "Undergraduate Research Assistant"
-        start_date: "2018"
-        end_date: "2021"
+        start_date: "2018-09"
+        end_date: "2021-06"
         location: Shenyang, China
-        summary: "Advisor: Prof. Xiaoyu Cui"
         highlights:
-          - "Semi-supervised Learning for Whole-Slide Pathology Images: Developed weakly-/semi-supervised pipelines for gigapixel WSI using eye-tracking signals, focusing on efficient patch sampling and large-scale image processing."
+          - "Advisor: Prof. Xiaoyu Cui"
+          - "Semi-supervised Learning for Whole-Slide Pathology Images: Developed weakly-/semi-supervised pipelines for gigapixel WSI using eye-tracking signals."
 
     Publications:
       - title: "PAIRS, Not Labels: Predicting Protein-Phenotype Associations via Link Prediction"
-        date: "2026"
-        publisher: "ICASSP 2026"
-        summary: "Maiqi Jiang, Yanshuo Chen, Guodong Liu, Avinash Sahu, Ye Gao, Yanfu Zhang"
+        authors:
+          - Maiqi Jiang
+          - Yanshuo Chen
+          - Guodong Liu
+          - Avinash Sahu
+          - Ye Gao
+          - Yanfu Zhang
+        date: "2026-04"
+        journal: ICASSP 2026
       - title: "Hierarchical Convolution Multibranch Transformer for EEG Signals"
-        date: "2026"
-        publisher: "ICASSP 2026"
-        summary: "Omid Mersa, Maiqi Jiang, Ye Gao, Qun Li, Yanfu Zhang"
+        authors:
+          - Omid Mersa
+          - Maiqi Jiang
+          - Ye Gao
+          - Qun Li
+          - Yanfu Zhang
+        date: "2026-04"
+        journal: ICASSP 2026
       - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization"
-        date: "2025"
-        publisher: "EMNLP 2025, pp. 16744–16757"
-        summary: "Mahmud Wasif Nafee*, Maiqi Jiang*, Haipeng Chen, Yanfu Zhang (*Co-first Author)"
+        authors:
+          - Mahmud Wasif Nafee
+          - Maiqi Jiang
+          - Haipeng Chen
+          - Yanfu Zhang
+        date: "2025-11"
+        journal: EMNLP 2025
       - title: "Federated Pruning for LLMs"
-        date: "2026"
-        publisher: "(under review)"
-        summary: "Maiqi Jiang, Xugui Zhou, Bin Ren, Junyi Li, Shangqian Gao, Yanfu Zhang"
+        authors:
+          - Maiqi Jiang
+          - Xugui Zhou
+          - Bin Ren
+          - Junyi Li
+          - Shangqian Gao
+          - Yanfu Zhang
+        date: "2026-01"
+        journal: Under Review
       - title: "Is Meta-Path Attention an Explanation? Evidence of Alignment and Decoupling in Heterogeneous GNNs"
-        date: "2026"
-        publisher: "(under review)"
-        summary: "Maiqi Jiang, Noman Ali, Yiran Ding, Yanfu Zhang"
+        authors:
+          - Maiqi Jiang
+          - Noman Ali
+          - Yiran Ding
+          - Yanfu Zhang
+        date: "2026-01"
+        journal: Under Review
       - title: "Automated Heterogeneous Network Learning with Non-Recursive Message Passing"
-        date: "2025"
-        publisher: "arXiv preprint, 2025"
-        summary: "Zhaoqing Li*, Maiqi Jiang*, Shengyuan Chen, Bo Li, Guorong Chen, Xiao Huang (*Co-first Author)"
+        authors:
+          - Zhaoqing Li
+          - Maiqi Jiang
+          - Shengyuan Chen
+          - Bo Li
+          - Guorong Chen
+          - Xiao Huang
+        date: "2025-03"
+        journal: arXiv preprint
 
     Teaching:
       - company: William & Mary
         position: "Teaching Assistant"
-        start_date: "2025"
-        end_date: ""
+        start_date: "2025-01"
+        end_date: "present"
 
     Skills:
       - name: Languages
@@ -105,12 +142,6 @@ cv:
           - Docker
           - Slurm
           - Weights & Biases
-
-    Languages:
-      - language: Chinese
-        fluency: Native
-      - language: English
-        fluency: Fluent
 
     Academic Interests:
       - name: Efficient Foundation Models
