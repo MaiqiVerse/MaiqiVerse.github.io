@@ -48,6 +48,23 @@ news: true
 visitor_map: true
 latest_posts:
   enabled: false
+
+experience:
+  - title: "Research Assistant"
+    place: "City University of Hong Kong"
+    period: "2023.3 – 2023.12"
+    icon: "fa-solid fa-flask"
+  - title: "Software Intern"
+    place: "Neusoft Inc., China"
+    period: "2020.6 – 2020.9"
+    icon: "fa-solid fa-building"
+
+service:
+  - text: "Reviewer, <strong>ICASSP 2026</strong>"
+    icon: "fa-solid fa-pen-fancy"
+  - text: "Open Source Contributor for The Unified AI Framework"
+    icon: "fa-solid fa-code-branch"
+
 ---
 
 I am a first-year PhD student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by Prof. [Yanfu Zhang](https://yanfuzhang.github.io/). My research focuses on building **efficient and explainable foundation models** for resource-constrained, real-world systems.

@@ -275,6 +275,38 @@ layout: default
         </div>
         {% endif %}
 
+        <!-- Row 5: Experience (3 cols) + Service (3 cols) -->
+        {% if page.experience %}
+        <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
+          <div class="bento-section-label">// Experience</div>
+          <div style="margin-top:10px;font-size:0.85rem;line-height:1.6;">
+            {% for exp in page.experience %}
+            <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:8px;{% endunless %}">
+              <i class="{{ exp.icon | default: 'fa-solid fa-briefcase' }}" style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"></i>
+              <div>
+                <div style="font-weight:600;">{{ exp.title }}</div>
+                <div style="opacity:0.55;font-size:0.8rem;">{{ exp.place }}{% if exp.period %} · {{ exp.period }}{% endif %}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.service %}
+        <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
+          <div class="bento-section-label">// Service</div>
+          <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;">
+            {% for svc in page.service %}
+            <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:6px;{% endunless %}">
+              <i class="{{ svc.icon | default: 'fa-solid fa-star' }}" style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"></i>
+              <span>{{ svc.text }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
       </div>
     </section>
 
