@@ -163,7 +163,7 @@ layout: default
         {% endif %}
 
         <div class="hero-prompt">$ whoami</div>
-        <h1 class="hero-name">{{ site.first_name }} {{ site.last_name }}</h1>
+        <h1 class="hero-name">{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}</h1>
 
         {% if page.subtitle %}
         <div class="hero-subtitle">{{ page.subtitle }}</div>
