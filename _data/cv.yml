@@ -3,6 +3,11 @@ cv:
   email: mjiang04@wm.edu
   website: https://maiqiverse.github.io
   sections:
+    social_networks:
+      - network: GitHub
+        username: MaiqiVerse
+      - network: LinkedIn
+        username: maiqi-jiang-103346273
     Education:
       - institution: College of William & Mary
         area: Computer Science
