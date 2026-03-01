@@ -440,15 +440,7 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2.md/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
-          description: "",
-          section: "News",},{id: "news-started-my-ph-d-in-computer-science-at-william-amp-amp-mary",
+            },},{id: "news-started-my-ph-d-in-computer-science-at-william-amp-amp-mary",
           title: 'Started my Ph.D. in Computer Science at William &amp;amp;amp; Mary! 🎓',
           description: "",
           section: "News",},{id: "projects-project-1",
