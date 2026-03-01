@@ -50,6 +50,10 @@ latest_posts:
   enabled: false
 
 experience:
+  - title: "Teaching Assistant"
+    place: "William & Mary"
+    period: "2025.8.26 – Present"
+    icon: "fa-solid fa-chalkboard-user"
   - title: "Research Assistant"
     place: "City University of Hong Kong"
     period: "2023.3 – 2023.12"
