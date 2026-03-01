@@ -39,7 +39,7 @@ timeline:
     title: "MSc IT"
     active: false
   - year: "2025"
-    title: "PhD CS →"
+    title: "PhD CS"
     active: true
 
 selected_papers: true
