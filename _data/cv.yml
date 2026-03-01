@@ -129,34 +129,20 @@ cv:
         start_date: "2025-01"
         end_date: "present"
 
-    Skills:
-      - name: Languages
-        keywords:
-          - Python
-          - PyTorch
-          - C++
-      - name: Tools
-        keywords:
-          - Git
-          - LaTeX
-          - Docker
-          - Slurm
-          - Weights & Biases
+    Technical Skills:
+      - label: Languages
+        details: "Python, PyTorch, C++"
+      - label: Tools
+        details: "Git, LaTeX, Docker, Slurm, Weights & Biases"
+      - label: Spoken Languages
+        details: "Chinese (native), English (fluent)"
 
-    Academic Interests:
-      - name: Efficient Foundation Models
-        keywords:
-          - Model Compression
-          - On-device Inference
-      - name: Edge/Federated Learning
-        keywords:
-          - Non-IID Data
-          - Communication Efficiency
-      - name: Graph Neural Networks
-        keywords:
-          - Explainable AI
-          - Heterogeneous Networks
-      - name: Connected Vehicles
-        keywords:
-          - V2X Forecasting
-          - Cooperative Perception
+    Research Interests:
+      - bullet: "Efficient Foundation Models, Model Compression, On-device Inference"
+      - bullet: "Edge/Federated Learning"
+      - bullet: "Graph Neural Networks, Explainable AI"
+      - bullet: "Multimodal Perception for Connected Vehicles"
+
+    Service:
+      - bullet: "Reviewer: ICASSP 2026"
+      - bullet: "Open Source Contributor: The Unified AI Framework (2023)"
