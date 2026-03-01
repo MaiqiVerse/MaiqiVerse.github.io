@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Under Construction.
 nav: true
 nav_order: 3
 display_categories: [work, fun]
@@ -11,7 +11,7 @@ horizontal: false
 
 Under Construction.
 
-<!-- pages/projects.md
+
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->
@@ -64,4 +64,4 @@ Under Construction.
   </div>
   {% endif %}
 {% endif %}
-</div> -->
+</div>
