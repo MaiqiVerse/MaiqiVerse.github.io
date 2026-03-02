@@ -1,0 +1,19 @@
+metadata:
+  last_updated: '2026-03-02'
+papers:
+  ozEndNQAAAAJ:2osOgNQ5qMEC:
+    citations: 1
+    title: Automated Heterogeneous Network learning with Non-Recursive Message Passing
+    year: '2025'
+  ozEndNQAAAAJ:WF5omc3nYNoC:
+    citations: 0
+    title: Is Meta-Path Attention an Explanation? Evidence of Alignment and Decoupling in Heterogeneous GNNs
+    year: '2026'
+  ozEndNQAAAAJ:Y0pCki6q_DkC:
+    citations: 5
+    title: Dynamic retriever for in-context knowledge editing via policy optimization
+    year: '2025'
+  ozEndNQAAAAJ:qjMakFHDy7sC:
+    citations: 0
+    title: 'Mitigating product defect incidents through blockchain adoption: who should lead the initiative?'
+    year: '2024'
