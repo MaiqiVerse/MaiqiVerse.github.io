@@ -1,6 +1,6 @@
 ---
 layout: page
-title: AutoGNR — Automated Heterogeneous Network Learning
+title: AutoGNR
 description: Differentiable NAS over heterogeneous aggregation paths and node-type combinations, with a non-recursive message-passing scheme that decouples path search from depth.
 importance: 3
 category: open-source

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Explain-and-Share V2X Forecasting under Bandwidth Budgets
+title: Explain-and-Share V2X
 description: An explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy for cooperative V2X forecasting.
 importance: 6
 category: research

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: MetaXplain — Is Meta-Path Attention an Explanation?
-description: A controlled empirical study and a meta-path-aware post-hoc analysis protocol for understanding when (and when not) attention in heterogeneous GNNs is a faithful explanation.
+title: MetaXplain
+description: Is meta-path attention a faithful explanation? A controlled empirical study and a meta-path-aware post-hoc analysis protocol for heterogeneous GNNs.
 importance: 3
 category: research
 github: https://github.com/MaiqiVerse/ExplainerForHGNN

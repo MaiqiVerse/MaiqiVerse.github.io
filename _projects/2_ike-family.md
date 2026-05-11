@@ -1,7 +1,7 @@
 ---
 layout: page
-title: In-Context Knowledge Editing (DR-IKE / FWE-IKE / MO-IKE)
-description: A research line on retrieval-based in-context knowledge editing for black-box LLMs — policy-optimized retrieval, confidence-aware ensemble fusion, and constrained multi-objective RL.
+title: DR-IKE / FWE-IKE / MO-IKE
+description: Retrieval-based in-context knowledge editing for black-box LLMs — policy-optimized retrieval, confidence-aware ensemble fusion, and constrained multi-objective RL.
 importance: 2
 category: research
 github: https://github.com/mwnafee/DR-IKE

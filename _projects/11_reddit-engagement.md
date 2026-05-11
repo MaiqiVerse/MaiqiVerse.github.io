@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Temporal User Engagement Modeling in Polarized Social Platforms
-description: Multimodal temporal GNN for forecasting user engagement across polarized online communities, fusing image/video content with text and interaction context.
+title: Polarized Engagement
+description: Multimodal temporal GNN for forecasting user engagement across polarized online communities on Twitter/Reddit, fusing image/video content with text and interaction context.
 importance: 2
 category: past
 github: https://github.com/MaiqiVerse/RedditProcess
