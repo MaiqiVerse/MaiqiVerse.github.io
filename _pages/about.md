@@ -78,7 +78,6 @@ service:
     icon: "fa-solid fa-code-branch"
   - text: "Open Source Contributor, The Unified AI Framework"
     icon: "fa-solid fa-code-branch"
-
 ---
 
 I am a first-year PhD student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by Prof. [Yanfu Zhang](https://yaz91.github.io/). My research targets **efficient and reliable foundation models**—LLMs and VLMs that remain trustworthy under deployment, adaptation, and editing.

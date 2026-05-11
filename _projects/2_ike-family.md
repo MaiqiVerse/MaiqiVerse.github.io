@@ -7,24 +7,24 @@ category: research
 github: https://github.com/mwnafee/DR-IKE
 ---
 
-In-context knowledge editing (IKE) updates the behavior of a *black-box* LLM purely through demonstrations at inference time. Our research line tackles three orthogonal aspects of the retrieval pipeline:
+In-context knowledge editing (IKE) updates the behavior of a _black-box_ LLM purely through demonstrations at inference time. Our research line tackles three orthogonal aspects of the retrieval pipeline:
 
 ### DR-IKE — Dynamic Retriever via Policy Optimization
 
-We train a BERT retriever with **REINFORCE** and a **learnable threshold** that decides, per query, *how many* demonstrations to retrieve. The threshold lets the model adapt the prompt length to query difficulty.
+We train a BERT retriever with **REINFORCE** and a **learnable threshold** that decides, per query, _how many_ demonstrations to retrieve. The threshold lets the model adapt the prompt length to query difficulty.
 
-> Mahmud Wasif Nafee\*, **Maiqi Jiang**\*, Haipeng Chen, Yanfu Zhang. *EMNLP 2025*, pp. 16755–16768. (\*Co-first author.) — [[code]](https://github.com/mwnafee/DR-IKE)
+> Mahmud Wasif Nafee\*, **Maiqi Jiang**\*, Haipeng Chen, Yanfu Zhang. _EMNLP 2025_, pp. 16755–16768. (\*Co-first author.) — [[code]](https://github.com/mwnafee/DR-IKE)
 
 ### FWE-IKE — Confidence-Aware Ranker Ensembles
 
 A **confidence-gated ensemble** of LLM/BERT/MLP rankers performs **logit-space fusion** of demonstrations. The fused ranker closes ~**53% of the gap to the oracle** on COUNTERFACT.
 
-> Tejal Nair, Mahmud Wasif Nafee, **Maiqi Jiang**, Ashley Gao, Haipeng Chen, Yanfu Zhang. *Findings of ACL 2026*.
+> Tejal Nair, Mahmud Wasif Nafee, **Maiqi Jiang**, Ashley Gao, Haipeng Chen, Yanfu Zhang. _Findings of ACL 2026_.
 
 ### MO-IKE — Constrained Multi-Objective RL
 
 We formulate prompt construction as a **Constrained MDP**, using **Lagrangian relaxation** and **GRPO** to jointly optimize reliability, generality, and specificity — three objectives that previous IKE methods trade off implicitly.
 
-> Xuzhong Wang, **Maiqi Jiang**, Tejal Nair, Girija Bhusal, Yanfu Zhang, Haipeng Chen. *Submitted to EMNLP 2026 (under review).*
+> Xuzhong Wang, **Maiqi Jiang**, Tejal Nair, Girija Bhusal, Yanfu Zhang, Haipeng Chen. _Submitted to EMNLP 2026 (under review)._
 
 Advisors: [Prof. Yanfu Zhang](https://yaz91.github.io/), [Prof. Haipeng Chen](https://haipeng-chen.github.io/).

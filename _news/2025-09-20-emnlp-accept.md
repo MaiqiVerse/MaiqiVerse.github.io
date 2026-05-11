@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper *"Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization"* has been accepted at **EMNLP 2025**! 🎉
+Our paper _"Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization"_ has been accepted at **EMNLP 2025**! 🎉

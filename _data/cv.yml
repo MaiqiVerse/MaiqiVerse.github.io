@@ -78,7 +78,7 @@ cv:
         location: Williamsburg, VA
         highlights:
           - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
-          - "Discovered a non-monotone **\"TL valley\"** in long-context in-context classification under Self-Extend context extension: task-learning accuracy first drops then recovers as the number of demonstrations *k* grows."
+          - 'Discovered a non-monotone **"TL valley"** in long-context in-context classification under Self-Extend context extension: task-learning accuracy first drops then recovers as the number of demonstrations *k* grows.'
           - "Developing a **kernel-retrieval identification** framework that decomposes the task-learning heads' contribution to answer-position logits into a Nadaraya–Watson-style attention kernel κ(x_q, x_i) over demonstrations and a per-demonstration class-vote φᶜᵢ; derived a structural identity tying TL logits exactly to this kernel–vote form, and a UUID-label protocol that isolates TL from task-recognition priors. Targeting **ICLR 2027**."
       - company: William & Mary
         position: "Project Mentor — Intern-led Projects on LLM Efficiency & Long-Context"

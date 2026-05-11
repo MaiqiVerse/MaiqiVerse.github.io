@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <!-- AL-FOLIO — Hero + Bento Grid Homepage (v6 — centering + directional snap) -->
 
 <style>
@@ -64,7 +63,9 @@ layout: default
     margin: 0 !important;
     padding: 0 !important;
   }
-  .hero-avatar source { display: none !important; }
+  .hero-avatar source {
+    display: none !important;
+  }
 
   /* Bento */
   .bento-section {
@@ -83,11 +84,21 @@ layout: default
     width: 100% !important;
   }
 
-  .bg-6 { grid-column: span 6 !important; }
-  .bg-4 { grid-column: span 4 !important; }
-  .bg-3 { grid-column: span 3 !important; }
-  .bg-2 { grid-column: span 2 !important; }
-  .br-2 { grid-row: span 2 !important; }
+  .bg-6 {
+    grid-column: span 6 !important;
+  }
+  .bg-4 {
+    grid-column: span 4 !important;
+  }
+  .bg-3 {
+    grid-column: span 3 !important;
+  }
+  .bg-2 {
+    grid-column: span 2 !important;
+  }
+  .br-2 {
+    grid-row: span 2 !important;
+  }
 
   .bento-cell {
     border-radius: 16px;
@@ -100,34 +111,75 @@ layout: default
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-  html[data-theme="dark"] .bento-cell {
+  html[data-theme='dark'] .bento-cell {
     border-color: rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.018);
   }
 
   /* Fix Bootstrap inside bento */
-  .bento-cell .row { margin: 0 !important; display: block !important; }
-  .bento-cell [class*="col-"] {
-    width: 100% !important; max-width: 100% !important;
-    flex: none !important; padding: 0 !important; float: none !important;
+  .bento-cell .row {
+    margin: 0 !important;
+    display: block !important;
+  }
+  .bento-cell [class*='col-'] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+    float: none !important;
   }
 
-  .bento-stats { display: grid !important; align-items: center !important; padding: 22px 18px !important; }
-  .bento-cell ol.bibliography { padding-left: 0 !important; list-style: none !important; }
-  .bento-cell ol.bibliography > li {
-    padding: 10px !important; margin-bottom: 8px !important;
-    font-size: 0.82rem !important; overflow: hidden !important; word-break: break-word !important;
+  .bento-stats {
+    display: grid !important;
+    align-items: center !important;
+    padding: 22px 18px !important;
   }
-  .bento-cell ol.bibliography > li .col-sm-2 { display: none !important; }
-  .bento-cell .news table { width: 100% !important; }
-  .bento-cell .news td, .bento-cell .news th { padding: 4px 2px !important; font-size: 0.82rem !important; border: none !important; }
+  .bento-cell ol.bibliography {
+    padding-left: 0 !important;
+    list-style: none !important;
+  }
+  .bento-cell ol.bibliography > li {
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    font-size: 0.82rem !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+  }
+  .bento-cell ol.bibliography > li .col-sm-2 {
+    display: none !important;
+  }
+  .bento-cell .news table {
+    width: 100% !important;
+  }
+  .bento-cell .news td,
+  .bento-cell .news th {
+    padding: 4px 2px !important;
+    font-size: 0.82rem !important;
+    border: none !important;
+  }
 
   @media (max-width: 768px) {
-    .bento-grid { grid-template-columns: 1fr !important; }
-    .bg-6, .bg-4, .bg-3, .bg-2 { grid-column: span 1 !important; }
-    .br-2 { grid-row: span 1 !important; }
-    .hero-avatar { width: 120px !important; height: 120px !important; }
-    .hero-avatar img { width: 110px !important; height: 110px !important; max-width: 110px !important; }
+    .bento-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .bg-6,
+    .bg-4,
+    .bg-3,
+    .bg-2 {
+      grid-column: span 1 !important;
+    }
+    .br-2 {
+      grid-row: span 1 !important;
+    }
+    .hero-avatar {
+      width: 120px !important;
+      height: 120px !important;
+    }
+    .hero-avatar img {
+      width: 110px !important;
+      height: 110px !important;
+      max-width: 110px !important;
+    }
   }
 
   /* Push scroll hint to very bottom so it doesn't overlap social icons */
@@ -142,58 +194,80 @@ layout: default
 
 <div class="post about">
   <article>
-
     <!-- ══════════════ HERO ══════════════ -->
     <section class="hero-section">
       <div class="hero-overlay"></div>
       <div class="hero-scanline"><div class="hero-scanline-inner"></div></div>
 
       <div class="hero-content">
-
         {% if page.profile and page.profile.image %}
-        <div class="hero-avatar">
-          <div class="hero-avatar-ring"></div>
-          <div style="position:absolute;inset:-2px;border-radius:20px;background:var(--global-bg-color);z-index:1;"></div>
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          <img src="{{ profile_image_path | relative_url }}"
-               alt="{{ page.profile.image_alt | default: 'profile photo' }}"
-               style="position:relative;z-index:2;margin:5px;"
-               {% if page.profile.image_circular %}class="rounded-circle"{% endif %} />
-        </div>
+          <div class="hero-avatar">
+            <div class="hero-avatar-ring"></div>
+            <div style="position:absolute;inset:-2px;border-radius:20px;background:var(--global-bg-color);z-index:1;"></div>
+            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            <img
+              src="{{ profile_image_path | relative_url }}"
+              alt="{{ page.profile.image_alt | default: 'profile photo' }}"
+              style="position:relative;z-index:2;margin:5px;"
+              {% if page.profile.image_circular %}
+                class="rounded-circle"
+              {% endif %}
+            >
+          </div>
         {% endif %}
 
         <div class="hero-prompt">$ whoami</div>
-        <h1 class="hero-name">{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}</h1>
+        <h1 class="hero-name">
+          {{ site.first_name }}
+          {% if site.middle_name %}{{ site.middle_name }} {% endif -%}
+          {{- site.last_name }}
+        </h1>
 
         {% if page.subtitle %}
-        <div class="hero-subtitle">{{ page.subtitle }}</div>
+          <div class="hero-subtitle">{{ page.subtitle }}</div>
         {% endif %}
 
         {% if page.typing_tagline %}
-        <div class="hero-typing">
-          <span class="typing-prefix">&gt;</span>
-          <span class="typing-text" data-typing="{{ page.typing_tagline | join: '|' }}"></span>
-        </div>
+          <div class="hero-typing">
+            <span class="typing-prefix">&gt;</span>
+            <span class="typing-text" data-typing="{{ page.typing_tagline | join: '|' }}"></span>
+          </div>
         {% endif %}
 
         <div class="hero-bio">{{ content }}</div>
 
         {% if page.research_interests %}
-        <div class="hero-tags" style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:1.25rem;">
-          {% for interest in page.research_interests %}
-            <span class="research-tag">{{ interest }}</span>
-          {% endfor %}
-        </div>
+          <div class="hero-tags" style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:1.25rem;">
+            {% for interest in page.research_interests %}
+              <span class="research-tag">{{ interest }}</span>
+            {% endfor %}
+          </div>
         {% endif %}
 
         <div class="hero-social">
           <div class="contact-icons">
-            {% if site.email %}<a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
-            {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>{% endif %}
-            {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>{% endif %}
-            {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
-            {% if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
-            {% if site.orcid_id %}<a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>{% endif %}
+            {% if site.email -%}
+              <a href="mailto:{{ site.email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
+            {%- endif %}
+            {% if site.github_username -%}
+              <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+            {%- endif %}
+            {% if site.scholar_userid -%}
+              <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank"
+                ><i class="ai ai-google-scholar"></i
+              ></a>
+            {%- endif %}
+            {% if site.twitter_username -%}
+              <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            {%- endif %}
+            {% if site.linkedin_username -%}
+              <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            {%- endif %}
+            {% if site.orcid_id -%}
+              <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
+            {%- endif %}
           </div>
         </div>
       </div>
@@ -206,7 +280,6 @@ layout: default
 
     <!-- ══════════════ BENTO ══════════════ -->
     <section class="bento-section" id="bento">
-
       <div class="bento-divider" style="display:flex;align-items:center;gap:14px;margin-bottom:2rem;">
         <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,112,67,0.2));"></div>
         <span class="bento-divider-text">EXPLORE MORE</span>
@@ -214,230 +287,257 @@ layout: default
       </div>
 
       <div class="bento-grid">
-
         <!-- Row 1: Stats — full width -->
         {% if page.stats %}
-        <div class="bento-cell bg-6 bento-stats" style="grid-template-columns:repeat({{ page.stats | size }},1fr);">
-          {% for stat in page.stats %}
-          <div class="bento-stat-item" style="text-align:center;">
-            <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">0{{ stat.suffix | default: '' }}</div>
-            <div class="stat-label">{{ stat.label }}</div>
+          <div class="bento-cell bg-6 bento-stats" style="grid-template-columns:repeat({{ page.stats | size }},1fr);">
+            {% for stat in page.stats %}
+              <div class="bento-stat-item" style="text-align:center;">
+                <div class="stat-number" data-count="{{ stat.count }}" data-suffix="{{ stat.suffix | default: '' }}">
+                  0{{ stat.suffix | default: '' }}
+                </div>
+                <div class="stat-label">{{ stat.label }}</div>
+              </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-        </div>
         {% endif %}
 
         <!-- Row 2-3: Publications (4 cols, tall) + News (2 cols, tall) -->
         {% if page.selected_papers %}
-        <div class="bento-cell bg-3 br-2 bento-cell-glow" style="overflow:auto;">
-          <div class="bento-section-label">// Selected Publications</div>
-          {% include selected_papers.liquid %}
-          <div style="text-align:center;margin-top:12px;">
-            <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All</a>
+          <div class="bento-cell bg-3 br-2 bento-cell-glow" style="overflow:auto;">
+            <div class="bento-section-label">// Selected Publications</div>
+            {% include selected_papers.liquid %}
+            <div style="text-align:center;margin-top:12px;">
+              <a href="{{ '/publications/' | relative_url }}" class="view-all-link">→ View All</a>
+            </div>
           </div>
-        </div>
         {% endif %}
 
         {% if page.news %}
-        <div class="bento-cell bg-3 br-2" style="overflow:auto;">
-          <div class="bento-section-label">// News</div>
-          {% include news.liquid limit=true %}
-        </div>
+          <div class="bento-cell bg-3 br-2" style="overflow:auto;">
+            <div class="bento-section-label">// News</div>
+            {% include news.liquid limit=true %}
+          </div>
         {% endif %}
 
         <!-- Row 4: Timeline (4 cols) + Visitor Map (2 cols) -->
         {% if page.timeline %}
-        <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;padding:20px 24px;">
-          <div style="position:relative;width:100%;max-width:500px;padding:0 10px;">
-            <!-- Horizontal connector line -->
-            <div style="position:absolute;top:6px;left:50px;right:50px;height:2px;background:rgba(255,112,67,0.25);z-index:0;"></div>
-            <!-- Milestones -->
-            <div style="display:flex;justify-content:space-between;position:relative;z-index:1;">
-              {% for milestone in page.timeline %}
-              <div style="display:flex;flex-direction:column;align-items:center;">
-                <div style="width:12px;height:12px;border-radius:50%;margin-bottom:10px;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"></div>
-                <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;{% if milestone.active %}color:#ff7043;{% else %}color:var(--global-text-color,#2d2d2d);{% endif %}">{{ milestone.title }}</div>
-                <div style="font-size:0.8rem;opacity:0.55;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
+          <div class="bento-cell bg-4 bento-timeline" style="display:flex !important;align-items:center;justify-content:center;padding:20px 24px;">
+            <div style="position:relative;width:100%;max-width:500px;padding:0 10px;">
+              <!-- Horizontal connector line -->
+              <div style="position:absolute;top:6px;left:50px;right:50px;height:2px;background:rgba(255,112,67,0.25);z-index:0;"></div>
+              <!-- Milestones -->
+              <div style="display:flex;justify-content:space-between;position:relative;z-index:1;">
+                {% for milestone in page.timeline %}
+                  <div style="display:flex;flex-direction:column;align-items:center;">
+                    <div
+                      style="width:12px;height:12px;border-radius:50%;margin-bottom:10px;{% if milestone.active %}background:#ff7043;box-shadow:0 0 8px rgba(255,112,67,0.5);{% else %}background:rgba(255,112,67,0.3);{% endif %}"
+                    ></div>
+                    <div style="font-size:0.95rem;font-weight:600;white-space:nowrap;{% if milestone.active %}color:#ff7043;{% else %}color:var(--global-text-color,#2d2d2d);{% endif %}">
+                      {{ milestone.title }}
+                    </div>
+                    <div style="font-size:0.8rem;opacity:0.55;color:var(--global-text-color,#2d2d2d);">{{ milestone.year }}</div>
+                  </div>
+                {% endfor %}
               </div>
-              {% endfor %}
             </div>
           </div>
-        </div>
         {% endif %}
 
         {% if page.visitor_map %}
-        <div class="bento-cell bg-2" style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;">
-          <div class="bento-section-label" style="margin-bottom:8px;">// Visitors</div>
-          <a href="https://mapmyvisitors.com/web/1c2xe" title="Visit tracker" style="display:block;width:100%;">
-            <img src="https://mapmyvisitors.com/map.png?d=H6K_syn6z944uH1_DA5TreQYwGEDD-rdsM3mv686blI&cl=ffffff"
-                 style="width:100%;height:auto;border-radius:8px;" alt="Visitor Map" loading="lazy" />
-          </a>
-        </div>
+          <div
+            class="bento-cell bg-2"
+            style="display:flex !important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;"
+          >
+            <div class="bento-section-label" style="margin-bottom:8px;">// Visitors</div>
+            <a href="https://mapmyvisitors.com/web/1c2xe" title="Visit tracker" style="display:block;width:100%;">
+              <img
+                src="https://mapmyvisitors.com/map.png?d=H6K_syn6z944uH1_DA5TreQYwGEDD-rdsM3mv686blI&cl=ffffff"
+                style="width:100%;height:auto;border-radius:8px;"
+                alt="Visitor Map"
+                loading="lazy"
+              >
+            </a>
+          </div>
         {% endif %}
 
         <!-- Row 5: Experience (3 cols) + Service (3 cols) -->
         {% if page.experience %}
-        <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
-          <div class="bento-section-label">// Experience</div>
-          <div style="margin-top:10px;font-size:0.85rem;line-height:1.6;">
-            {% for exp in page.experience %}
-            <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:8px;{% endunless %}">
-              <i class="{{ exp.icon | default: 'fa-solid fa-briefcase' }}" style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"></i>
-              <div>
-                <div style="font-weight:600;">{{ exp.title }}</div>
-                <div style="opacity:0.55;font-size:0.8rem;">{{ exp.place }}{% if exp.period %} · {{ exp.period }}{% endif %}</div>
-              </div>
+          <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
+            <div class="bento-section-label">// Experience</div>
+            <div style="margin-top:10px;font-size:0.85rem;line-height:1.6;">
+              {% for exp in page.experience %}
+                <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:8px;{% endunless %}">
+                  <i
+                    class="{{ exp.icon | default: 'fa-solid fa-briefcase' }}"
+                    style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"
+                  ></i>
+                  <div>
+                    <div style="font-weight:600;">{{ exp.title }}</div>
+                    <div style="opacity:0.55;font-size:0.8rem;">
+                      {{ exp.place -}}
+                      {%- if exp.period %} · {{ exp.period }}{% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
-        </div>
         {% endif %}
 
         {% if page.service %}
-        <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
-          <div class="bento-section-label">// Service</div>
-          <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;">
-            {% for svc in page.service %}
-            <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:6px;{% endunless %}">
-              <i class="{{ svc.icon | default: 'fa-solid fa-star' }}" style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"></i>
-              <span>{{ svc.text }}</span>
+          <div class="bento-cell bg-3" style="display:flex !important;flex-direction:column;justify-content:center;padding:18px 22px;">
+            <div class="bento-section-label">// Service</div>
+            <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;">
+              {% for svc in page.service %}
+                <div style="display:flex;align-items:flex-start;gap:8px;{% unless forloop.last %}margin-bottom:6px;{% endunless %}">
+                  <i
+                    class="{{ svc.icon | default: 'fa-solid fa-star' }}"
+                    style="color:var(--global-theme-color);margin-top:3px;font-size:0.8rem;flex-shrink:0;"
+                  ></i>
+                  <span>{{ svc.text }}</span>
+                </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
-        </div>
         {% endif %}
-
       </div>
     </section>
-
   </article>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- EMBEDDED JS — Hero transition + directional snap       -->
+<!-- EMBEDDED JS — Hero transition + directional snap -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <script>
-(function () {
-  "use strict";
+  (function () {
+    'use strict';
 
-  var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (REDUCED) return;
+    var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (REDUCED) return;
 
-  var heroContent = document.querySelector(".hero-content");
-  var heroHint = document.querySelector(".hero-scroll-hint");
-  var bentoSection = document.getElementById("bento");
-  var canvas = document.getElementById("neural-canvas");
+    var heroContent = document.querySelector('.hero-content');
+    var heroHint = document.querySelector('.hero-scroll-hint');
+    var bentoSection = document.getElementById('bento');
+    var canvas = document.getElementById('neural-canvas');
 
-  if (!heroContent) return;
+    if (!heroContent) return;
 
-  // ── Initial state ──
-  if (bentoSection) {
-    bentoSection.style.opacity = "0";
-    bentoSection.style.transform = "translateY(40px)";
-  }
+    // ── Initial state ──
+    if (bentoSection) {
+      bentoSection.style.opacity = '0';
+      bentoSection.style.transform = 'translateY(40px)';
+    }
 
-  // ── Scroll direction tracking ──
-  var lastScrollY = 0;
-  var scrollDirection = "down"; // "up" or "down"
+    // ── Scroll direction tracking ──
+    var lastScrollY = 0;
+    var scrollDirection = 'down'; // "up" or "down"
 
-  // ── Hero parallax + bento entrance ──
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () {
-      var scrollY = window.pageYOffset || 0;
-      var vh = window.innerHeight;
+    // ── Hero parallax + bento entrance ──
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var scrollY = window.pageYOffset || 0;
+        var vh = window.innerHeight;
 
-      // Track direction
-      scrollDirection = scrollY > lastScrollY ? "down" : "up";
-      lastScrollY = scrollY;
+        // Track direction
+        scrollDirection = scrollY > lastScrollY ? 'down' : 'up';
+        lastScrollY = scrollY;
 
-      // Hero fade: 0→60%
-      var hp = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
-      heroContent.style.opacity = String(1 - hp * 0.85);
-      heroContent.style.transform = "translateY(" + (-hp * 60) + "px) scale(" + (1 - hp * 0.08) + ")";
-      heroContent.style.filter = "blur(" + (hp * 3) + "px)";
+        // Hero fade: 0→60%
+        var hp = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
+        heroContent.style.opacity = String(1 - hp * 0.85);
+        heroContent.style.transform = 'translateY(' + -hp * 60 + 'px) scale(' + (1 - hp * 0.08) + ')';
+        heroContent.style.filter = 'blur(' + hp * 3 + 'px)';
 
-      if (heroHint) heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
-      if (canvas) canvas.style.opacity = String(Math.max(0.15, 1 - hp * 0.85));
+        if (heroHint) heroHint.style.opacity = String(Math.max(0, 1 - scrollY / (vh * 0.15)));
+        if (canvas) canvas.style.opacity = String(Math.max(0.15, 1 - hp * 0.85));
 
-      // Bento entrance
-      if (bentoSection) {
-        var bp = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
-        bentoSection.style.opacity = String(bp);
-        bentoSection.style.transform = "translateY(" + ((1 - bp) * 40) + "px)";
-      }
-
-      ticking = false;
-    });
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // ── Bidirectional snap: DOWN→bento, UP→hero ──
-  //
-  //  Zone layout (in terms of scrollY / vh):
-  //
-  //  0%  ┌──────────┐  HERO visible
-  //      │          │
-  //  25% ├──────────┤  ↓ Down-snap zone start
-  //      │ HERO→    │
-  //  90% │ BENTO    │  ↓ Down-snap zone end
-  //      ├──────────┤
-  // 100% │ BENTO    │  ← bento starts here
-  //      │ visible  │
-  // 110% ├──────────┤  ↑ Up-snap zone start (near bento top)
-  //      │          │
-  // 150% ├──────────┤  ↑ Up-snap zone end
-  //
-  var heroSection = document.querySelector(".hero-section");
-  var snapCooldown = false;
-  var scrollTimer;
-
-  window.addEventListener("scroll", function () {
-    if (snapCooldown) return;
-
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function () {
-      var scrollY = window.pageYOffset || 0;
-      var vh = window.innerHeight;
-
-      snapCooldown = true;
-
-      if (scrollDirection === "down" && scrollY > vh * 0.25 && scrollY < vh * 0.9) {
-        // In hero, scrolling down → snap to bento
-        bentoSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (scrollDirection === "up" && scrollY > vh * 0.3 && scrollY < vh * 1.3) {
-        // Near bento top, scrolling up → snap back to hero
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        // Not in any snap zone — release immediately
-        snapCooldown = false;
-        return;
-      }
-
-      setTimeout(function () { snapCooldown = false; }, 1800);
-    }, 100);
-  }, { passive: true });
-
-  // ── Bento cell stagger reveal ──
-  var cells = document.querySelectorAll(".bento-cell");
-  if (cells.length) {
-    var obs = new IntersectionObserver(function (entries) {
-      for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
-          var t = entries[i].target;
-          var idx = Array.prototype.indexOf.call(cells, t);
-          t.style.transitionDelay = (idx * 0.08) + "s";
-          t.classList.add("is-visible");
-          obs.unobserve(t);
+        // Bento entrance
+        if (bentoSection) {
+          var bp = Math.min(1, Math.max(0, (scrollY - vh * 0.35) / (vh * 0.4)));
+          bentoSection.style.opacity = String(bp);
+          bentoSection.style.transform = 'translateY(' + (1 - bp) * 40 + 'px)';
         }
-      }
-    }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
-    for (var i = 0; i < cells.length; i++) obs.observe(cells[i]);
-  }
 
-})();
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ── Bidirectional snap: DOWN→bento, UP→hero ──
+    //
+    //  Zone layout (in terms of scrollY / vh):
+    //
+    //  0%  ┌──────────┐  HERO visible
+    //      │          │
+    //  25% ├──────────┤  ↓ Down-snap zone start
+    //      │ HERO→    │
+    //  90% │ BENTO    │  ↓ Down-snap zone end
+    //      ├──────────┤
+    // 100% │ BENTO    │  ← bento starts here
+    //      │ visible  │
+    // 110% ├──────────┤  ↑ Up-snap zone start (near bento top)
+    //      │          │
+    // 150% ├──────────┤  ↑ Up-snap zone end
+    //
+    var heroSection = document.querySelector('.hero-section');
+    var snapCooldown = false;
+    var scrollTimer;
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (snapCooldown) return;
+
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var scrollY = window.pageYOffset || 0;
+          var vh = window.innerHeight;
+
+          snapCooldown = true;
+
+          if (scrollDirection === 'down' && scrollY > vh * 0.25 && scrollY < vh * 0.9) {
+            // In hero, scrolling down → snap to bento
+            bentoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else if (scrollDirection === 'up' && scrollY > vh * 0.3 && scrollY < vh * 1.3) {
+            // Near bento top, scrolling up → snap back to hero
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            // Not in any snap zone — release immediately
+            snapCooldown = false;
+            return;
+          }
+
+          setTimeout(function () {
+            snapCooldown = false;
+          }, 1800);
+        }, 100);
+      },
+      { passive: true }
+    );
+
+    // ── Bento cell stagger reveal ──
+    var cells = document.querySelectorAll('.bento-cell');
+    if (cells.length) {
+      var obs = new IntersectionObserver(
+        function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              var t = entries[i].target;
+              var idx = Array.prototype.indexOf.call(cells, t);
+              t.style.transitionDelay = idx * 0.08 + 's';
+              t.classList.add('is-visible');
+              obs.unobserve(t);
+            }
+          }
+        },
+        { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+      );
+      for (var i = 0; i < cells.length; i++) obs.observe(cells[i]);
+    }
+  })();
 </script>

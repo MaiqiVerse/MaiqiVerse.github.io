@@ -19,6 +19,6 @@ A **non-recursive message-passing** scheme decouples path search from depth, imp
 - [AutoGNR](https://github.com/MaiqiVerse/AutoGNR)
 - [HINBaselines](https://github.com/MaiqiVerse/HINBaselines) — a companion benchmark of HIN baselines
 
-> Zhaoqing Li\*, **Maiqi Jiang**\*, Shengyuan Chen, Bo Li, Guorong Chen, Xiao Huang. *arXiv preprint, 2025.* (\*Co-first author.)
+> Zhaoqing Li\*, **Maiqi Jiang**\*, Shengyuan Chen, Bo Li, Guorong Chen, Xiao Huang. _arXiv preprint, 2025._ (\*Co-first author.)
 
 Advisor: [Prof. Xiao Huang](https://www4.comp.polyu.edu.hk/~xiaohuang/) (The Hong Kong Polytechnic University).

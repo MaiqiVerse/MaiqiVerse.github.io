@@ -6,12 +6,12 @@ importance: 6
 category: research
 ---
 
-In cooperative V2X forecasting, the **bandwidth budget** between roadside units (RSUs) and vehicles is finite — yet most cooperative methods assume full feature exchange. We instead learn *what to share* and *why*.
+In cooperative V2X forecasting, the **bandwidth budget** between roadside units (RSUs) and vehicles is finite — yet most cooperative methods assume full feature exchange. We instead learn _what to share_ and _why_.
 
 ### Approach
 
-- **Training-time rationales.** We learn agent- and interaction-level rationales as part of the forecasting model, so the rationale is *intrinsic*, not a post-hoc surrogate.
+- **Training-time rationales.** We learn agent- and interaction-level rationales as part of the forecasting model, so the rationale is _intrinsic_, not a post-hoc surrogate.
 - **Bandwidth-aware policy.** At inference, the RSU selects the top-M motion-critical agents under a **byte budget** and transmits compact summaries downstream.
-- **Faithfulness without surrogates.** Evaluation reports accuracy–bandwidth trade-offs *and* explanation faithfulness (sufficiency / necessity), avoiding the usual surrogate-model evaluations.
+- **Faithfulness without surrogates.** Evaluation reports accuracy–bandwidth trade-offs _and_ explanation faithfulness (sufficiency / necessity), avoiding the usual surrogate-model evaluations.
 
 Currently in prototype. Targeting **AAAI 2027**. Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/).

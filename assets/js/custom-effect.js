@@ -66,7 +66,7 @@
     Object.values(groups).forEach(function (group) {
       group.forEach(function (el, i) {
         if (!el.style.transitionDelay) {
-          el.style.transitionDelay = (i * 0.08) + "s";
+          el.style.transitionDelay = i * 0.08 + "s";
         }
       });
     });
@@ -144,9 +144,7 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // Apply to project cards and any element with data-tilt
-    var cards = document.querySelectorAll(
-      ".projects .card, [data-tilt]"
-    );
+    var cards = document.querySelectorAll(".projects .card, [data-tilt]");
 
     cards.forEach(function (card) {
       card.style.transformStyle = "preserve-3d";
@@ -163,17 +161,11 @@
         var rotateX = ((y - centerY) / centerY) * -8;
         var rotateY = ((x - centerX) / centerX) * 8;
 
-        card.style.transform =
-          "perspective(800px) rotateX(" +
-          rotateX +
-          "deg) rotateY(" +
-          rotateY +
-          "deg) scale3d(1.03, 1.03, 1.03)";
+        card.style.transform = "perspective(800px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) scale3d(1.03, 1.03, 1.03)";
       });
 
       card.addEventListener("mouseleave", function () {
-        card.style.transform =
-          "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+        card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
         card.style.transition = "transform 0.5s ease";
       });
 

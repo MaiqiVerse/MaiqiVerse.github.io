@@ -12,7 +12,7 @@ redirect: https://pypi.org/project/lmdiff-kit/
 
 ### Design
 
-The API centers on a `family()` abstraction that compares one base configuration against *N* variants on a shared set of probe-domain axes. It treats:
+The API centers on a `family()` abstraction that compares one base configuration against _N_ variants on a shared set of probe-domain axes. It treats:
 
 - weight modifications (fine-tuning, RLHF, adapters),
 - runtime modifications (system prompt, decoding, ICL context), and
@@ -22,7 +22,7 @@ as **first-class variants** of the same configuration object.
 
 ### Geometry-level metrics
 
-Per-domain drift, share, raw + selective cross-variant cosine — these quantify *where* each variant moves in behavior space and whether different modifications push in the **same direction**. A pairwise scalar (or a single-model benchmark) cannot produce this view.
+Per-domain drift, share, raw + selective cross-variant cosine — these quantify _where_ each variant moves in behavior space and whether different modifications push in the **same direction**. A pairwise scalar (or a single-model benchmark) cannot produce this view.
 
 ### A showcase
 

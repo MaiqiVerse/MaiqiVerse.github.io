@@ -6,11 +6,11 @@ importance: 1
 category: research
 ---
 
-**SFT-P** is a federated framework that *jointly* learns client-specific **structured pruning masks** and adaptation parameters under non-IID private data, designed for on-device deployment with mixed client compute budgets.
+**SFT-P** is a federated framework that _jointly_ learns client-specific **structured pruning masks** and adaptation parameters under non-IID private data, designed for on-device deployment with mixed client compute budgets.
 
 ### Design
 
-- **Client-conditioned mask generator.** A shared hypernetwork plus a private per-client embedding produces *hard binary routing masks* via Bernoulli gating, so each client can carry a different pruning ratio.
+- **Client-conditioned mask generator.** A shared hypernetwork plus a private per-client embedding produces _hard binary routing masks_ via Bernoulli gating, so each client can carry a different pruning ratio.
 - **Residual-safe route/merge.** A dense-kernel-friendly route/merge interface keeps inference on the device fast even when the mask is highly sparse.
 - **FedAvg-based training.** Mask hypernetwork and base weights are aggregated; client embeddings stay private.
 
