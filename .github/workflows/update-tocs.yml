@@ -43,6 +43,21 @@ jobs:
           done
           rm gh-md-toc
 
+      # gh-md-toc emits anchor text that isn't always Prettier-compliant (e.g. unescaped
+      # underscores inside link text), which then trips the Prettier Check on the very
+      # next PR. Re-format the touched markdown files so main stays clean.
+      - name: Prettier-format changed markdown files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          npm install --no-audit --no-fund --no-save prettier@^3.8.0 @shopify/prettier-plugin-liquid@^1.10.0
+          for file in ${ALL_CHANGED_FILES}; do
+            if [[ "$file" == *.md ]]; then
+              npx prettier --write "$file"
+            fi
+          done
+
       - name: Commit changes
         if: steps.changed-files.outputs.any_changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
