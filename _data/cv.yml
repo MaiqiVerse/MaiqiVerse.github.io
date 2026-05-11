@@ -62,6 +62,16 @@ cv:
           - "Conducted a controlled empirical study of whether meta-path attention is a **faithful explanation**, identifying regimes of alignment vs. statistically significant decoupling across multiple datasets and HGNN backbones."
           - "Introduced **MetaXplain**, a meta-path-aware post-hoc analysis protocol (view-factorized explanations, schema-valid perturbations, fusion-aware attribution), and proposed **MP-AEA** to quantify attention–explanation alignment; released an explainability benchmark codebase [ExplainerForHGNN](https://github.com/MaiqiVerse/ExplainerForHGNN)."
       - company: William & Mary
+        position: "PhD Researcher — Biomedical HIN Link Prediction (IM-HIN / PAIRS)"
+        start_date: "2025-08"
+        end_date: "2026-02"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Proposed **PAIRS**: framed protein-phenotype association prediction as **link prediction** over a biomedical heterogeneous information network, rather than per-label classification."
+          - "Built **IM-HIN** by integrating STRING, HumanNet XN, GeneMania (protein-protein interactions) and HPO (protein-phenotype associations) into a single graph; two type-specific encoders (protein encoder + phenotype encoder) feed a relation-prediction head."
+          - "Accepted at **ICASSP 2026** (first author)."
+      - company: William & Mary
         position: "Project Mentor — DyV2X: Dynamic Interaction Graphs for V2X Cooperative Trajectory Prediction"
         start_date: "2025-12"
         end_date: "2026-03"
@@ -90,6 +100,16 @@ cv:
           - "**Efficiency / Pruning.** Mentoring *Noman Ali* on extending structured pruning to maintain multi-turn dialogue capability; mentoring *Chongyuan Sun* on improving pruned-LLM in-context learning performance under task-shifted prompts."
           - "**Long-Context & ICL.** Mentoring *Yiran Ding* on cross-lingual long-context conversation under context-extension methods; mentoring *Muhammed Muminul Hoque* on demonstration-ordering policies for ICL motivated by the Lost-in-the-Middle effect, given per-example rankings."
       - company: William & Mary
+        position: "PhD Researcher — lmdiff: Behavioral Diagnostics for LLM Configurations"
+        start_date: "2025-10"
+        end_date: "present"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Built and released **lmdiff** ([PyPI `lmdiff-kit`](https://pypi.org/project/lmdiff-kit/), [GitHub](https://github.com/MaiqiVerse/lmdiff)), a Python library for comparing LLM **configurations**—weights + system prompt + decoding + adapter—via behavioral distance and multi-level diagnostics, rather than aggregate benchmark scalars."
+          - "Centered the API on a `family()` abstraction that compares one base configuration against N variants on a shared set of probe-domain axes, treating weight modifications (fine-tuning, RLHF, adapters), runtime modifications (system prompt, decoding, ICL context), and quantization/pruning as first-class variants. Showcase 7-variant Llama-2-7B family reveals a system prompt can reshape next-token distributions more than 7B→13B scaling."
+          - "Engineering: engine layer with HF Transformers + mock backends, engine reuse that keeps peak VRAM at base + 1 active variant in 7-variant families, lm-eval-harness multi-task probe loader with task→domain mapping, JSON schema versioning with auto-recompute on load, 5-channel reporting (ANSI / PNG / HTML / Markdown / JSON), ~860 tests."
+      - company: William & Mary
         position: "Research Prototype — Explain-and-Share V2X Forecasting under Bandwidth Budgets"
         start_date: "2026-01"
         end_date: "present"
@@ -98,15 +118,6 @@ cv:
           - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
           - "Designing an explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy for cooperative forecasting."
           - "Prototype: RSU-side rationale generation selects top-M motion-critical agents under byte budgets and transmits compact summaries to the vehicle; evaluation reports accuracy–bandwidth trade-offs and faithfulness (sufficiency/necessity) without post-hoc surrogates. Targeting **AAAI 2027**."
-      - company: Independent / Open Source
-        position: "Sole Author — lmdiff: Behavioral Diagnostics for LLM Configurations"
-        start_date: "2025-10"
-        end_date: "present"
-        location: Remote
-        highlights:
-          - "Built and released **lmdiff** ([PyPI `lmdiff-kit`](https://pypi.org/project/lmdiff-kit/), [GitHub](https://github.com/MaiqiVerse/lmdiff)), a Python library for comparing LLM **configurations**—weights + system prompt + decoding + adapter—via behavioral distance and multi-level diagnostics, rather than aggregate benchmark scalars."
-          - "Centered the API on a `family()` abstraction that compares one base configuration against N variants on a shared set of probe-domain axes, treating weight modifications (fine-tuning, RLHF, adapters), runtime modifications (system prompt, decoding, ICL context), and quantization/pruning as first-class variants. Showcase 7-variant Llama-2-7B family reveals a system prompt can reshape next-token distributions more than 7B→13B scaling."
-          - "Engineering: engine layer with HF Transformers + mock backends, engine reuse that keeps peak VRAM at base + 1 active variant in 7-variant families, lm-eval-harness multi-task probe loader with task→domain mapping, JSON schema versioning with auto-recompute on load, 5-channel reporting (ANSI / PNG / HTML / Markdown / JSON), ~860 tests."
       - company: The Hong Kong Polytechnic University
         position: "Researcher — Automated Heterogeneous Network Learning (AutoGNR)"
         start_date: "2021-11"
@@ -152,15 +163,14 @@ cv:
           - Yanfu Zhang
         date: "2026-04"
         publisher: "ICASSP 2026"
-      - title: "Hierarchical Convolution Multibranch Transformer for EEG Signals"
+      - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization (DR-IKE)"
         authors:
-          - Omid Mersa
-          - Maiqi Jiang
-          - Ye Gao
-          - Qun Li
+          - Mahmud Wasif Nafee*
+          - Maiqi Jiang*
+          - Haipeng Chen
           - Yanfu Zhang
-        date: "2026-04"
-        publisher: "ICASSP 2026"
+        date: "2025-11"
+        publisher: "EMNLP 2025 (pp. 16755–16768). *Co-first author."
       - title: "Confidence-Aware Ranker Ensembles for Robust In-Context Knowledge Editing (FWE-IKE)"
         authors:
           - Tejal Nair
@@ -171,14 +181,15 @@ cv:
           - Yanfu Zhang
         date: "2026-07"
         publisher: "Findings of ACL 2026"
-      - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization (DR-IKE)"
+      - title: "Hierarchical Convolution Multibranch Transformer for EEG Signals"
         authors:
-          - Mahmud Wasif Nafee*
-          - Maiqi Jiang*
-          - Haipeng Chen
+          - Omid Mersa
+          - Maiqi Jiang
+          - Ye Gao
+          - Qun Li
           - Yanfu Zhang
-        date: "2025-11"
-        publisher: "EMNLP 2025 (pp. 16755–16768). *Co-first author."
+        date: "2026-04"
+        publisher: "ICASSP 2026"
       - title: "SFT-P: Federated Tuning and Pruning for LLMs"
         authors:
           - Maiqi Jiang
@@ -265,6 +276,8 @@ cv:
       - bullet: "Biomedical Graph Learning"
 
     Service:
+      - bullet: "Research Assistant: City University of Hong Kong, with [Prof. Junming Liu](http://www.is.cityu.edu.hk/staff/junmiliu/) (Feb 2023 – Dec 2023)"
+      - bullet: "Software Developer Intern: Neusoft Inc., China (Sep 2020)"
       - bullet: "Reviewer: **ICASSP 2026**"
       - bullet: "Author & maintainer of [lmdiff-kit](https://pypi.org/project/lmdiff-kit/) (PyPI)"
       - bullet: "Maintainer of [ExplainerForHGNN](https://github.com/MaiqiVerse/ExplainerForHGNN) benchmark (2025–present)"

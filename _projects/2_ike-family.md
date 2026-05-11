@@ -2,6 +2,7 @@
 layout: page
 title: In-Context Knowledge Editing for LLMs
 description: DR-IKE / FWE-IKE / MO-IKE — retrieval-based editing for black-box LLMs via policy-optimized retrieval, confidence-aware ensemble fusion, and constrained multi-objective RL.
+img: assets/img/projects/ike-family.jpg
 importance: 2
 category: research
 github: https://github.com/mwnafee/DR-IKE

@@ -2,6 +2,7 @@
 layout: page
 title: Behavioral Diagnostics for LLM Configurations
 description: lmdiff (PyPI lmdiff-kit) — compare LLM configurations (weights + system prompt + decoding + adapter) via behavioral distance and multi-level diagnostics, not aggregate benchmark scalars.
+img: assets/img/projects/lmdiff.png
 importance: 1
 category: open-source
 github: https://github.com/MaiqiVerse/lmdiff
@@ -37,4 +38,6 @@ A 7-variant Llama-2-7B family reveals that **a system prompt can reshape next-to
 - 5-channel reporting (ANSI / PNG / HTML / Markdown / JSON).
 - ~860 tests.
 
-Active development; representation, trajectory, and causal metrics planned for v0.4+. Sole author.
+Active development; representation, trajectory, and causal metrics planned for v0.4+.
+
+Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/).
