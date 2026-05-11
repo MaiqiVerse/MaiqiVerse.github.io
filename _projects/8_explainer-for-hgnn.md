@@ -2,6 +2,7 @@
 layout: page
 title: HGNN Explainability Benchmark
 description: ExplainerForHGNN — open benchmark codebase for evaluating explainers on heterogeneous GNNs, released alongside the MetaXplain study.
+img: assets/img/projects/metaxplain.png
 importance: 2
 category: open-source
 github: https://github.com/MaiqiVerse/ExplainerForHGNN
