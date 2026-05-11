@@ -1,7 +1,7 @@
 ---
 layout: page
-title: DyV2X — Dynamic Interaction Graphs for V2X Trajectory Prediction
-description: A cooperative trajectory prediction framework that constructs per-timestep dynamic interaction graphs and uses a temporal graph attention encoder to jointly model evolving interactions and individual kinematics.
+title: Cooperative V2X Trajectory Prediction
+description: DyV2X — per-timestep dynamic interaction graphs and a temporal graph attention encoder. 14.2% ADE / 12.1% FDE improvement over V2X-Graph; 37.2% FDE↓ on left turns.
 importance: 4
 category: research
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: ExplainerForHGNN — Explainability Benchmark for Heterogeneous GNNs
-description: An open benchmark codebase for evaluating explainers on heterogeneous graph neural networks, released alongside the MetaXplain study.
+title: HGNN Explainability Benchmark
+description: ExplainerForHGNN — open benchmark codebase for evaluating explainers on heterogeneous GNNs, released alongside the MetaXplain study.
 importance: 2
 category: open-source
 github: https://github.com/MaiqiVerse/ExplainerForHGNN

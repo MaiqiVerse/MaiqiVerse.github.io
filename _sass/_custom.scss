@@ -108,6 +108,20 @@ body::after {
   .card-title { font-weight: 700; }
 }
 
+// Project-card title sizing — default h2.card-title (~2rem) overwhelms the
+// card when there is no image; scope a smaller, tighter rhythm.
+.projects .card .card-title {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+.projects .card .card-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+}
+
 // --------------------------------------------------------------------------
 // 4. NAVBAR
 // --------------------------------------------------------------------------

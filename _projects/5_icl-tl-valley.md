@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Mechanistic Identification of Task Learning in Long-Context ICL
-description: A kernel-retrieval identification framework that decomposes task-learning attention heads into a Nadaraya–Watson kernel over demonstrations and a per-demo class vote, motivated by a non-monotone "TL valley" we observe under context extension.
+title: Mechanistic Long-Context ICL
+description: A kernel–vote decomposition of task-learning attention heads (Nadaraya–Watson kernel × per-demo class votes), motivated by a non-monotone "TL valley" under context extension.
 importance: 5
 category: research
 ---

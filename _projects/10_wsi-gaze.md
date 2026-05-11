@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Semi-supervised Learning for Whole-Slide Pathology Images
-description: Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use eye-tracking signals to guide efficient patch sampling.
+title: Gaze-Guided Pathology Learning
+description: Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use pathologist eye-tracking signals to guide efficient patch sampling.
 importance: 1
 category: past
 github: https://github.com/MaiqiVerse/WSI-with-Gaze-Modeling
