@@ -82,12 +82,15 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-pairs-not-labels-predicting-protein-phenotype-associations-via-link-prediction-has-been-accepted-at-icassp-2026",
           title: 'Our paper “PAIRS, Not Labels: Predicting Protein-Phenotype Associations via Link Prediction” has been...',
           description: "",
+          section: "News",},{id: "news-our-paper-confidence-aware-ranker-ensembles-for-robust-in-context-knowledge-editing-fwe-ike-has-been-accepted-to-acl-2026-findings",
+          title: 'Our paper “Confidence-Aware Ranker Ensembles for Robust In-Context Knowledge Editing” (FWE-IKE) has been...',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
         section: 'Socials',
         handler: () => {
-          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+          window.open("/assets/pdf/Maiqi_Jiang_CV.pdf", "_blank");
         },
       },{
         id: 'social-email',
