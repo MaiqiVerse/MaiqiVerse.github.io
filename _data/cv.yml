@@ -1,6 +1,7 @@
 cv:
   name: Maiqi Jiang
   email: mjiang04@wm.edu
+  phone: +1-757-875-4331
   website: https://maiqiverse.github.io
   social_networks:
     - network: GitHub
@@ -16,14 +17,14 @@ cv:
         end_date: "present"
         location: Williamsburg, VA
         highlights:
-          - "Advisor: Prof. Yanfu Zhang"
-      - institution: The Hong Kong Polytechnic University
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+      - institution: The Hong Kong Polytechnic University (QS Top 60)
         area: Information Technology
-        degree: M.Sc. (with Distinction)
-        start_date: "2021-09"
-        end_date: "2023-06"
+        degree: M.Sc. (with Distinction Award)
+        start_date: "2021-08"
+        end_date: "2023-01"
         location: Hong Kong
-      - institution: Northeastern University, China
+      - institution: Northeastern University, China (985 Project)
         area: Biomedical Engineering
         degree: B.S.
         start_date: "2017-09"
@@ -32,44 +33,113 @@ cv:
 
     Experience:
       - company: William & Mary
-        position: "Graduate Research Assistant"
-        start_date: "2025-01"
+        position: "PhD Researcher — Efficient LLM Adaptation (SFT-P)"
+        start_date: "2025-08"
+        end_date: "2026-01"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Proposed **SFT-P**: FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device deployment under non-IID private data; supports mixed client budgets."
+          - "Implemented a client-conditioned mask generator (shared hypernetwork + private client embedding) producing hard binary routing masks via Bernoulli gating, and a residual-safe route/merge interface for dense-kernel execution; achieved **+8.5 Avg over the best federated baseline on LLaMA-7B at 50% pruning**."
+      - company: William & Mary
+        position: "PhD Researcher — In-Context Knowledge Editing for LLMs (DR-IKE / FWE-IKE / MO-IKE)"
+        start_date: "2025-08"
         end_date: "present"
         location: Williamsburg, VA
         highlights:
-          - "Advisor: Prof. Yanfu Zhang"
-          - "Federated Tuning & Structural Pruning for LLMs (SFT-P): Proposed FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device deployment; achieved +8.5 Avg over the best federated baseline on LLaMA-7B at 50% pruning."
-          - "Temporal Graph V2X Motion Forecasting: Built per-timestep dynamic interaction graphs for cooperative V2X forecasting with Temporal Graph Networks; improved ADE from 1.110 to 0.981 (11.6% reduction)."
-          - "Explain-and-Share V2X Forecasting under Bandwidth Budgets: Designing an explain-and-share framework that learns training-time rationales and converts them into a bandwidth-aware communication policy."
-      - company: City University of Hong Kong
-        position: "Research Assistant"
-        start_date: "2023-07"
-        end_date: "2024-07"
-        location: Hong Kong
+          - "Advisors: [Prof. Yanfu Zhang](https://yaz91.github.io/), [Prof. Haipeng Chen](https://haipeng-chen.github.io/)"
+          - "Main contributor to a research line on **retrieval-based in-context knowledge editing** for black-box LLMs, spanning policy-optimized retrieval, confidence-aware fusion, and constrained multi-objective RL."
+          - "**DR-IKE** (EMNLP 2025, co-first): trained a BERT retriever via REINFORCE with a learnable threshold to dynamically size demonstrations. [[code]](https://github.com/mwnafee/DR-IKE)"
+          - "**FWE-IKE** (ACL 2026 Findings): confidence-gated ensemble of LLM/BERT/MLP rankers with logit-space fusion, closing ~53% of the gap to the oracle on COUNTERFACT."
+          - "**MO-IKE** (under review): formulated prompt construction as a Constrained MDP with Lagrangian relaxation and GRPO, jointly optimizing reliability, generality, and specificity."
+      - company: William & Mary
+        position: "PhD Researcher — Meta-Path Attention Reliability in Heterogeneous GNNs (MetaXplain)"
+        start_date: "2025-08"
+        end_date: "2026-02"
+        location: Williamsburg, VA
         highlights:
-          - "Advisor: Prof. Junming Liu"
-          - "Temporal User Engagement Modeling in Polarized Social Platforms: Fused image/video content features with text and interaction context via a temporal GNN for forecasting user engagement."
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Conducted a controlled empirical study of whether meta-path attention is a **faithful explanation**, identifying regimes of alignment vs. statistically significant decoupling across multiple datasets and HGNN backbones."
+          - "Introduced **MetaXplain**, a meta-path-aware post-hoc analysis protocol (view-factorized explanations, schema-valid perturbations, fusion-aware attribution), and proposed **MP-AEA** to quantify attention–explanation alignment; released an explainability benchmark codebase [ExplainerForHGNN](https://github.com/MaiqiVerse/ExplainerForHGNN)."
+      - company: William & Mary
+        position: "Project Mentor — DyV2X: Dynamic Interaction Graphs for V2X Cooperative Trajectory Prediction"
+        start_date: "2025-12"
+        end_date: "2026-03"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Mentored two interns (the first two authors); guided the design of **DyV2X**, a cooperative trajectory prediction framework that constructs per-timestep dynamic interaction graphs and uses a temporal graph attention encoder to jointly model evolving inter-agent interactions and individual kinematic history."
+          - "On V2X-Seq-TFD (9,320 target agents), improved over the V2X-Graph baseline on all metrics: **ADE** 1.110→0.952 (**14.2%↓**), **FDE** 1.894→1.664 (**12.1%↓**), **MR@2m** 27.9%→24.7%."
+          - "Largest gains on safety-critical turning maneuvers (e.g., *left turn*: FDE 4.216→2.646, **37.2%↓**; MR@2m 64.2%→47.5%). Submitted to **IROS 2026** (under review)."
+      - company: William & Mary
+        position: "Project Lead — Mechanistic Identification of Task Learning in Long-Context ICL"
+        start_date: "2026-02"
+        end_date: "present"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Discovered a non-monotone **\"TL valley\"** in long-context in-context classification under Self-Extend context extension: task-learning accuracy first drops then recovers as the number of demonstrations *k* grows."
+          - "Developing a **kernel-retrieval identification** framework that decomposes the task-learning heads' contribution to answer-position logits into a Nadaraya–Watson-style attention kernel κ(x_q, x_i) over demonstrations and a per-demonstration class-vote φᶜᵢ; derived a structural identity tying TL logits exactly to this kernel–vote form, and a UUID-label protocol that isolates TL from task-recognition priors. Targeting **ICLR 2027**."
+      - company: William & Mary
+        position: "Project Mentor — Intern-led Projects on LLM Efficiency & Long-Context"
+        start_date: "2025-09"
+        end_date: "present"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "**Efficiency / Pruning.** Mentoring *Noman Ali* on extending structured pruning to maintain multi-turn dialogue capability; mentoring *Chongyuan Sun* on improving pruned-LLM in-context learning performance under task-shifted prompts."
+          - "**Long-Context & ICL.** Mentoring *Yiran Ding* on cross-lingual long-context conversation under context-extension methods; mentoring *Muhammed Muminul Hoque* on demonstration-ordering policies for ICL motivated by the Lost-in-the-Middle effect, given per-example rankings."
+      - company: William & Mary
+        position: "Research Prototype — Explain-and-Share V2X Forecasting under Bandwidth Budgets"
+        start_date: "2026-01"
+        end_date: "present"
+        location: Williamsburg, VA
+        highlights:
+          - "Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/)"
+          - "Designing an explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy for cooperative forecasting."
+          - "Prototype: RSU-side rationale generation selects top-M motion-critical agents under byte budgets and transmits compact summaries to the vehicle; evaluation reports accuracy–bandwidth trade-offs and faithfulness (sufficiency/necessity) without post-hoc surrogates. Targeting **AAAI 2027**."
+      - company: Independent / Open Source
+        position: "Sole Author — lmdiff: Behavioral Diagnostics for LLM Configurations"
+        start_date: "2025-10"
+        end_date: "present"
+        location: Remote
+        highlights:
+          - "Built and released **lmdiff** ([PyPI `lmdiff-kit`](https://pypi.org/project/lmdiff-kit/), [GitHub](https://github.com/MaiqiVerse/lmdiff)), a Python library for comparing LLM **configurations**—weights + system prompt + decoding + adapter—via behavioral distance and multi-level diagnostics, rather than aggregate benchmark scalars."
+          - "Centered the API on a `family()` abstraction that compares one base configuration against N variants on a shared set of probe-domain axes, treating weight modifications (fine-tuning, RLHF, adapters), runtime modifications (system prompt, decoding, ICL context), and quantization/pruning as first-class variants. Showcase 7-variant Llama-2-7B family reveals a system prompt can reshape next-token distributions more than 7B→13B scaling."
+          - "Engineering: engine layer with HF Transformers + mock backends, engine reuse that keeps peak VRAM at base + 1 active variant in 7-variant families, lm-eval-harness multi-task probe loader with task→domain mapping, JSON schema versioning with auto-recompute on load, 5-channel reporting (ANSI / PNG / HTML / Markdown / JSON), ~860 tests."
       - company: The Hong Kong Polytechnic University
-        position: "Research Student"
-        start_date: "2021-09"
-        end_date: "2023-06"
+        position: "Researcher — Automated Heterogeneous Network Learning (AutoGNR)"
+        start_date: "2021-11"
+        end_date: "2023-02"
         location: Hong Kong
         highlights:
-          - "Advisor: Prof. Xiao Huang"
-          - "Automated Heterogeneous Network Learning (AutoGNR): Co-developed AutoGNR using differentiable NAS to automatically select heterogeneous aggregation paths."
+          - "Advisor: [Prof. Xiao Huang](https://www4.comp.polyu.edu.hk/~xiaohuang/)"
+          - "Co-developed **AutoGNR**, using differentiable NAS to automatically select heterogeneous aggregation paths and node-type combinations—conceptually aligned with structured pruning and bi-level optimization. [[AutoGNR]](https://github.com/MaiqiVerse/AutoGNR) [[HINBaselines]](https://github.com/MaiqiVerse/HINBaselines)"
+          - "Designed a non-recursive message-passing scheme that decouples path search from depth, improving search efficiency on large heterogeneous graphs."
+      - company: City University of Hong Kong
+        position: "Research Assistant — Temporal User Engagement Modeling in Polarized Social Platforms"
+        start_date: "2023-02"
+        end_date: "2023-12"
+        location: Hong Kong
+        highlights:
+          - "Advisor: [Prof. Junming Liu](http://www.is.cityu.edu.hk/staff/junmiliu/)"
+          - "Fused image/video content features with text and interaction context via a temporal GNN for forecasting user engagement across polarized communities on Twitter/Reddit."
+          - "Built multimodal feature pipelines and longitudinal datasets for studying engagement dynamics under polarization. [[RedditProcess]](https://github.com/MaiqiVerse/RedditProcess) [[RedditDataset]](https://github.com/MaiqiVerse/RedditDataset)"
+          - "Submitted as a short paper to **ICIS 2023**, proposing a counter-party graph attention network with sentiment diffusion for online engagement prediction."
       - company: Neusoft Inc.
         position: "Software Developer Intern"
-        start_date: "2020-06"
+        start_date: "2020-09"
         end_date: "2020-09"
         location: Shenyang, China
       - company: Northeastern University, China
-        position: "Undergraduate Research Assistant"
-        start_date: "2018-09"
+        position: "Undergraduate Researcher / Bachelor's Thesis — Semi-supervised Learning for Whole-Slide Pathology Images (WSI)"
+        start_date: "2018-11"
         end_date: "2021-06"
         location: Shenyang, China
         highlights:
-          - "Advisor: Prof. Xiaoyu Cui"
-          - "Semi-supervised Learning for Whole-Slide Pathology Images: Developed weakly-/semi-supervised pipelines for gigapixel WSI using eye-tracking signals."
+          - "Advisor: [Prof. Xiaoyu Cui](http://faculty.neu.edu.cn/cuixy/zh_CN/)"
+          - "Developed weakly-/semi-supervised pipelines for gigapixel WSI using eye-tracking signals, focusing on efficient patch sampling and large-scale image processing. [[Modeling]](https://github.com/MaiqiVerse/WSI-with-Gaze-Modeling) [[Processing]](https://github.com/MaiqiVerse/WSI-with-Gaze-Processing)"
+          - "Maintained reusable WSI tooling (tiling, feature extraction, dataset management) used across the lab's projects."
 
     Publications:
       - title: "PAIRS, Not Labels: Predicting Protein-Phenotype Associations via Link Prediction"
@@ -81,7 +151,7 @@ cv:
           - Ye Gao
           - Yanfu Zhang
         date: "2026-04"
-        journal: ICASSP 2026
+        publisher: "ICASSP 2026"
       - title: "Hierarchical Convolution Multibranch Transformer for EEG Signals"
         authors:
           - Omid Mersa
@@ -90,16 +160,26 @@ cv:
           - Qun Li
           - Yanfu Zhang
         date: "2026-04"
-        journal: ICASSP 2026
-      - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization"
+        publisher: "ICASSP 2026"
+      - title: "Confidence-Aware Ranker Ensembles for Robust In-Context Knowledge Editing (FWE-IKE)"
         authors:
+          - Tejal Nair
           - Mahmud Wasif Nafee
           - Maiqi Jiang
+          - Ashley Gao
+          - Haipeng Chen
+          - Yanfu Zhang
+        date: "2026-07"
+        publisher: "Findings of ACL 2026"
+      - title: "Dynamic Retriever for In-Context Knowledge Editing via Policy Optimization (DR-IKE)"
+        authors:
+          - Mahmud Wasif Nafee*
+          - Maiqi Jiang*
           - Haipeng Chen
           - Yanfu Zhang
         date: "2025-11"
-        journal: EMNLP 2025
-      - title: "Federated Pruning for LLMs"
+        publisher: "EMNLP 2025 (pp. 16755–16768). *Co-first author."
+      - title: "SFT-P: Federated Tuning and Pruning for LLMs"
         authors:
           - Maiqi Jiang
           - Xugui Zhou
@@ -107,45 +187,85 @@ cv:
           - Junyi Li
           - Shangqian Gao
           - Yanfu Zhang
-        date: "2026-01"
-        journal: Under Review
+        date: "2026-05"
+        publisher: "Submitted to EMNLP 2026 (under review)"
       - title: "Is Meta-Path Attention an Explanation? Evidence of Alignment and Decoupling in Heterogeneous GNNs"
         authors:
           - Maiqi Jiang
           - Noman Ali
           - Yiran Ding
           - Yanfu Zhang
-        date: "2026-01"
-        journal: Under Review
-      - title: "Automated Heterogeneous Network Learning with Non-Recursive Message Passing"
+        date: "2026-02"
+        publisher: "Submitted to KDD 2026 (under review)"
+      - title: "Towards Reliable, Generalizable, and Specific In-Context Knowledge Editing via Multi-Objective Reinforcement Learning (MO-IKE)"
         authors:
-          - Zhaoqing Li
+          - Xuzhong Wang
           - Maiqi Jiang
+          - Tejal Nair
+          - Girija Bhusal
+          - Yanfu Zhang
+          - Haipeng Chen
+        date: "2026-05"
+        publisher: "Submitted to EMNLP 2026 (under review)"
+      - title: "Disentangling Memorization in Language Models via Sparse Representation Intervention"
+        authors:
+          - Jiarui Li
+          - Maiqi Jiang
+          - Junyi Li
+          - Bin Wang
+          - Shangqian Gao
+          - Yanfu Zhang
+        date: "2026-05"
+        publisher: "Submitted to EMNLP 2026 (under review)"
+      - title: "DyV2X: Dynamic Interaction Graphs for V2X Cooperative Trajectory Prediction"
+        authors:
+          - Yiran Ding
+          - Muhammed Muminul Hoque
+          - Maiqi Jiang
+          - Yongming Qin
+          - Sidi Lu
+          - Yanfu Zhang
+        date: "2026-03"
+        publisher: "Submitted to IROS 2026 (under review)"
+      - title: "Automated Heterogeneous Network Learning with Non-Recursive Message Passing (AutoGNR)"
+        authors:
+          - Zhaoqing Li*
+          - Maiqi Jiang*
           - Shengyuan Chen
           - Bo Li
           - Guorong Chen
           - Xiao Huang
         date: "2025-03"
-        journal: arXiv preprint
+        publisher: "arXiv preprint, 2025. *Co-first author."
 
     Teaching:
       - bullet: "TA — Topological Data Analysis (CSCI 520/420), William & Mary, Spring 2026"
       - bullet: "TA — Neural Networks for Machine Learning (CSCI 446/546), William & Mary, Fall 2025"
 
     Technical Skills:
+      - label: LLM Training & Adaptation
+        details: "Federated LLM tuning with FedAvg; structured pruning with learned binary masks and dense-kernel route/merge execution (LLaMA-7B); HuggingFace + PyTorch."
+      - label: RL for LLMs
+        details: "REINFORCE-based and GRPO-based retrieval / policy optimization for in-context knowledge editing (DR-IKE, MO-IKE); reward design under Constrained MDP with Lagrangian relaxation."
+      - label: Graph Learning
+        details: "Heterogeneous GNNs (HAN/HGT-family), temporal graph networks (TGN / DyGFormer / GraphMixer), differentiable NAS over heterogeneous aggregation paths; PyG-style implementation."
+      - label: Mechanistic Interpretability
+        details: "Attention head analysis for ICL; sparse autoencoder (SAE) representation interventions with ReFT; meta-path attention faithfulness diagnostics."
+      - label: Systems & Tooling
+        details: "Python library design and PyPI release (`lmdiff-kit`); multi-codebase open-source benchmarks (ExplainerForHGNN, HINBaselines); large-scale data pipelines for WSI and multimodal social media; mentoring code reviews across 4 intern projects."
       - label: Languages
-        details: "Python, PyTorch, C++"
-      - label: Tools
-        details: "Git, LaTeX, Docker, Slurm, Weights & Biases"
-      - label: Spoken Languages
-        details: "Chinese (native), English (fluent)"
+        details: "Python, PyTorch, C++. Spoken: Chinese (native), English (fluent)."
 
     Research Interests:
-      - bullet: "Efficient Foundation Models, Model Compression, On-device Inference"
-      - bullet: "Edge/Federated Learning"
-      - bullet: "Graph Neural Networks, Explainable AI"
-      - bullet: "Multimodal Perception for Connected Vehicles"
+      - bullet: "Efficient & Reliable Foundation Models (LLM/VLM)"
+      - bullet: "Model Compression and Structured Pruning"
+      - bullet: "Federated / On-device Inference"
+      - bullet: "In-context Learning, Knowledge Editing, and Mechanistic Interpretability of LLMs"
+      - bullet: "Graph Learning and Explainability"
+      - bullet: "Biomedical Graph Learning"
 
     Service:
-      - bullet: "Reviewer: ICASSP 2026"
-      - bullet: "Open Source Contributor: The Unified AI Framework (2023)"
+      - bullet: "Reviewer: **ICASSP 2026**"
+      - bullet: "Author & maintainer of [lmdiff-kit](https://pypi.org/project/lmdiff-kit/) (PyPI)"
+      - bullet: "Maintainer of [ExplainerForHGNN](https://github.com/MaiqiVerse/ExplainerForHGNN) benchmark (2025–present)"
+      - bullet: "Open Source Contributor: The Unified AI Framework (Jul 2023)"

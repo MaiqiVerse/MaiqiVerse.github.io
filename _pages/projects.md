@@ -2,15 +2,12 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Under Construction.
+description: A selection of my research projects and open-source tools, spanning efficient & reliable foundation models, in-context knowledge editing, graph learning, and V2X cooperative perception.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [research, open-source, past]
 horizontal: false
 ---
-
-Under Construction.
-
 
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
