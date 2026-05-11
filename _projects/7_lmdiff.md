@@ -1,7 +1,7 @@
 ---
 layout: page
-title: lmdiff
-description: Python library (PyPI lmdiff-kit) for comparing LLM configurations — weights + system prompt + decoding + adapter — via behavioral distance and multi-level diagnostics, rather than aggregate benchmark scalars.
+title: Behavioral Diagnostics for LLM Configurations
+description: lmdiff (PyPI lmdiff-kit) — compare LLM configurations (weights + system prompt + decoding + adapter) via behavioral distance and multi-level diagnostics, not aggregate benchmark scalars.
 importance: 1
 category: open-source
 github: https://github.com/MaiqiVerse/lmdiff

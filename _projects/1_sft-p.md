@@ -1,7 +1,7 @@
 ---
 layout: page
-title: SFT-P
-description: Federated Tuning & Structural Pruning for LLMs — FedAvg jointly learns client-specific pruning masks and adaptation for on-device deployment under non-IID data and mixed client budgets.
+title: Federated LLM Pruning
+description: SFT-P — FedAvg jointly learns client-specific structured pruning masks and adaptation for on-device LLM deployment under non-IID data and mixed client budgets.
 importance: 1
 category: research
 ---
