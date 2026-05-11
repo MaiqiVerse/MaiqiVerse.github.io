@@ -2,6 +2,7 @@
 layout: page
 title: Heterogeneous Graph NAS
 description: AutoGNR — differentiable NAS over heterogeneous aggregation paths and node-type combinations, with non-recursive message passing that decouples path search from depth.
+img: assets/img/projects/autognr.png
 importance: 3
 category: open-source
 github: https://github.com/MaiqiVerse/AutoGNR

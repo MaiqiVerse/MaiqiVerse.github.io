@@ -2,7 +2,8 @@
 layout: page
 title: Cooperative V2X Trajectory Prediction
 description: DyV2X — per-timestep dynamic interaction graphs and a temporal graph attention encoder. 14.2% ADE / 12.1% FDE improvement over V2X-Graph; 37.2% FDE↓ on left turns.
-importance: 4
+img: assets/img/projects/dyv2x.png
+importance: 5
 category: research
 ---
 

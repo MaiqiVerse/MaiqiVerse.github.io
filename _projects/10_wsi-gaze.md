@@ -2,6 +2,7 @@
 layout: page
 title: Gaze-Guided Pathology Learning
 description: Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use pathologist eye-tracking signals to guide efficient patch sampling.
+img: assets/img/projects/wsi-gaze.png
 importance: 1
 category: past
 github: https://github.com/MaiqiVerse/WSI-with-Gaze-Modeling

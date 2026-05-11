@@ -2,7 +2,7 @@
 layout: page
 title: Mechanistic Long-Context ICL
 description: A kernel–vote decomposition of task-learning attention heads (Nadaraya–Watson kernel × per-demo class votes), motivated by a non-monotone "TL valley" under context extension.
-importance: 5
+importance: 7
 category: research
 ---
 

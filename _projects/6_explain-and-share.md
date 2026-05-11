@@ -2,6 +2,7 @@
 layout: page
 title: Bandwidth-Aware Cooperative Forecasting
 description: Explain-and-Share — learn training-time rationales over agents/interactions and convert them into a bandwidth-aware communication policy for cooperative V2X forecasting.
+img: assets/img/projects/explain-and-share.png
 importance: 6
 category: research
 ---
