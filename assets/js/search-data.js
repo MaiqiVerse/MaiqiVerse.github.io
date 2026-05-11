@@ -85,59 +85,59 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-confidence-aware-ranker-ensembles-for-robust-in-context-knowledge-editing-fwe-ike-has-been-accepted-to-acl-2026-findings",
           title: 'Our paper “Confidence-Aware Ranker Ensembles for Robust In-Context Knowledge Editing” (FWE-IKE) has been...',
           description: "",
-          section: "News",},{id: "projects-semi-supervised-learning-for-whole-slide-pathology-images",
-          title: 'Semi-supervised Learning for Whole-Slide Pathology Images',
-          description: "Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use eye-tracking signals to guide efficient patch sampling.",
+          section: "News",},{id: "projects-gaze-guided-pathology-learning",
+          title: 'Gaze-Guided Pathology Learning',
+          description: "Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use pathologist eye-tracking signals to guide efficient patch sampling.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/10_wsi-gaze/";
-            },},{id: "projects-temporal-user-engagement-modeling-in-polarized-social-platforms",
-          title: 'Temporal User Engagement Modeling in Polarized Social Platforms',
-          description: "Multimodal temporal GNN for forecasting user engagement across polarized online communities, fusing image/video content with text and interaction context.",
+            },},{id: "projects-polarized-online-engagement-forecasting",
+          title: 'Polarized Online Engagement Forecasting',
+          description: "Multimodal temporal GNN that fuses image/video content with text and interaction context to forecast user engagement across polarized communities on Twitter/Reddit.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/11_reddit-engagement/";
-            },},{id: "projects-sft-p-federated-tuning-amp-structural-pruning-for-llms",
-          title: 'SFT-P — Federated Tuning &amp;amp; Structural Pruning for LLMs',
-          description: "FedAvg-based training that jointly learns client-specific structured pruning masks and adaptation for on-device LLM deployment under non-IID data and mixed client budgets.",
+            },},{id: "projects-federated-llm-pruning",
+          title: 'Federated LLM Pruning',
+          description: "SFT-P — FedAvg jointly learns client-specific structured pruning masks and adaptation for on-device LLM deployment under non-IID data and mixed client budgets.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_sft-p/";
-            },},{id: "projects-in-context-knowledge-editing-dr-ike-fwe-ike-mo-ike",
-          title: 'In-Context Knowledge Editing (DR-IKE / FWE-IKE / MO-IKE)',
-          description: "A research line on retrieval-based in-context knowledge editing for black-box LLMs — policy-optimized retrieval, confidence-aware ensemble fusion, and constrained multi-objective RL.",
+            },},{id: "projects-in-context-knowledge-editing-for-llms",
+          title: 'In-Context Knowledge Editing for LLMs',
+          description: "DR-IKE / FWE-IKE / MO-IKE — retrieval-based editing for black-box LLMs via policy-optimized retrieval, confidence-aware ensemble fusion, and constrained multi-objective RL.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_ike-family/";
-            },},{id: "projects-metaxplain-is-meta-path-attention-an-explanation",
-          title: 'MetaXplain — Is Meta-Path Attention an Explanation?',
-          description: "A controlled empirical study and a meta-path-aware post-hoc analysis protocol for understanding when (and when not) attention in heterogeneous GNNs is a faithful explanation.",
+            },},{id: "projects-faithful-heterogeneous-gnn-attention",
+          title: 'Faithful Heterogeneous-GNN Attention',
+          description: "MetaXplain — when is meta-path attention actually a faithful explanation? A controlled empirical study plus a meta-path-aware post-hoc analysis protocol for HGNNs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_metaxplain/";
-            },},{id: "projects-dyv2x-dynamic-interaction-graphs-for-v2x-trajectory-prediction",
-          title: 'DyV2X — Dynamic Interaction Graphs for V2X Trajectory Prediction',
-          description: "A cooperative trajectory prediction framework that constructs per-timestep dynamic interaction graphs and uses a temporal graph attention encoder to jointly model evolving interactions and individual kinematics.",
+            },},{id: "projects-cooperative-v2x-trajectory-prediction",
+          title: 'Cooperative V2X Trajectory Prediction',
+          description: "DyV2X — per-timestep dynamic interaction graphs and a temporal graph attention encoder. 14.2% ADE / 12.1% FDE improvement over V2X-Graph; 37.2% FDE↓ on left turns.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_dyv2x/";
-            },},{id: "projects-mechanistic-identification-of-task-learning-in-long-context-icl",
-          title: 'Mechanistic Identification of Task Learning in Long-Context ICL',
-          description: "A kernel-retrieval identification framework that decomposes task-learning attention heads into a Nadaraya–Watson kernel over demonstrations and a per-demo class vote, motivated by a non-monotone &quot;TL valley&quot; we observe under context extension.",
+            },},{id: "projects-mechanistic-long-context-icl",
+          title: 'Mechanistic Long-Context ICL',
+          description: "A kernel–vote decomposition of task-learning attention heads (Nadaraya–Watson kernel × per-demo class votes), motivated by a non-monotone &quot;TL valley&quot; under context extension.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_icl-tl-valley/";
-            },},{id: "projects-explain-and-share-v2x-forecasting-under-bandwidth-budgets",
-          title: 'Explain-and-Share V2X Forecasting under Bandwidth Budgets',
-          description: "An explain-and-share framework that learns training-time rationales over agents/interactions and converts them into a bandwidth-aware communication policy for cooperative V2X forecasting.",
+            },},{id: "projects-bandwidth-aware-cooperative-forecasting",
+          title: 'Bandwidth-Aware Cooperative Forecasting',
+          description: "Explain-and-Share — learn training-time rationales over agents/interactions and convert them into a bandwidth-aware communication policy for cooperative V2X forecasting.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_explain-and-share/";
-            },},{id: "projects-lmdiff-behavioral-diagnostics-for-llm-configurations",
-          title: 'lmdiff — Behavioral Diagnostics for LLM Configurations',
-          description: "A Python library for comparing LLM configurations (weights + system prompt + decoding + adapter) via behavioral distance and multi-level diagnostics, rather than aggregate benchmark scalars.",
+            },},{id: "projects-behavioral-diagnostics-for-llm-configurations",
+          title: 'Behavioral Diagnostics for LLM Configurations',
+          description: "lmdiff (PyPI lmdiff-kit) — compare LLM configurations (weights + system prompt + decoding + adapter) via behavioral distance and multi-level diagnostics, not aggregate benchmark scalars.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_lmdiff/";
-            },},{id: "projects-explainerforhgnn-explainability-benchmark-for-heterogeneous-gnns",
-          title: 'ExplainerForHGNN — Explainability Benchmark for Heterogeneous GNNs',
-          description: "An open benchmark codebase for evaluating explainers on heterogeneous graph neural networks, released alongside the MetaXplain study.",
+            },},{id: "projects-hgnn-explainability-benchmark",
+          title: 'HGNN Explainability Benchmark',
+          description: "ExplainerForHGNN — open benchmark codebase for evaluating explainers on heterogeneous GNNs, released alongside the MetaXplain study.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/8_explainer-for-hgnn/";
-            },},{id: "projects-autognr-automated-heterogeneous-network-learning",
-          title: 'AutoGNR — Automated Heterogeneous Network Learning',
-          description: "Differentiable NAS over heterogeneous aggregation paths and node-type combinations, with a non-recursive message-passing scheme that decouples path search from depth.",
+            },},{id: "projects-heterogeneous-graph-nas",
+          title: 'Heterogeneous Graph NAS',
+          description: "AutoGNR — differentiable NAS over heterogeneous aggregation paths and node-type combinations, with non-recursive message passing that decouples path search from depth.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_autognr/";
             },},{
