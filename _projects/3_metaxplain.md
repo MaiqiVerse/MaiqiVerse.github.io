@@ -7,7 +7,7 @@ category: research
 github: https://github.com/MaiqiVerse/ExplainerForHGNN
 ---
 
-Heterogeneous GNNs (HAN, HGT, …) use attention over **meta-paths** and routinely treat that attention as an *explanation* of the model's prediction. We ask: is it actually faithful?
+Heterogeneous GNNs (HAN, HGT, …) use attention over **meta-paths** and routinely treat that attention as an _explanation_ of the model's prediction. We ask: is it actually faithful?
 
 ### Findings
 
@@ -22,6 +22,6 @@ Across multiple datasets and HGNN backbones, we identify regimes where attention
 
 We release [**ExplainerForHGNN**](https://github.com/MaiqiVerse/ExplainerForHGNN), an explainability benchmark codebase for the heterogeneous-GNN community.
 
-> **Maiqi Jiang**, Noman Ali, Yiran Ding, Yanfu Zhang. *Submitted to KDD 2026 (under review).*
+> **Maiqi Jiang**, Noman Ali, Yiran Ding, Yanfu Zhang. _Submitted to KDD 2026 (under review)._
 
 Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/).

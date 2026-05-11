@@ -5,21 +5,21 @@
 @use "sass:color";
 
 // ========== Sunset Coral Palette ==========
-$coral:        #ff6b6b;  // 珊瑚红
-$peach:        #ff8a65;  // 蜜桃橙
-$sunset:       #ff7043;  // 日落橙
-$warm-pink:    #f06292;  // 暖粉
-$golden:       #ffb74d;  // 金橙
-$sand:         #fff8f0;  // 暖沙白（背景）
-$sand-deep:    #fff0e6;  // 深暖沙（code bg / footer）
-$warm-dark:    #2d2424;  // 暖深棕（文字）
-$warm-mid:     #5d4e4e;  // 暖中棕
+$coral: #ff6b6b; // 珊瑚红
+$peach: #ff8a65; // 蜜桃橙
+$sunset: #ff7043; // 日落橙
+$warm-pink: #f06292; // 暖粉
+$golden: #ffb74d; // 金橙
+$sand: #fff8f0; // 暖沙白（背景）
+$sand-deep: #fff0e6; // 深暖沙（code bg / footer）
+$warm-dark: #2d2424; // 暖深棕（文字）
+$warm-mid: #5d4e4e; // 暖中棕
 
 // Dark mode palette (complementary deep tones)
-$night:        #1a1625;  // 深夜紫
-$night-light:  #2a2435;  // 浅夜紫
-$night-text:   #e8e0f0;  // 月光白
-$night-muted:  #9a8eb0;  // 雾紫
+$night: #1a1625; // 深夜紫
+$night-light: #2a2435; // 浅夜紫
+$night-text: #e8e0f0; // 月光白
+$night-muted: #9a8eb0; // 雾紫
 
 :root {
   color-scheme: light;
