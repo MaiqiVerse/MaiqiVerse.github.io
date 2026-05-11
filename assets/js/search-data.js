@@ -95,6 +95,11 @@ ninja.data = [{
           description: "Multimodal temporal GNN that fuses image/video content with text and interaction context to forecast user engagement across polarized communities on Twitter/Reddit.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/11_reddit-engagement/";
+            },},{id: "projects-biomedical-heterogeneous-information-networks",
+          title: 'Biomedical Heterogeneous Information Networks',
+          description: "PAIRS / IM-HIN — predicting protein-phenotype associations as link prediction over a heterogeneous information network built from STRING, HumanNet XN, GeneMania, and HPO.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/12_im-hin/";
             },},{id: "projects-federated-llm-pruning",
           title: 'Federated LLM Pruning',
           description: "SFT-P — FedAvg jointly learns client-specific structured pruning masks and adaptation for on-device LLM deployment under non-IID data and mixed client budgets.",
