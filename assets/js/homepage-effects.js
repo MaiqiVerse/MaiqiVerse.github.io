@@ -13,7 +13,6 @@
     document.querySelector(".about") ||
     document.querySelector(".hero-section") ||
     document.body.classList.contains("about");
-  if (!isHomepage) return;
 
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -262,15 +261,20 @@
   // INIT
   // ========================================================================
   function init() {
-    var fns = [
+    // Effects that should run on any page (reveal cards, etc.)
+    var globalFns = [
+      ["ScrollReveal",  initScrollReveal],
+      ["CursorGlow",    initCursorGlow],
+      ["CardTilt",      initCardTilt]
+    ];
+    // Effects that only make sense on the homepage hero
+    var homepageFns = [
       ["NeuralCanvas",  initNeuralCanvas],
       ["TypingEffect",  initTypingEffect],
       ["Counters",      initCounters],
-      ["ScrollReveal",  initScrollReveal],
-      ["CursorGlow",    initCursorGlow],
-      ["CardTilt",      initCardTilt],
       ["FloatingTags",  initFloatingTags]
     ];
+    var fns = isHomepage ? globalFns.concat(homepageFns) : globalFns;
     for (var i = 0; i < fns.length; i++) {
       try { fns[i][1](); }
       catch (err) { console.warn("[homepage-effects] " + fns[i][0] + " failed:", err); }
