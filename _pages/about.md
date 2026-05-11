@@ -26,9 +26,9 @@ research_interests:
 stats:
   - count: 4
     label: "Accepted Papers"
-  - count: 6
+  - count: 5
     label: "Under Review"
-  - count: 4
+  - count: 5
     label: "Top Venues"
   - count: 5
     label: "Mentees"
