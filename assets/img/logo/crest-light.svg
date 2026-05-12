@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="180 40 320 320" role="img" aria-labelledby="crest-light-title crest-light-desc">
+  <title id="crest-light-title">Maiqi Jiang — Sunset Coral crest (light mode)</title>
+  <desc id="crest-light-desc">Personal crest with sand-deep card, warm-dark disc, sunset orange M and outer ring, golden cardinal dots, warm-pink diagonal accents.</desc>
+
+  <!-- Sand-deep rounded card -->
+  <rect x="190" y="50" width="300" height="300" rx="28" fill="#fff0e6"/>
+
+  <!-- Crest disc -->
+  <circle cx="340" cy="200" r="150" fill="none" stroke="#ff7043" stroke-width="1.8"/>
+  <circle cx="340" cy="200" r="140" fill="#2d2424"/>
+  <circle cx="340" cy="200" r="116" fill="none" stroke="#ffb74d" stroke-width="0.8" opacity="0.55"/>
+
+  <!-- Cardinal dots -->
+  <circle cx="340" cy="72"  r="3.4" fill="#ffb74d"/>
+  <circle cx="468" cy="200" r="3.4" fill="#ffb74d"/>
+  <circle cx="340" cy="328" r="3.4" fill="#ffb74d"/>
+  <circle cx="212" cy="200" r="3.4" fill="#ffb74d"/>
+
+  <!-- Diagonal accents -->
+  <circle cx="430.5" cy="109.5" r="2.3" fill="#f06292" opacity="0.85"/>
+  <circle cx="430.5" cy="290.5" r="2.3" fill="#f06292" opacity="0.85"/>
+  <circle cx="249.5" cy="290.5" r="2.3" fill="#f06292" opacity="0.85"/>
+  <circle cx="249.5" cy="109.5" r="2.3" fill="#f06292" opacity="0.85"/>
+
+  <!-- M -->
+  <path d="M 270,130 L 270,270 L 290,270 L 290,160 L 340,212 L 390,160 L 390,270 L 410,270 L 410,130 L 390,130 L 340,186 L 290,130 Z" fill="#ff7043"/>
+
+  <!-- Foot strokes -->
+  <line x1="314" y1="292" x2="366" y2="292" stroke="#ffb74d" stroke-width="1.4"/>
+  <line x1="326" y1="302" x2="354" y2="302" stroke="#ffb74d" stroke-width="1"/>
+</svg>

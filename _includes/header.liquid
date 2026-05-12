@@ -4,6 +4,20 @@
     <div class="container">
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+          <img
+            class="navbar-logo only-light"
+            src="{{ '/assets/img/logo/crest-light-transparent.svg' | relative_url }}"
+            alt="Maiqi Jiang"
+            height="32"
+            width="32"
+          >
+          <img
+            class="navbar-logo only-dark"
+            src="{{ '/assets/img/logo/crest-dark-transparent.svg' | relative_url }}"
+            alt="Maiqi Jiang"
+            height="32"
+            width="32"
+          >
           {% if site.title == 'blank' %}
             {% if site.first_name %}
               <span class="font-weight-bold">
