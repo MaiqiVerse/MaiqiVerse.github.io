@@ -11,6 +11,14 @@
   // opacity: 0.95;
 }
 
+.navbar-logo {
+  height: 28px;
+  width: 28px;
+  margin-right: 0.5rem;
+  vertical-align: -0.4em; // baseline-align with the brand text
+  display: inline-block;
+}
+
 .navbar .dropdown-menu,
 .btn-group.dropdown .dropdown-menu {
   background-color: var(--global-bg-color);
