@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A selection of my research projects and open-source tools, spanning efficient &amp; reliable foundation models, in-context knowledge editing, graph learning, and V2X cooperative perception.",
+          description: "A selection of my research projects and open-source tools, spanning LLM interventions (pruning, knowledge editing, adapters, decoding), the mechanics of in-context learning, graph learning, and V2X cooperative perception.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -85,6 +85,9 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-confidence-aware-ranker-ensembles-for-robust-in-context-knowledge-editing-fwe-ike-has-been-accepted-to-acl-2026-findings",
           title: 'Our paper “Confidence-Aware Ranker Ensembles for Robust In-Context Knowledge Editing” (FWE-IKE) has been...',
           description: "",
+          section: "News",},{id: "news-our-paper-towards-reliable-generalizable-and-specific-in-context-knowledge-editing-via-multi-objective-reinforcement-learning-mo-ike-has-been-accepted-to-emnlp-2026-findings",
+          title: 'Our paper “Towards Reliable, Generalizable, and Specific In-Context Knowledge Editing via Multi-Objective Reinforcement...',
+          description: "",
           section: "News",},{id: "projects-gaze-guided-pathology-learning",
           title: 'Gaze-Guided Pathology Learning',
           description: "Weakly- and semi-supervised pipelines for gigapixel whole-slide pathology images that use pathologist eye-tracking signals to guide efficient patch sampling.",
@@ -120,16 +123,16 @@ ninja.data = [{
           description: "DyV2X — per-timestep dynamic interaction graphs and a temporal graph attention encoder. 14.2% ADE / 12.1% FDE improvement over V2X-Graph; 37.2% FDE↓ on left turns.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_dyv2x/";
-            },},{id: "projects-mechanistic-long-context-icl",
-          title: 'Mechanistic Long-Context ICL',
-          description: "A kernel–vote decomposition of task-learning attention heads (Nadaraya–Watson kernel × per-demo class votes), motivated by a non-monotone &quot;TL valley&quot; under context extension.",
+            },},{id: "projects-reading-out-in-context-task-learning",
+          title: 'Reading Out In-Context Task Learning',
+          description: "In-context task learning as a kernel classifier — mapping-sensitive heads identified via intact/randomized-label contrasts, read out directly from 8 heads, and reused through Selective TL Memory.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/5_icl-tl-valley/";
-            },},{id: "projects-bandwidth-aware-cooperative-forecasting",
-          title: 'Bandwidth-Aware Cooperative Forecasting',
-          description: "Explain-and-Share — learn training-time rationales over agents/interactions and convert them into a bandwidth-aware communication policy for cooperative V2X forecasting.",
+              window.location.href = "/projects/5_icl-kernel-readout/";
+            },},{id: "projects-mentored-projects-pruning-amp-long-context-icl",
+          title: 'Mentored Projects: Pruning &amp;amp; Long-Context ICL',
+          description: "Intern-led projects I mentor — domain-adaptive pruning (CDAM), ICL-preserving pruning (ICLPrune), the cross-lingual gap in long-context reasoning, and demonstration ordering for ICL.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/6_explain-and-share/";
+              window.location.href = "/projects/6_mentored-projects/";
             },},{id: "projects-behavioral-diagnostics-for-llm-configurations",
           title: 'Behavioral Diagnostics for LLM Configurations',
           description: "lmdiff (PyPI lmdiff-kit) — compare LLM configurations (weights + system prompt + decoding + adapter) via behavioral distance and multi-level diagnostics, not aggregate benchmark scalars.",
