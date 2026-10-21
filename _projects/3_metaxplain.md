@@ -23,6 +23,6 @@ Across multiple datasets and HGNN backbones, we identify regimes where attention
 
 We release [**ExplainerForHGNN**](https://github.com/MaiqiVerse/ExplainerForHGNN), an explainability benchmark codebase for the heterogeneous-GNN community.
 
-> **Maiqi Jiang**, Noman Ali, Yiran Ding, Yanfu Zhang. _Submitted to KDD 2026 (under review)._
+> **Maiqi Jiang**, Noman Ali, Yiran Ding, Yanfu Zhang. _arXiv:2602.08500; submitted to TMLR (under review)._ — [[OpenReview]](https://openreview.net/forum?id=g9cnIFAYB3) [[arXiv]](https://arxiv.org/abs/2602.08500)
 
 Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/).

@@ -3,7 +3,7 @@ layout: page
 title: Biomedical Heterogeneous Information Networks
 description: PAIRS / IM-HIN — predicting protein-phenotype associations as link prediction over a heterogeneous information network built from STRING, HumanNet XN, GeneMania, and HPO.
 img: assets/img/projects/im-hin.png
-importance: 4
+importance: 5
 category: research
 ---
 

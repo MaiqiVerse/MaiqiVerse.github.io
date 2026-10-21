@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student @ <a href='https://www.wm.edu/as/computerscience/'>William & Mary CS</a>. Efficient & Reliable Foundation Models.
+subtitle: PhD Student @ <a href='https://www.wm.edu/as/computerscience/'>William & Mary CS</a>. Understanding and building LLM interventions that preserve what matters.
 
 profile:
   align: right
@@ -10,25 +10,26 @@ profile:
   image_circular: false
 
 typing_tagline:
-  - "Making foundation models efficient for the real world"
-  - "Probing how LLMs learn in context"
-  - "Bridging efficiency, reliability, and interpretability"
+  - "What does an intervention actually change inside an LLM?"
+  - "Pruning · knowledge editing · adapters · decoding"
+  - "Building interventions that preserve what matters"
+  - "Mechanistic analysis, RL-based methods, released tooling"
 
 research_interests:
-  - "Efficient LLMs / VLMs"
-  - "Structured Pruning"
-  - "Federated / On-device LLMs"
-  - "In-Context Learning"
-  - "Knowledge Editing"
-  - "Mechanistic Interpretability"
+  - "LLM Interventions: Pruning / Editing / Adapters / Decoding"
+  - "Structured Pruning & Federated / On-device LLMs"
+  - "In-Context Knowledge Editing"
+  - "Mechanistic Interpretability of ICL"
+  - "RL for LLMs"
+  - "Behavioral Diagnostics & Tooling"
   - "Graph Learning & Explainability"
 
 stats:
-  - count: 4
+  - count: 5
     label: "Accepted Papers"
-  - count: 5
+  - count: 7
     label: "Under Review"
-  - count: 5
+  - count: 8
     label: "Top Venues"
   - count: 5
     label: "Mentees"
@@ -70,20 +71,20 @@ experience:
     icon: "fa-solid fa-building"
 
 service:
-  - text: "Reviewer, <strong>ICASSP 2026</strong>"
+  - text: "PC member / Reviewer: <strong>ICASSP 2026</strong>, <strong>NeurIPS 2026</strong>, <strong>CIKM 2026</strong> Workshop, <strong>ICLR 2027</strong>, <strong>ACM Trans. on Computing for Healthcare</strong>"
     icon: "fa-solid fa-pen-fancy"
   - text: "Author & maintainer of <a href='https://pypi.org/project/lmdiff-kit/'><strong>lmdiff-kit</strong></a> (PyPI)"
     icon: "fa-solid fa-cube"
-  - text: "Maintainer of <a href='https://github.com/MaiqiVerse/ExplainerForHGNN'>ExplainerForHGNN</a> benchmark"
+  - text: "Maintainer of <a href='https://github.com/MaiqiVerse/ExplainerForHGNN'>ExplainerForHGNN</a> benchmark (2025–2026)"
     icon: "fa-solid fa-code-branch"
-  - text: "Open Source Contributor, The Unified AI Framework"
+  - text: "Open Source Contributor, The Unified AI Framework (2023)"
     icon: "fa-solid fa-code-branch"
 ---
 
-I am a first-year PhD student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by Prof. [Yanfu Zhang](https://yaz91.github.io/). My research targets **efficient and reliable foundation models**—LLMs and VLMs that remain trustworthy under deployment, adaptation, and editing.
+I am a PhD student in Computer Science at the [College of William & Mary](https://www.wm.edu/), advised by Prof. [Yanfu Zhang](https://yaz91.github.io/). I study **what interventions actually change inside an LLM**—structured pruning, knowledge editing, adapters, decoding—and **how to build interventions that preserve the capabilities that matter**, through mechanistic analysis, RL-based methods, and released tooling.
 
-My current work spans four interconnected directions: (1) **efficient LLM adaptation**, including federated tuning and structured pruning under non-IID data and mixed client budgets (SFT-P); (2) **in-context knowledge editing** of black-box LLMs via policy-optimized retrieval, confidence-aware fusion, and constrained multi-objective RL (DR-IKE / FWE-IKE / MO-IKE); (3) **mechanistic interpretability** of in-context learning and the faithfulness of attention-based explanations in heterogeneous GNNs; and (4) **high-impact applications** in cooperative V2X trajectory prediction and biomedical graph learning.
+My current work spans four threads: (1) **efficient adaptation under deployment constraints**—federated tuning that jointly learns client-specific structured pruning masks for on-device LLMs (SFT-P); (2) **in-context knowledge editing** of black-box LLMs via policy-optimized retrieval, confidence-aware fusion, and constrained multi-objective RL (DR-IKE / FWE-IKE / MO-IKE); (3) **mechanistic analysis** of in-context learning—reading task learning out of a few selected attention heads as a kernel classifier (Selective TL Memory)—and of attention-based explanations in heterogeneous GNNs (MetaXplain); and (4) **behavioral diagnostics** of LLM configurations with [**lmdiff-kit**](https://pypi.org/project/lmdiff-kit/).
 
-I also maintain [**lmdiff-kit**](https://pypi.org/project/lmdiff-kit/), a Python library for behavioral diagnostics of LLM configurations (weights + system prompt + decoding + adapter), and mentor several intern projects on LLM efficiency, long-context ICL, and V2X forecasting.
+I also mentor several intern-led projects on LLM efficiency (domain-adaptive and ICL-preserving pruning), long-context and cross-lingual ICL, and cooperative V2X forecasting.
 
 Previously, I received my M.Sc. (with Distinction) from [The Hong Kong Polytechnic University](https://www.polyu.edu.hk/) and my B.S. from [Northeastern University, China](http://www.neu.edu.cn/).

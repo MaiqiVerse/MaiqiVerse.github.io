@@ -14,7 +14,7 @@ In-context knowledge editing (IKE) updates the behavior of a _black-box_ LLM pur
 
 We train a BERT retriever with **REINFORCE** and a **learnable threshold** that decides, per query, _how many_ demonstrations to retrieve. The threshold lets the model adapt the prompt length to query difficulty.
 
-> Mahmud Wasif Nafee\*, **Maiqi Jiang**\*, Haipeng Chen, Yanfu Zhang. _EMNLP 2025_, pp. 16755–16768. (\*Co-first author.) — [[code]](https://github.com/mwnafee/DR-IKE)
+> Mahmud Wasif Nafee\*, **Maiqi Jiang**\*, Haipeng Chen, Yanfu Zhang. _EMNLP 2025_, pp. 16744–16757. (\*Co-first author.) — [[code]](https://github.com/mwnafee/DR-IKE)
 
 ### FWE-IKE — Confidence-Aware Ranker Ensembles
 
@@ -26,6 +26,6 @@ A **confidence-gated ensemble** of LLM/BERT/MLP rankers performs **logit-space f
 
 We formulate prompt construction as a **Constrained MDP**, using **Lagrangian relaxation** and **GRPO** to jointly optimize reliability, generality, and specificity — three objectives that previous IKE methods trade off implicitly.
 
-> Xuzhong Wang, **Maiqi Jiang**, Tejal Nair, Girija Bhusal, Yanfu Zhang, Haipeng Chen. _Submitted to EMNLP 2026 (under review)._
+> Xuzhong Wang, **Maiqi Jiang**, Tejal Nair, Girija Bhusal, Yanfu Zhang, Haipeng Chen. _Findings of EMNLP 2026_.
 
 Advisors: [Prof. Yanfu Zhang](https://yaz91.github.io/), [Prof. Haipeng Chen](https://haipeng-chen.github.io/).
