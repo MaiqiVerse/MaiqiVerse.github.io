@@ -17,6 +17,7 @@
   booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   selected  = {true},
   abbr      = {EMNLP},
+  code      = {https://github.com/mwnafee/DR-IKE},
     month = nov,
     year = "2025",
     address = "Suzhou, China",
@@ -49,6 +50,15 @@
   abstract  = {In-context knowledge editing (IKE) updates the behavior of black-box large language models by retrieving and prepending demonstrations at inference time, without modifying weights. Existing IKE retrievers, however, rely on a single similarity signal or a fixed ranker, which is brittle across edit types and prompt regimes. We propose FWE-IKE, a confidence-gated ensemble of heterogeneous rankers---LLM-, BERT-, and MLP-based---fused in logit space, where per-ranker confidence dynamically reweights contributions for each query. On the CounterFact benchmark, FWE-IKE closes approximately 53\% of the gap between the best individual ranker and an oracle upper bound, while preserving accuracy on unrelated queries. Our analysis shows that confidence-aware fusion exploits complementary strengths of the rankers across edit difficulty levels, yielding more reliable and robust in-context editing for black-box LLMs.}
 }
 
+@inproceedings{wang2026moike,
+  title     = {Towards Reliable, Generalizable, and Specific In-Context Knowledge Editing via Multi-Objective Reinforcement Learning},
+  author    = {Wang, Xuzhong and Jiang, Maiqi and Nair, Tejal and Bhusal, Girija and Zhang, Yanfu and Chen, Haipeng},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
+  year      = {2026},
+  abbr      = {EMNLP Findings},
+  selected  = {true}
+}
+
 @inproceedings{icassp2026eeg,
   title     = {Hierarchical Convolution Multibranch Transformer for EEG Signals},
   author    = {Omid Mersa and Maiqi Jiang and Ye Gao and Qun Li and Yanfu Zhang},
@@ -69,6 +79,9 @@
   journal = {arXiv preprint arXiv:2602.08500},
   year    = {2026},
   arxiv   = {2602.08500},
+  html    = {https://openreview.net/forum?id=g9cnIFAYB3},
+  code    = {https://github.com/MaiqiVerse/ExplainerForHGNN},
+  note    = {Under review at TMLR.},
   abbr    = {Preprint},
   selected = {true},
   abstract = {Meta-path-based heterogeneous graph neural networks aggregate over meta-path-induced views, and their semantic-level attention over meta-path channels is widely used as a narrative for ``which semantics matter.'' We study this assumption empirically by asking: when does meta-path attention reflect meta-path importance, and when can it decouple? A key challenge is that most post-hoc GNN explainers are designed for homogeneous graphs, and naive adaptations to heterogeneous neighborhoods can mix semantics and confound perturbations. To enable a controlled empirical analysis, we introduce MetaXplain, a meta-path-aware post-hoc explanation protocol that applies existing explainers in the native meta-path view domain via (i) view-factorized explanations, (ii) schema-valid channel-wise perturbations, and (iii) fusion-aware attribution, without modifying the underlying predictor. We benchmark representative gradient-, perturbation-, and Shapley-style explainers on ACM, DBLP, and IMDB with HAN and HAN-GCN, comparing against xPath and type-matched random baselines under standard faithfulness metrics. To quantify attention reliability, we propose Meta-Path Attention--Explanation Alignment (MP-AEA), which measures rank correlation between learned attention weights and explanation-derived meta-path contribution scores across random runs. Our results show that meta-path-aware explanations typically outperform random controls, while MP-AEA reveals both high-alignment and statistically significant decoupling regimes depending on the dataset and backbone; moreover, retraining on explanation-induced subgraphs often preserves, and in some noisy regimes improves, predictive performance, suggesting an explanation-as-denoising effect.
@@ -81,6 +94,7 @@
   journal = {arXiv preprint arXiv:2501.07598},
   year    = {2025},
   arxiv   = {2501.07598},
+  code    = {https://github.com/MaiqiVerse/AutoGNR},
   abbr    = {Preprint},
   selected = {false},
   abstract = {Heterogeneous information networks (HINs) can be used to model various real-world systems. As HINs consist of multiple types of nodes, edges, and node features, it is nontrivial to directly apply graph neural network (GNN) techniques in heterogeneous cases. There are two remaining major challenges. First, homogeneous message passing in a recursive manner neglects the distinct types of nodes and edges in different hops, leading to unnecessary information mixing. This often results in the incorporation of ``noise'' from uncorrelated intermediate neighbors, thereby degrading performance. Second, feature learning should be handled differently for different types, which is challenging especially when the type sizes are large. To bridge this gap, we develop a novel framework - AutoGNR, to directly utilize and automatically extract effective heterogeneous information. Instead of recursive homogeneous message passing, we introduce a non-recursive message passing mechanism for GNN to mitigate noise from uncorrelated node types in HINs. Furthermore, under the non-recursive framework, we manage to efficiently perform neural architecture search for an optimal GNN structure in a differentiable way, which can automatically define the heterogeneous paths for aggregation. Our tailored search space encompasses more effective candidates while maintaining a tractable size. Experiments show that AutoGNR consistently outperforms state-of-the-art methods on both normal and large scale real-world HIN datasets.

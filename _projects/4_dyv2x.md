@@ -3,7 +3,7 @@ layout: page
 title: Cooperative V2X Trajectory Prediction
 description: DyV2X — per-timestep dynamic interaction graphs and a temporal graph attention encoder. 14.2% ADE / 12.1% FDE improvement over V2X-Graph; 37.2% FDE↓ on left turns.
 img: assets/img/projects/dyv2x.png
-importance: 5
+importance: 6
 category: research
 ---
 
@@ -23,6 +23,6 @@ The largest gains appear on safety-critical turning maneuvers — e.g., on **lef
 
 I mentored the two first-authors and led the design.
 
-> Yiran Ding, Muhammed Muminul Hoque, **Maiqi Jiang**, Yongming Qin, Sidi Lu, Yanfu Zhang. _Submitted to IROS 2026 (under review)._
+> Yiran Ding, Muhammed Muminul Hoque, **Maiqi Jiang**, Yongming Qin, Sidi Lu, Yanfu Zhang. _Submitted to ICRA 2027 (under review)._
 
 Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/).

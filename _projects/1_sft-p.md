@@ -19,4 +19,4 @@ category: research
 
 On **LLaMA-7B at 50% pruning**, SFT-P achieves **+8.5 Avg over the best federated baseline** across the benchmark suite.
 
-Manuscript submitted to **EMNLP 2026** (under review). Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/). Collaborators: Xugui Zhou, Bin Ren, Junyi Li, Shangqian Gao.
+Manuscript submitted to **NAACL 2027** (under review). Advisor: [Prof. Yanfu Zhang](https://yaz91.github.io/). Collaborators: Xugui Zhou, Bin Ren, Junyi Li, Shangqian Gao.

@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A selection of my research projects and open-source tools, spanning efficient & reliable foundation models, in-context knowledge editing, graph learning, and V2X cooperative perception.
+description: A selection of my research projects and open-source tools, spanning LLM interventions (pruning, knowledge editing, adapters, decoding), the mechanics of in-context learning, graph learning, and V2X cooperative perception.
 nav: true
 nav_order: 3
 display_categories: [research, open-source, past]
